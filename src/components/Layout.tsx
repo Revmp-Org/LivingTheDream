@@ -10,7 +10,7 @@ interface LayoutProps {
 
 const Layout = ({ 
     children, 
-    title = "RevampEdu", 
+    title = "RevampMarketing", 
     description = "Empowering schools, teachers, and students with innovative, data-driven solutions to enhance academic outcomes, improve course quality, and maximize college acceptance rates. Transforming education through actionable insights and fostering excellence at every step." 
 }: LayoutProps) => {
     return (
@@ -21,7 +21,7 @@ const Layout = ({
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content={title} />
                 <meta property="og:description" content={description} />
-                <meta property="og:url" content="https://www.revampedu.com" />
+                <meta property="og:url" content="https://www.revampmarketing.net" />
                 <meta name="keywords" content="education, teaching tools, student success, academic solutions" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="robots" content="index, follow" />
@@ -32,13 +32,7 @@ const Layout = ({
                     href="/logo-small-light.svg"
                     media="(prefers-color-scheme: light)"
                 />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    href="/logo-small-dark.svg"
-                    media="(prefers-color-scheme: dark)"
-                />
-                <link rel="canonical" href="https://www.revampedu.com" />
+                <link rel="canonical" href="https://www.revampmarketing.net" />
                 <style>
                 {`
                     html {
@@ -52,11 +46,11 @@ const Layout = ({
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "WebSite",
-                            name: "RevampEdu",
-                            url: "https://www.revampedu.com",
+                            name: "RevampMarketing",
+                            url: "https://www.revampmarketing.net",
                             potentialAction: {
                                 "@type": "SearchAction",
-                                target: "https://www.revampedu.com/search?q={search_term_string}",
+                                target: "https://www.revampmarketing.net/search?q={search_term_string}",
                                 "query-input": "required name=search_term_string",
                             },
                         }),

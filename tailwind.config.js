@@ -11,7 +11,7 @@ module.exports = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primary: {
-          DEFAULT: '#190099',
+          DEFAULT: '#8168FF',
           light: '#4d33cc',
           dark: '#0f0066',
         },

@@ -4,10 +4,10 @@ import Link from "next/link";
 const Brand = () => (
         <Link href="/">
             <Image
-                src="/revamp-logo-light.svg"
+                src="/logo-large-light.svg"
                 width={250}
                 height={100}
-                alt="Blinder logo"
+                alt="Revamp Marketing logo"
             />
         </Link>
 )
