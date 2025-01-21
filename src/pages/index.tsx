@@ -1,51 +1,36 @@
-import Head from "next/head";
-import GradientWrapper from "../components/GradientWrapper";
-import CTA from "../components/ui/CTA";
-import Features from "../components/ui/Features";
-import FooterCTA from "../components/ui/FooterCTA";
-import Hero from "../components/ui/Hero";
-import LogoGrid from "../components/ui/LogoGrid";
-import Testimonials from "../components/ui/Testimonials";
-import ToolKit from "../components/ui/ToolKit";
+import CTA from "@/components/organism/CTA";
+import Services from "@/components/organism/Services";
+import Hero from "@/components/organism/Hero";
+import TestimonialsLayout from "@/components/organism/Testimonials";
+import { getComponent } from "@/utils";
+import homeConfig from "@/config/home/index.json";
+import { 
+  HeroSettings, 
+  ServiceCardSettings, 
+  CTASettings, 
+  TestimonialSettings, 
+  ComponentItemType, 
+  ComponentSettings 
+} from "@/types";
 
 export default function Home() {
+  const components = homeConfig.pageComponents as ComponentItemType<ComponentSettings>[];
+
+  const hero = getComponent<HeroSettings>(components, "hero");
+  const services = getComponent<ServiceCardSettings>(components, "services");
+  const cta = getComponent<CTASettings>(components, "cta");
+  const testimonials = getComponent<TestimonialSettings>(components, "testimonials");
+
   return (
     <>
-      <Head>
-        <title>RevampEdu | Empowering Schools and Teachers</title>
-        <meta
-          name="description"
-          content="Discover data-driven solutions to enhance education outcomes and support students' success."
-        />
-        <meta property="og:title" content="RevampEdu | Empowering Schools and Teachers" />
-        <meta property="og:description" content="Discover data-driven solutions to enhance education outcomes and support students' success." />
-        <link rel="canonical" href="https://www.revampedu.com/" />
-        <meta name="keywords" content="education, teaching tools, student success, academic solutions" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebPage",
-              name: "RevampEdu | Empowering Schools and Teachers",
-              description:
-                "Discover data-driven solutions to enhance education outcomes and support students' success.",
-              url: "https://www.revampedu.com/",
-            }),
-          }}
-        />
-      </Head>
-      <Hero />
-      {/* <LogoGrid /> */}
-      <GradientWrapper>
-        <Features />
-        <CTA />
-      </GradientWrapper>
-      {/* <ToolKit /> */}
-      {/* <GradientWrapper>
-        <Testimonials />
-      </GradientWrapper>
-      <FooterCTA /> */}
+      {hero.visible && <Hero {...hero} />}
+      {services.visible && (
+          <Services {...services} />
+      )}
+      {testimonials.visible && (
+          <TestimonialsLayout {...testimonials} />
+      )}
+      {cta.visible && <CTA {...cta} />}
     </>
   );
 }

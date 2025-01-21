@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Head from "next/head";
-import Input from "../components/ui/Input";
-import Button from "../components/ui/Button";
-import NavLink from "../components/ui/NavLink";
+import Input from "@/components/organism/Input";
+import { Button } from "@/components/atoms/button";
+import NavLink from "@/components/organism/NavLink";
 
 type FormData = {
   firstName: string;
@@ -150,13 +150,11 @@ export default function GetStarted() {
                 <NavLink
                   href="https://ff87uuv1tyx.typeform.com/to/oK5cKPdJ"
                   className="flex items-center justify-center flex-1 font-medium text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 px-8 py-3 rounded-lg transition-colors duration-200"
-                  onClick={() => {
-                    if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
-                      window.gtag('event', 'button_click', {
-                        event_category: 'Survey Interaction',
-                        event_label: 'Teacher Survey',
-                      });
-                    }
+                  analytics={{
+                    eventLabel: "Teacher Survey",
+                    eventCategory: "Survey Interaction",
+                    eventAction: "link_click",
+                    eventValue: "Teacher Survey",
                   }}
                 >
                   Teacher Survey
@@ -165,13 +163,11 @@ export default function GetStarted() {
                 <NavLink
                   href="https://ff87uuv1tyx.typeform.com/to/z3QzKcB3"
                   className="flex items-center justify-center flex-1 font-medium text-indigo-600 bg-white border-2 border-indigo-600 hover:bg-indigo-50 active:bg-indigo-100 px-8 py-3 rounded-lg transition-colors duration-200"
-                  onClick={() => {
-                    if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
-                      window.gtag('event', 'button_click', {
-                        event_category: 'Survey Interaction',
-                        event_label: 'Administrator Survey',
-                      });
-                    }
+                  analytics={{
+                    eventLabel: "Administrator Survey",
+                    eventCategory: "Survey Interaction",
+                    eventAction: "link_click",
+                    eventValue: "Administrator Survey",
                   }}
                 >
                   Administrator Survey
