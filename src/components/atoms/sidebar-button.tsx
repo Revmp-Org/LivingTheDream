@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { Tooltip } from '@/components/atoms/tooltip';
-import { useClientSide } from '@/app/hooks/use-client-side';
+import { useClientSide } from '@/hooks/use-client-side';
 
 interface SidebarButtonProps {
     label: string;

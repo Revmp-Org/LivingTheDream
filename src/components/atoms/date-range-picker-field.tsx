@@ -2,7 +2,7 @@ import { DayPicker } from "react-day-picker";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/atoms/popover";
 import "react-day-picker/dist/style.css";
-import { useDateRangeField } from "@/app/hooks/use-date-range";
+import { useDateRangeField } from "@/hooks/use-date-range";
 import { cn } from "@/style";
 
 interface DateRangeFieldProps {

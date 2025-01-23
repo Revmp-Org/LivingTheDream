@@ -10,7 +10,7 @@ type BreadcrumbProps = {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ theme }) => {
     const pathname = usePathname();
-    const breadcrumb = pathname.split('/').filter(Boolean).slice(0, -1).map((segment, index) => {
+    const breadcrumb = pathname?.split('/').filter(Boolean).slice(0, -1).map((segment, index) => {
 
         return (
             <span key={segment} className="flex items-center">

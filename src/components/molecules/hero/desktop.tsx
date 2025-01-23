@@ -75,7 +75,12 @@ const DesktopHero: React.FC<ComponentConfig<HeroSettings>> = (hero) => {
                                 <NavLink
                                     href={(button.settings as ButtonConfig).href || "#"}
                                     scroll={(button.settings as ButtonConfig).scroll || false}
-                                    analytics={(button.settings as ButtonConfig).analytics}
+                                    analytics={(button.settings as ButtonConfig).analytics || {
+                                        eventLabel: "Button Click",
+                                        eventCategory: "Hero Section",
+                                        eventAction: "click",
+                                        eventValue: "Button Clicked"
+                                    }}
                                     className={
                                         (button.settings as ButtonConfig).variant === "primary"
                                             ? styles?.button?.primary || defaultStyles.button.primary

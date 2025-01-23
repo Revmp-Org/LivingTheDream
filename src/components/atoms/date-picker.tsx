@@ -3,7 +3,7 @@ import { DayPicker, type OnSelectHandler } from 'react-day-picker';
 import { CalendarIcon } from '@radix-ui/react-icons';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/atoms/popover';
 import 'react-day-picker/dist/style.css';
-import { useDatePickerField } from '@/app/hooks/use-date-picker';
+import { useDatePickerField } from '@/hooks/use-date-picker';
 import { cn } from '@/style';
 
 interface DatePickerFieldProps {
