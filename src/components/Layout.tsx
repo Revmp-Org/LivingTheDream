@@ -1,18 +1,45 @@
-import Footer from "./ui/Footer";
-import Navbar from "./ui/Navbar";
+import Footer from "./organism/Footer";
+import Navbar from "./molecules/navbar";
 import Head from "next/head";
+import { useSiteConfig } from "@/context/site-config-context";
+import { usePageConfig } from "@/context/page-config-context";
 
 interface LayoutProps {
     children: React.ReactNode;
-    title?: string;
-    description?: string;
 }
 
-const Layout = ({ 
-    children, 
-    title = "RevampMarketing", 
-    description = "Empowering schools, teachers, and students with innovative, data-driven solutions to enhance academic outcomes, improve course quality, and maximize college acceptance rates. Transforming education through actionable insights and fostering excellence at every step." 
+const Layout = ({
+    children,
 }: LayoutProps) => {
+    const siteConfig = useSiteConfig();
+    const footerConfig = siteConfig?.global?.footer
+    const themeColor = siteConfig?.global?.layout?.themeColor || "#ffffff"
+
+    const defaultPageConfig = {
+        meta: {
+            title: "Revamp Marketing",
+            description: "Revamp Marketing",
+            seo: {
+                canonical: "https://revampmarketing.com",
+                keywords: [],
+            }
+        }
+    }
+
+    const pageConfig = usePageConfig() || defaultPageConfig;
+    
+    
+    const {
+        meta: {
+            title = pageConfig?.meta?.title || "Revamp Marketing",
+            description = pageConfig?.meta?.description || "Revamp Marketing",
+            seo: {
+                canonical = pageConfig?.meta?.seo?.canonical || "",
+                keywords = pageConfig?.meta?.seo?.keywords || [],
+            } = {},
+        } = {},
+    } = pageConfig || {};
+
     return (
         <>
             <Head>
@@ -21,36 +48,25 @@ const Layout = ({
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content={title} />
                 <meta property="og:description" content={description} />
-                <meta property="og:url" content="https://www.revampmarketing.net" />
-                <meta name="keywords" content="education, teaching tools, student success, academic solutions" />
+                <meta property="og:url" content={canonical} />
+                <meta property="og:type" content="website" />
+                <meta name="keywords" content={keywords.join(", ")} />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="robots" content="index, follow" />
-                <meta name="theme-color" content="#ffffff" />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    href="/logo-small-light.svg"
-                    media="(prefers-color-scheme: light)"
-                />
-                <link rel="canonical" href="https://www.revampmarketing.net" />
-                <style>
-                {`
-                    html {
-                    scroll-behavior: smooth;
-                    }
-                `}
-                </style>
+                <meta name="theme-color" content={themeColor} />
+                <link rel="canonical" href={canonical} />
+                <style>{`html { scroll-behavior: smooth; }`}</style>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "WebSite",
-                            name: "RevampMarketing",
-                            url: "https://www.revampmarketing.net",
+                            name: title,
+                            url: canonical,
                             potentialAction: {
                                 "@type": "SearchAction",
-                                target: "https://www.revampmarketing.net/search?q={search_term_string}",
+                                target: `${canonical}/search?q={search_term_string}`,
                                 "query-input": "required name=search_term_string",
                             },
                         }),
@@ -58,8 +74,8 @@ const Layout = ({
                 />
             </Head>
             <Navbar />
-            <main>{children}</main>
-            <Footer />
+            <main className="min-h-screen">{children}</main>
+            {footerConfig && <Footer config={footerConfig} />}
         </>
     );
 };

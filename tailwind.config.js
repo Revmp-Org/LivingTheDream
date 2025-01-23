@@ -31,29 +31,49 @@ module.exports = {
         "slide-up": {
           "0%": {
             transform: "translate(-50%, calc(-50% + 10px))",
-            opacity: "0"
+            opacity: "0",
           },
           "100%": {
             transform: "translate(-50%, -50%)",
-            opacity: "1"
+            opacity: "1",
           },
         },
         "slide-down": {
           "0%": {
             transform: "translate(-50%, -50%)",
-            opacity: "1"
+            opacity: "1",
           },
           "100%": {
             transform: "translate(-50%, calc(-50% + 10px))",
-            opacity: "0"
+            opacity: "0",
+          },
+        },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "fade-out": {
+          "0%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
           },
         },
       },
       animation: {
         "slide-up": "slide-up 0.2s ease-out",
         "slide-down": "slide-down 0.2s ease-in",
-        "fade-in": "fade-in 0.2s ease-out",
-        "fade-out": "fade-out 0.2s ease-in",
+        "fade-in": "fade-in 0.3s ease-out", // Updated fade-in animation
+        "fade-out": "fade-out 0.3s ease-in", // Updated fade-out animation
       },
     },
   },

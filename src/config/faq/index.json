@@ -1,0 +1,133 @@
+{
+    "id": "faq-page",
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about Revamp Marketing. Can't find what you're looking for?",
+    "button": {
+        "text": "Contact our team!",
+        "link": "/contact",
+        "analytics": {
+            "eventLabel": "Get Started",
+            "eventCategory": "FAQ Interaction",
+            "eventAction": "link_click",
+            "eventValue": "Get Started"
+        }
+    },
+    "slug": "faq",
+    "seo": {
+        "title": "FAQ - Revamp Marketing",
+        "description": "Answers to frequently asked questions about Revamp Marketing services, pricing, and support.",
+        "keywords": [
+            "faq",
+            "website development",
+            "seo",
+            "social media"
+        ],
+        "canonical": "https://example.com/faq"
+    },
+    "components": {
+        "header": {
+            "styles": {
+                "wrapper": {
+                    "padding": "py-16",
+                    "background": "bg-gray-50"
+                },
+                "container": {
+                    "layout": "max-w-screen-xl mx-auto px-6 lg:px-12 text-center"
+                },
+                "title": {
+                    "color": "text-gray-900",
+                    "typography": "text-4xl font-bold mb-4"
+                },
+                "description": {
+                    "color": "text-gray-700",
+                    "typography": "text-lg"
+                },
+                "buttonWrapper": {
+                    "layout": "flex justify-center"
+                },
+                "button": {
+                    "color": "text-white",
+                    "background": "bg-primary hover:bg-primary-light active:bg-primary-dark",
+                    "padding": "px-6 py-3",
+                    "rounded": "rounded-md",
+                    "transition": "transition-colors duration-200"
+                }
+            }
+        },
+        "faq": {
+            "sections": [
+                {
+                    "category": "Website Development",
+                    "questions": [
+                        {
+                            "question": "How long does it take to build a website?",
+                            "answer": "The timeline depends on the complexity and size of the project. On average, it takes 4-8 weeks."
+                        },
+                        {
+                            "question": "Do you provide ongoing support after the website is launched?",
+                            "answer": "Yes, we offer maintenance packages to keep your website up-to-date and running smoothly."
+                        },
+                        {
+                            "question": "Can you redesign my existing website?",
+                            "answer": "Absolutely! We can revamp your website to improve its functionality and design."
+                        }
+                    ]
+                },
+                {
+                    "category": "Search Engine Optimization (SEO)",
+                    "questions": [
+                        {
+                            "question": "What is included in your SEO services?",
+                            "answer": "Our services include SEO audits, keyword research, on-page optimization, and ongoing strategy support."
+                        },
+                        {
+                            "question": "How long does it take to see results with SEO?",
+                            "answer": "SEO is a long-term strategy. Most clients see significant improvements within 3-6 months."
+                        },
+                        {
+                            "question": "Do you offer local SEO services?",
+                            "answer": "Yes, we specialize in local SEO to help your business rank higher in location-based searches."
+                        }
+                    ]
+                },
+                {
+                    "category": "Social Media Management",
+                    "questions": [
+                        {
+                            "question": "Which platforms do you manage?",
+                            "answer": "We manage popular platforms such as Facebook, Instagram, LinkedIn, Twitter, and TikTok."
+                        },
+                        {
+                            "question": "How do you create content for my social media?",
+                            "answer": "We create custom content tailored to your brand, including graphics, captions, and engagement strategies."
+                        },
+                        {
+                            "question": "Can you help me run paid social media campaigns?",
+                            "answer": "Yes, we can manage paid ad campaigns to drive traffic and conversions on your social platforms."
+                        }
+                    ]
+                }
+            ],
+            "styles": {
+                "wrapper": {
+                    "padding": "py-8"
+                },
+                "container": {
+                    "layout": "max-w-screen-lg mx-auto px-6 lg:px-12"
+                },
+                "categoryTitle": {
+                    "color": "text-gray-800",
+                    "typography": "text-2xl font-semibold mb-4",
+                    "textAlign": "text-center"
+                },
+                "accordion": {
+                    "item": {
+                        "border": "border-b",
+                        "typography": "text-sm",
+                        "textAlign": "text-left"
+                    }
+                }
+            }
+        }
+    }
+}

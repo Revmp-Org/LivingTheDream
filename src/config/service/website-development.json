@@ -1,0 +1,217 @@
+{
+    "id": "website-development-page",
+    "title": "Website Development",
+    "description": "Learn about our website development services and how we can create a custom solution for your business.",
+    "slug": "website-development",
+    "seo": {
+        "title": "Website Development - Revamp Marketing",
+        "description": "Explore our custom website development services tailored to captivate your audience and enhance your online presence.",
+        "keywords": [
+            "website development",
+            "custom websites",
+            "responsive design"
+        ],
+        "canonical": "https://revampmarketing.net/website-development"
+    },
+    "components": {
+        "header": {
+            "styles": {
+                "wrapper": {
+                    "padding": "py-16",
+                    "background": "bg-gray-50"
+                },
+                "container": {
+                    "layout": "max-w-screen-xl mx-auto px-6 lg:px-12 text-center"
+                },
+                "title": {
+                    "color": "text-gray-900",
+                    "typography": "text-4xl font-bold mb-4"
+                },
+                "description": {
+                    "color": "text-gray-700",
+                    "typography": "text-lg",
+                    "marginBottom": "mb-4"
+                },
+                "highlight": {
+                    "color": "text-primary",
+                    "typography": "text-lg font-semibold"
+                },
+                "buttonWrapper": {
+                    "layout": "flex justify-center mt-6"
+                },
+                "button": {
+                    "color": "text-white",
+                    "background": "bg-primary hover:bg-primary-light active:bg-primary-dark",
+                    "padding": "px-6 py-3",
+                    "rounded": "rounded-md",
+                    "transition": "transition-colors duration-200"
+                }
+            },
+            "content": {
+                "image": "https://cdn.revampmarketing.net/web-design.jpg",
+                "title": "Website Development",
+                "description": "Our website development service offers tailored solutions to captivate your audience and enhance your online presence. From responsive designs to seamless user experiences, our team is dedicated to delivering exceptional results.",
+                "highlight": "Let us help you create a website that drives your success.",
+                "button": {
+                    "text": "Learn More",
+                    "link": "/contact",
+                    "analytics": {
+                        "eventLabel": "Learn More",
+                        "eventCategory": "Navbar Interaction",
+                        "eventAction": "link_click",
+                        "eventValue": "Learn More"
+                    }
+                }
+            }
+        },
+        "benefits": {
+            "styles": {
+                "wrapper": {
+                    "padding": "py-8",
+                    "background": "bg-white"
+                },
+                "title": {
+                    "color": "text-gray-800",
+                    "typography": "text-3xl font-semibold mb-6"
+                },
+                "item": {
+                    "background": "bg-gray-50 hover:bg-gray-100",
+                    "border": "border rounded-md",
+                    "padding": "p-6",
+                    "shadow": "shadow-md hover:shadow-lg",
+                    "transition": "transition-all duration-200"
+                }
+            },
+            "content": [
+                {
+                    "title": "Boost Engagement",
+                    "description": "Enhance audience interaction with captivating designs."
+                },
+                {
+                    "title": "Increase Traffic",
+                    "description": "Reach more users with mobile-friendly interfaces."
+                },
+                {
+                    "title": "Improve SEO",
+                    "description": "Rank higher on search engines with optimized content."
+                },
+                {
+                    "title": "Streamline UX",
+                    "description": "Ensure seamless navigation and user satisfaction."
+                }
+            ]
+        },
+        "steps": {
+            "styles": {
+                "wrapper": {
+                    "padding": "py-16",
+                    "background": "bg-gray-100"
+                },
+                "title": {
+                    "color": "text-gray-800",
+                    "typography": "text-3xl font-bold mb-6"
+                },
+                "step": {
+                    "layout": "flex flex-col lg:flex-row items-center gap-12",
+                    "title": {
+                        "color": "text-indigo-800",
+                        "typography": "text-2xl font-bold mb-4"
+                    },
+                    "description": {
+                        "color": "text-gray-600",
+                        "typography": "text-lg"
+                    },
+                    "points": {
+                        "color": "text-gray-700",
+                        "typography": "text-base"
+                    },
+                    "image": {
+                        "rounded": "rounded-lg",
+                        "shadow": "shadow-md"
+                    }
+                }
+            },
+            "content": [
+                {
+                    "index": 1,
+                    "title": "Step 1: Discovery & Planning",
+                    "description": "We work closely with you to understand your goals, target audience, and unique requirements. This phase ensures a clear roadmap for success.",
+                    "image": "https://cdn.revampmarketing.net/website-service-todo.jpg",
+                    "points": [
+                        "Analyze business goals and objectives.",
+                        "Identify the target audience and user needs.",
+                        "Outline a clear project timeline and deliverables."
+                    ]
+                },
+                {
+                    "index": 2,
+                    "title": "Step 2: Design & Prototyping",
+                    "description": "Our designers create visually appealing and user-friendly prototypes tailored to your brand. Your feedback shapes the final design.",
+                    "image": "https://cdn.revampmarketing.net/web-service-designing.jpg",
+                    "points": [
+                        "Develop wireframes and initial prototypes.",
+                        "Collaborate with you to refine designs.",
+                        "Ensure alignment with your brand identity."
+                    ]
+                },
+                {
+                    "index": 3,
+                    "title": "Step 3: Development",
+                    "description": "Our developers bring the designs to life, ensuring your website is functional and responsive across all devices and platforms.",
+                    "image": "https://cdn.revampmarketing.net/website-service-dev-design.jpg",
+                    "points": [
+                        "Write clean, scalable, and efficient code.",
+                        "Implement responsive design for all devices.",
+                        "Integrate essential features and functionalities."
+                    ]
+                },
+                {
+                    "index": 4,
+                    "title": "Step 4: Launch & Support",
+                    "description": "We rigorously test the website before launch and offer ongoing support to keep your website running smoothly.",
+                    "image": "https://cdn.revampmarketing.net/website-service-launch-img.jpg",
+                    "points": [
+                        "Conduct thorough QA testing for bugs.",
+                        "Deploy the website to a live environment.",
+                        "Provide continuous support and maintenance."
+                    ]
+                }
+            ]
+        },
+        "cta": {
+            "styles": {
+                "wrapper": {
+                    "padding": "py-16",
+                    "background": "bg-gradient-to-br from-indigo-400 via-indigo-500 to-purple-600"
+                },
+                "title": {
+                    "color": "text-white",
+                    "typography": "text-3xl lg:text-4xl"
+                },
+                "description": {
+                    "color": "text-gray-200",
+                    "typography": "text-lg lg:text-xl"
+                },
+                "buttonWrapper": {
+                    "layout": "flex justify-center mt-8"
+                },
+                "button": {
+                    "color": "text-indigo-700",
+                    "background": "bg-white",
+                    "padding": "px-8 py-4",
+                    "rounded": "rounded-lg",
+                    "shadow": "shadow-lg",
+                    "hover": "hover:bg-gray-200"
+                }
+            },
+            "content": {
+                "title": "Ready to Transform Your Online Presence?",
+                "description": "Contact our team today to discuss your project and take the first step toward creating a stunning, high-performing website that delivers results.",
+                "button": {
+                    "text": "Get Started",
+                    "link": "/contact"
+                }
+            }
+        }
+    }
+}
