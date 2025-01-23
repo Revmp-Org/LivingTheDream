@@ -6,6 +6,7 @@ import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
 import { buildTailwindClass } from "@/utils";
 import { FiMenu, FiX } from "react-icons/fi";
 import { AnalyticsConfig, Logo, NavigationItem } from "@/types";
+import { motion, AnimatePresence } from "framer-motion";
 
 const MobileNavbar = ({
     navigation,
@@ -37,36 +38,6 @@ const MobileNavbar = ({
             transition: "transition-colors duration-200",
             layout: "block lg:hidden",
         },
-        menuContainer: {
-            position: "fixed inset-0 top-0 bg-white lg:hidden",
-            transition: "transition-transform duration-300",
-            layout: "flex flex-col h-full",
-        },
-        menuContent: {
-            layout: "flex-1 overflow-y-auto px-6 py-8",
-        },
-        menuVisible: {
-            transform: "translate-x-0",
-        },
-        menuHidden: {
-            transform: "translate-x-full",
-        },
-        header: {
-            layout: "flex items-center justify-between",
-            padding: "p-6",
-            border: "border-b",
-        },
-        itemGroup: {
-            container: "mb-6",
-            title: "text-lg font-semibold text-gray-800 mb-4",
-            itemList: "space-y-3 pl-4",
-        },
-        listItem: {
-            text: "p-3 text-gray-700",
-            hover: "hover:bg-gray-100 active:bg-gray-200",
-            rounded: "rounded-md",
-            transition: "transition-colors duration-200",
-        },
         navButton: {
             layout: "block w-full text-center",
             text: "text-white bg-primary hover:bg-primary-light active:bg-primary-dark",
@@ -74,147 +45,143 @@ const MobileNavbar = ({
             padding: "px-6 py-3",
             transition: "transition-colors duration-200",
         },
-        ctaButtonContainer: {
-            marginTop: "mt-8",
-        },
+    };
+
+    const menuVariants = {
+        hidden: { opacity: 0, x: "100%" },
+        visible: { opacity: 1, x: 0 },
+        exit: { opacity: 0, x: "100%" },
+    };
+
+    const overlayVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+        exit: { opacity: 0 },
     };
 
     return (
         <>
+            {/* Toggle Button */}
             <button
-                role="button"
                 aria-label="Toggle menu"
                 className={buildTailwindClass(
                     styles.toggleButton || {},
                     defaultStyles.toggleButton
                 )}
                 onClick={() => {
-                    setState(!state);
-                    document.body.classList.toggle("overflow-hidden");
+                    setState(true);
+                    document.body.classList.add("overflow-hidden");
                 }}
             >
-                <FiMenu />
+                <FiMenu size={24} />
             </button>
 
-            <div
-                className={buildTailwindClass(
-                    {
-                        ...styles.menuContainer,
-                        ...(state ? styles.menuVisible : styles.menuHidden),
-                    },
-                    {
-                        ...defaultStyles.menuContainer,
-                        ...(state ? defaultStyles.menuVisible : defaultStyles.menuHidden),
-                    }
-                )}
-            >
-                <div className={buildTailwindClass(styles.menuContainer, defaultStyles.menuContainer)}>
-                    {/* Mobile Header */}
-                    <div
-                        className={buildTailwindClass(
-                            styles.header || {},
-                            defaultStyles.header
-                        )}
-                    >
-                        <Brand logo={logo || {}} />
-                        <button
-                            className={buildTailwindClass(
-                                styles.toggleButton || {},
-                                defaultStyles.toggleButton
-                            )}
+            {/* Overlay and Menu */}
+            <AnimatePresence>
+                {state && (
+                    <>
+                        {/* Overlay */}
+                        <motion.div
+                            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                            variants={overlayVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
                             onClick={handleState}
-                        >
-                            <FiX />
-                        </button>
-                    </div>
+                        />
 
-                    {/* Mobile Menu Content */}
-                    <div className={buildTailwindClass(styles.menuContent, defaultStyles.menuContent)}>
-                        {navigation.map((item, idx) => (
-                            <div
-                                key={idx}
-                                className={buildTailwindClass(
-                                    styles.itemGroup?.container || {},
-                                    defaultStyles.itemGroup.container
-                                )}
-                            >
-                                {item.items ? (
-                                    <>
-                                        <div
-                                            className={buildTailwindClass(
-                                                styles.itemGroup?.title || {},
-                                                defaultStyles.itemGroup.title
-                                            )}
-                                        >
-                                            {item.label}
-                                        </div>
-                                        <ul
-                                            className={buildTailwindClass(
-                                                styles.itemGroup?.itemList || {},
-                                                defaultStyles.itemGroup.itemList
-                                            )}
-                                        >
-                                            {item.items.map((subItem) => (
-                                                <li
-                                                    key={subItem.id}
-                                                    className={buildTailwindClass(
-                                                        styles.listItem || {},
-                                                        defaultStyles.listItem
-                                                    )}
-                                                    onClick={() => {
-                                                        push(subItem?.path || '');
-                                                        handleState();
-                                                        trackClick(
-                                                            subItem?.label || '',
-                                                            "Mobile Nav",
-                                                            "link_click",
-                                                            subItem.label
-                                                        );
-                                                    }}
-                                                >
-                                                    {subItem.label}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </>
-                                ) : (
-                                    <div
-                                        className={buildTailwindClass(
-                                            styles.listItem || {},
-                                            defaultStyles.listItem
-                                        )}
-                                        onClick={() => {
-                                            push(item?.path || '');
-                                            handleState();
-                                            trackClick(
-                                                item?.label || '',
-                                                "Mobile Nav",
-                                                "link_click",
-                                                item.label
-                                            );
-                                        }}
-                                    >
-                                        {item.label}
-                                    </div>
-                                )}
+                        {/* Menu Container */}
+                        <motion.div
+                            className="fixed inset-y-0 right-0 bg-white z-50 flex flex-col w-full sm:w-3/4 md:w-1/2"
+                            variants={menuVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                        >
+                            {/* Header */}
+                            <div className="flex items-center justify-between p-6 border-b">
+                                <Brand logo={logo || {}} />
+                                <button
+                                    aria-label="Close menu"
+                                    className="text-gray-500 hover:text-gray-800"
+                                    onClick={handleState}
+                                >
+                                    <FiX size={24} />
+                                </button>
                             </div>
-                        ))}
-                        <div className={buildTailwindClass(styles.ctaButtonContainer, defaultStyles.ctaButtonContainer)}>
-                            <NavLink
-                                href={ctaButton?.link || '/get-started'}
-                                analytics={ctaButton?.analytics}
-                                className={buildTailwindClass(
-                                    styles.navButton || {},
-                                    defaultStyles.navButton
-                                )}
-                                onClick={handleState}
-                            >
-                                {ctaButton?.text || 'Get Started'}
-                            </NavLink>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+                            {/* Navigation Items */}
+                            <div className="flex-1 overflow-y-auto px-6 py-8">
+                                {navigation.map((item, idx) => (
+                                    <div key={idx} className="mb-6">
+                                        {item.items ? (
+                                            <>
+                                                <div className="text-lg font-semibold text-gray-800 mb-4">
+                                                    {item.label}
+                                                </div>
+                                                <ul className="space-y-3 pl-4">
+                                                    {item.items.map((subItem) => (
+                                                        <li
+                                                            key={subItem.id}
+                                                            className="p-3 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-md cursor-pointer transition-colors duration-200"
+                                                            onClick={() => {
+                                                                push(subItem?.path || "");
+                                                                handleState();
+                                                                trackClick(
+                                                                    subItem?.label || "",
+                                                                    "Mobile Nav",
+                                                                    "link_click",
+                                                                    subItem.label
+                                                                );
+                                                            }}
+                                                        >
+                                                            {subItem.label}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </>
+                                        ) : (
+                                            <div
+                                                className="p-3 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-md cursor-pointer transition-colors duration-200"
+                                                onClick={() => {
+                                                    push(item?.path || "");
+                                                    handleState();
+                                                    trackClick(
+                                                        item?.label || "",
+                                                        "Mobile Nav",
+                                                        "link_click",
+                                                        item.label
+                                                    );
+                                                }}
+                                            >
+                                                {item.label}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                                <div className="mt-8">
+                                    <NavLink
+                                        href={ctaButton?.link || "/get-started"}
+                                        analytics={ctaButton?.analytics || {
+                                            eventLabel: "Get Started",
+                                            eventCategory: "Mobile Nav",
+                                            eventAction: "link_click",
+                                            eventValue: "Get Started",
+                                        }}
+                                        className={buildTailwindClass(
+                                            styles.navButton || {},
+                                            defaultStyles.navButton
+                                        )}
+                                        onClick={handleState}
+                                    >
+                                        {ctaButton?.text || "Get Started"}
+                                    </NavLink>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </>
     );
 };

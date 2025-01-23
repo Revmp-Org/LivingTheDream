@@ -9,13 +9,13 @@ type NavLinkProps = {
     className?: string;
     children: React.ReactNode;
     scroll?: boolean;
+    baseClassName?: string;
     onClick?: () => void;
-    analytics?: AnalyticsConfig;
+    analytics: AnalyticsConfig;
     disableMotion?: boolean;
 };
 
 const NavLink = ({ children, href, disableMotion = false, ...props }: NavLinkProps) => {
-
     const { trackClick } = useGoogleAnalytics();
     const { buttonHover, buttonTap } = useMotionConfig();
 
@@ -40,35 +40,27 @@ const NavLink = ({ children, href, disableMotion = false, ...props }: NavLinkPro
         return (
             <Link
                 href={href}
-                {...props}
-                className={`py-2.5 px-4 text-center rounded-lg duration-150 ${props?.className || ""}`}
+                className={`${props.baseClassName || ""} ${props.className || ""} py-2.5 px-4 text-center rounded-lg duration-150`}
+                onClick={handleClick}
             >
                 {children}
             </Link>
         );
     }
 
-
     return (
-        <motion.div
-            whileHover={buttonHover}
-            whileTap={buttonTap}
-        >
-        <Link href={href} scroll={props.scroll}>
-            <span
-                className={props.className}
+        <motion.div whileHover={buttonHover} whileTap={buttonTap}>
+            <Link
+                href={href}
+                scroll={props.scroll}
+                className={`${props.baseClassName || ""} ${props.className || ""}`}
                 onClick={handleClick}
-                role="link"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") handleClick();
-                }}
             >
-                    {children}
-                </span>
+                {children}
             </Link>
         </motion.div>
     );
 };
 
 export default NavLink;
+

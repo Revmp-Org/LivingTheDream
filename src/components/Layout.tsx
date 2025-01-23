@@ -74,7 +74,7 @@ const Layout = ({
                 />
             </Head>
             <Navbar />
-            <main>{children}</main>
+            <main className="min-h-screen">{children}</main>
             {footerConfig && <Footer config={footerConfig} />}
         </>
     );

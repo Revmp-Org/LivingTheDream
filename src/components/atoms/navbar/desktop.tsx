@@ -20,7 +20,6 @@ const DesktopNavbar = ({
         analytics?: AnalyticsConfig;
     };
 }) => {
-    const router = useRouter();
     const { trackClick } = useGoogleAnalytics();
     const { listItemHover, listItemTap } = useMotionConfig();
 
@@ -98,7 +97,6 @@ const DesktopNavbar = ({
                                             defaultStyles.dropdownItem
                                         )}
                                         onClick={() => {
-                                            // Track user interaction
                                             trackClick(
                                                 subItem?.label || "",
                                                 "Navbar Interaction",
@@ -143,7 +141,12 @@ const DesktopNavbar = ({
             <li>
                 <NavLink
                     href={ctaButton?.link || '/get-started'}
-                    analytics={ctaButton?.analytics}
+                    analytics={ctaButton?.analytics || {
+                        eventLabel: "Get Started",
+                        eventCategory: "Navbar Interaction",
+                        eventAction: "link_click",
+                        eventValue: "Get Started",
+                    }}
                     className={buildTailwindClass(styles.button, defaultStyles.button)}
                 >
                     {ctaButton?.text || 'Get Started'}

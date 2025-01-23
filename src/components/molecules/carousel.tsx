@@ -150,32 +150,6 @@ const Carousel: React.FC<ComponentConfig<ServiceCardSettings>> = (services) => {
                     <IoChevronForwardOutline className="w-6 h-6 text-gray-800" />
                 </button>
             </div>
-
-            {/* Dots Navigation */}
-            <div
-                className={buildTailwindClass(
-                    carouselStyles?.dotsContainer,
-                    defaultStyles.dotsContainer
-                )}
-            >
-                {carouselItems.map((_, idx) => (
-                    <motion.button
-                        key={idx}
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                        className={buildTailwindClass(
-                            idx === currentIndex
-                                ? carouselStyles?.dotActive
-                                : carouselStyles?.dotInactive,
-                            idx === currentIndex
-                                ? defaultStyles.dotActive
-                                : defaultStyles.dotInactive
-                        )}
-                        onClick={() => handleDotClick(idx)}
-                        aria-label={`Go to slide ${idx + 1}`}
-                    />
-                ))}
-            </div>
         </div>
     );
 };

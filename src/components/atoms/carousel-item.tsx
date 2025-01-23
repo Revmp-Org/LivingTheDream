@@ -27,18 +27,23 @@ type CarouselItemProps = {
 const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles, defaultStyles }) => {
     const controls = useAnimation();
     const ref = React.useRef<HTMLDivElement>(null);
-    const inView = useInView(ref, { margin: "-100px 0px -100px 0px", once: true });
+
+    const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    const inView = useInView(ref, {
+        margin: isMobile ? "-50px 0px -50px 0px" : "-100px 0px -100px 0px",
+        once: true
+    });
 
     const [scrollProgress, setScrollProgress] = useState(() => {
         const scrollY = typeof window !== "undefined" ? window.scrollY : 0;
-        const maxScroll = 600;
+        const maxScroll = isMobile ? 400 : 600; // Reduce maxScroll for mobile
         return Math.min(scrollY / maxScroll, 1);
     });
 
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const maxScroll = 600;
+            const maxScroll = isMobile ? 400 : 600;
             const progress = Math.min(scrollY / maxScroll, 1);
             setScrollProgress(progress);
         };
@@ -47,7 +52,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles, defaultS
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [isMobile]);
 
     useEffect(() => {
         if (inView) {

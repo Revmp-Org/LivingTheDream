@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import { ChevronLeftIcon } from '@radix-ui/react-icons';
+import { motion, useReducedMotion } from 'framer-motion';
 import { cn } from '@/style';
 
 const Accordion = AccordionPrimitive.Root;
@@ -42,19 +43,33 @@ AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
 const AccordionContent = React.forwardRef<
     React.ElementRef<typeof AccordionPrimitive.Content>,
     React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content> & { theme?: 'light' | 'dark' }
->(({ className, children, theme = 'light', ...props }, ref) => (
-    <AccordionPrimitive.Content
-        ref={ref}
-        className={cn([
-            'overflow-hidden p-4 text-sm transition-all',
-            'data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
-            className
-        ])}
-        {...props}
-    >
-        <div>{children}</div>
-    </AccordionPrimitive.Content>
-));
+>(({ className, children, theme = 'light', ...props }, ref) => {
+    const shouldReduceMotion = useReducedMotion();
+
+    return (
+        <AccordionPrimitive.Content
+            ref={ref}
+            className={cn([
+                'overflow-hidden p-4 text-sm transition-all',
+                className
+            ])}
+            {...props}
+        >
+            <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{
+                    duration: shouldReduceMotion ? 0 : 0.3,
+                    ease: 'easeInOut'
+                }}
+                className={cn([theme === 'dark' ? 'text-white' : 'text-black'])}
+            >
+                {children}
+            </motion.div>
+        </AccordionPrimitive.Content>
+    );
+});
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
 
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

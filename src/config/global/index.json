@@ -56,55 +56,30 @@
                         {
                             "id": 1,
                             "label": "Website Development",
-                            "path": "/services/website-development"
+                            "path": "/website-development"
                         },
                         {
                             "id": 2,
                             "label": "SEO Management",
-                            "path": "/services/seo"
+                            "path": "/seo"
                         },
                         {
                             "id": 3,
                             "label": "Social Media Management",
-                            "path": "/services/social-media"
+                            "path": "/social-media"
                         }
                     ]
-                },
-                {
-                    "id": 2,
-                    "label": "Resources",
-                    "items": [
-                        {
-                            "id": 1,
-                            "label": "Blog",
-                            "path": "/blog"
-                        },
-                        {
-                            "id": 2,
-                            "label": "Case Studies",
-                            "path": "/resources/case-studies"
-                        },
-                        {
-                            "id": 3,
-                            "label": "FAQs",
-                            "path": "/resources/faqs"
-                        }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "label": "Pricing",
-                    "path": "/pricing"
                 },
                 {
                     "id": 4,
-                    "label": "Contact",
-                    "path": "/contact"
+                    "label": "FAQs",
+                    "path": "/faqs"
+                    
                 }
             ],
             "ctaButton": {
                 "text": "Get Started",
-                "link": "/get-started",
+                "link": "/contact",
                 "analytics": {
                     "eventLabel": "Get Started",
                     "eventCategory": "Navbar Interaction",
@@ -232,17 +207,17 @@
                         {
                             "id": 1,
                             "label": "Website Development",
-                            "path": "/services/website-development"
+                            "path": "/website-development"
                         },
                         {
                             "id": 2,
                             "label": "SEO Management",
-                            "path": "/services/seo"
+                            "path": "/seo"
                         },
                         {
                             "id": 3,
                             "label": "Social Media Management",
-                            "path": "/services/social-media"
+                            "path": "/social-media"
                         }
                     ]
                 },
@@ -251,35 +226,9 @@
                     "label": "Resources",
                     "items": [
                         {
-                            "id": 1,
-                            "label": "About",
-                            "path": "/about"
-                        },
-                        {
-                            "id": 2,
-                            "label": "Blog",
-                            "path": "/blog"
-                        },
-                        {
                             "id": 3,
                             "label": "FAQs",
-                            "path": "/resources/faqs"
-                        }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "label": "Additional Resources",
-                    "items": [
-                        {
-                            "id": 1,
-                            "label": "Pricing",
-                            "path": "/pricing"
-                        },
-                        {
-                            "id": 2,
-                            "label": "Contact",
-                            "path": "/contact"
+                            "path": "/faqs"
                         }
                     ]
                 }
@@ -304,16 +253,7 @@
                 }
             ],
             "copyright": "© 2025 RevampMarketing. All rights reserved.",
-            "links": [
-                {
-                    "label": "Privacy Policy",
-                    "path": "/privacy-policy"
-                },
-                {
-                    "label": "Terms",
-                    "path": "/terms"
-                }
-            ]
+            "links": []
         }
     }
 }

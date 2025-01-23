@@ -10,7 +10,7 @@ const TestimonialsLayout: React.FC<ComponentConfig<TestimonialSettings>> = (test
 
     const defaultStyles = {
         wrapper: {
-            layout: "py-16 bg-gradient-to-r from-gray-100 via-white to-gray-100",
+            layout: "py-24 bg-gradient-to-r from-gray-100 via-white to-gray-100",
         },
         container: {
             layout: "max-w-screen-2xl mx-auto px-6 md:px-12",

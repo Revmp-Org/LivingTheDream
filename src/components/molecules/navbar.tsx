@@ -1,9 +1,10 @@
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { buildTailwindClass } from "@/utils";
 import DesktopNavbar from "../atoms/navbar/desktop";
 import MobileNavbar from "../atoms/navbar/mobile";
 import Brand from "./brand";
 import { useSiteConfig } from "@/context/site-config-context";
-import { motion } from "framer-motion";
 
 const Navbar = () => {
     const siteConfigTest = useSiteConfig();
@@ -19,8 +20,8 @@ const Navbar = () => {
 
     const defaultStyles = {
         header: {
-            position: "sticky",
-            top: "top-4",
+            position: "fixed",
+            top: "top-0",
             zIndex: "z-50",
             border: "border",
             padding: "py-2",
@@ -40,17 +41,32 @@ const Navbar = () => {
         },
     };
 
-    const motionVariants = {
-        hidden: { opacity: 0, y: -20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-    };
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Detect scrolling direction
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                setIsVisible(false); // Hide navbar on scroll down
+            } else {
+                setIsVisible(true); // Show navbar on scroll up
+            }
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
 
     return (
         <motion.header
             className={buildTailwindClass(styles.header, defaultStyles.header)}
-            initial="hidden"
-            animate="visible"
-            variants={motionVariants}
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
         >
             <nav className={buildTailwindClass(styles.nav, defaultStyles.nav)}>
                 <div className={buildTailwindClass(styles.container, defaultStyles.container)}>
