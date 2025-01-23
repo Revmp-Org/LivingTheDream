@@ -49,3 +49,5 @@ export function buildTailwindClass(
 
     return mergeStyles(combinedStyles).filter(Boolean).join(" ");
 }
+
+export const isClient = typeof window !== 'undefined';

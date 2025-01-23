@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from "next/dynamic";
 
+const Player = dynamic(
+    () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+    { ssr: false }
+);
 const LogoTransition = ({ onComplete }: { onComplete: () => void }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [player, setPlayer] = useState<any>(null);

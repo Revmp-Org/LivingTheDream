@@ -1,11 +1,17 @@
-import { Autocomplete } from "@/components/atoms/autocomplete";
 import { Button } from "@/components/atoms/button";
 import { Input } from "@/components/atoms/input";
 import { AnimatePresence, motion } from "framer-motion";
 import { useContactForm } from "@/hooks/use-get-started";
 import { buildTailwindClass } from "@/utils";
-import { Player } from "@lottiefiles/react-lottie-player";
+import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
+import { isClient } from '@/utils';
+import { Autocomplete } from "@/components/atoms/autocomplete";
 
+const Player = dynamic(
+    () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+    { ssr: false }
+);
 
 const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, defaultStyles }) => {
     const {
@@ -26,11 +32,17 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
     };
 
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     return (
         <AnimatePresence mode="wait">
 
             {
-                formSubmitted ? (
+                formSubmitted && isMounted ? (
                     <motion.div
                         key="thankYou"
                         variants={thankYouVariants}
@@ -43,22 +55,24 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                         )}
                     >
                         {/* Lottie Animation */}
-                        <motion.div
-                            key="lottieAnimation"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <Player
-                                autoplay
-                                loop={false}
-                                keepLastFrame={true}
-                                speed={1}
-                                src={require("../../../assets/lottie/check-mark-primary.json")}
-                                style={{ width: 100, height: 100 }}
-                            />
-                        </motion.div>
+                        {isClient && (
+                            <motion.div
+                                key="lottieAnimation"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                <Player
+                                    autoplay
+                                    loop={false}
+                                    keepLastFrame={true}
+                                    speed={1}
+                                    src={require("../../../assets/lottie/check-mark-primary.json")}
+                                    style={{ width: 100, height: 100 }}
+                                />
+                            </motion.div>
+                        )}
                         {/* Thank You Message */}
                         <h2
                             className={buildTailwindClass(
