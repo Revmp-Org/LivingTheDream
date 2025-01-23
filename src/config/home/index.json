@@ -99,7 +99,7 @@
                     "isActive": true,
                     "settings": {
                         "text": "Get Started",
-                        "href": "/get-started",
+                        "href": "/contact",
                         "variant": "primary",
                         "analytics": {
                             "eventLabel": "Get Started",
@@ -118,7 +118,7 @@
                     "isActive": true,
                     "settings": {
                         "text": "Learn More",
-                        "href": "#cta",
+                        "href": "/contact",
                         "variant": "secondary",
                         "scroll": false,
                         "analytics": {
@@ -421,7 +421,7 @@
                     "isActive": true,
                     "settings": {
                         "text": "Get Started",
-                        "href": "/get-started",
+                        "href": "/contact",
                         "analytics": {
                             "eventLabel": "Get Started",
                             "eventCategory": "CTA Interaction",
