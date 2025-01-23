@@ -397,7 +397,7 @@
                         "layout": "flex flex-col items-center gap-y-8 lg:flex-row lg:items-start lg:gap-x-16"
                     },
                     "imageContainer": {
-                        "layout": "flex-1 max-w-full lg:max-w-[50%] flex justify-center"
+                        "layout": "flex-1 max-w-full lg:max-w-[50%] flex justify-center mb-4"
                     },
                     "contentContainer": {
                         "layout": "flex-1 max-w-full lg:max-w-[50%] px-4 sm:px-6 lg:px-0 text-center lg:text-left"

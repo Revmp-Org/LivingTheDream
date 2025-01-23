@@ -22,11 +22,25 @@ function App({
 
 export default function MyApp(props: any) {
   const [isLogoTransitionComplete, setIsLogoTransitionComplete] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false); // Ensure client rendering
   const router = useRouter();
 
   useEffect(() => {
+    setIsMounted(true);
+
+    // Detect screen size (only on the client)
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // Set breakpoint for large screens
+    };
+
+    handleResize(); // Run on initial mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     const handleRouteChange = () => {
-      // Prevents the page from scrolling to the top
       window.scrollTo(0, 0);
     };
 
@@ -36,9 +50,12 @@ export default function MyApp(props: any) {
     };
   }, [router.events]);
 
+  // Prevent rendering until client-side logic is applied
+  if (!isMounted) return null;
+
   return (
     <SiteConfigProvider>
-      {!isLogoTransitionComplete ? (
+      {isLargeScreen && !isLogoTransitionComplete ? (
         <LogoTransition onComplete={() => setIsLogoTransitionComplete(true)} />
       ) : (
         <AnimatePresence mode="wait">
@@ -48,7 +65,7 @@ export default function MyApp(props: any) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            onAnimationStart={() => window.scrollTo(0, 0)} // Ensure smooth scroll during animation
+            onAnimationStart={() => window.scrollTo(0, 0)}
           >
             <App {...props} />
           </motion.div>

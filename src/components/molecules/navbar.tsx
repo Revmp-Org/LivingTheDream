@@ -20,8 +20,8 @@ const Navbar = () => {
 
     const defaultStyles = {
         header: {
-            position: "fixed",
-            top: "top-0",
+            position: "sticky",
+            top: "top-4", // Margin top
             zIndex: "z-50",
             border: "border",
             padding: "py-2",
@@ -29,6 +29,7 @@ const Navbar = () => {
             rounded: "rounded-lg",
             margin: "mx-4 md:mx-24",
             background: "bg-white",
+            transition: "transition-all duration-300 ease-in-out", // Smooth transition for fade-out
         },
         nav: {
             maxWidth: "max-w-screen-xl",
@@ -65,7 +66,10 @@ const Navbar = () => {
         <motion.header
             className={buildTailwindClass(styles.header, defaultStyles.header)}
             initial={{ opacity: 1, y: 0 }}
-            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+            animate={{
+                opacity: isVisible ? 1 : 0,
+                y: isVisible ? 0 : -20,
+            }}
             transition={{ duration: 0.3, ease: "easeOut" }}
         >
             <nav className={buildTailwindClass(styles.nav, defaultStyles.nav)}>
