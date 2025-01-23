@@ -84,17 +84,17 @@ export const useContactForm = () => {
         }
 
         try {
-            // const response = await fetch("https://hook.us2.make.com/your-endpoint", {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify(formData),
-            // });
+            const response = await fetch(process.env.NEXT_PUBLIC_WEBHOOK_URL || "", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
 
-            // if (!response.ok) {
-            //     throw new Error("Failed to submit form");
-            // }
+            if (!response.ok) {
+                throw new Error("Failed to submit form");
+            }
 
             setFormSubmitted(true);
             form.reset();

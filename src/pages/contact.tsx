@@ -29,7 +29,7 @@ export default function ContactPage() {
                 padding: "p-4",
             },
             grid: {
-                layout: "grid grid-cols-1 md:grid-cols-2 gap-6",
+                layout: "grid grid-cols-1 gap-6 md:grid-cols-2",
             },
             inputError: {
                 color: "text-red-500",

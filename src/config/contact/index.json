@@ -32,34 +32,7 @@
             }
         },
         "form": {
-            "styles": {
-                "wrapper": {
-                    "padding": "p-4"
-                },
-                "grid": {
-                    "layout": "grid grid-cols-1 md:grid-cols-2 gap-6"
-                },
-                "inputError": {
-                    "color": "text-red-500",
-                    "typography": "text-sm",
-                    "margin": "mt-1"
-                },
-                "buttonContainer": {
-                    "layout": "col-span-2 flex justify-end mt-4"
-                },
-                "button": {
-                    "color": {
-                        "text": "text-white",
-                        "background": "bg-indigo-600",
-                        "hover": "hover:bg-indigo-700"
-                    },
-                    "typography": "font-medium",
-                    "rounded": "rounded-lg",
-                    "padding": "py-3 px-4",
-                    "transition": "transition-colors duration-200",
-                    "disabled": "disabled:opacity-70"
-                }
-            }
+            "styles": {}
         },
         "thankYou": {
             "title": "Thank You!",

@@ -99,7 +99,7 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                         <form onSubmit={handleSubmit}>
                             <motion.div className={buildTailwindClass(formStyles.grid, formDefaultStyles.grid)}>
                                 {/* Input Fields */}
-                                <div>
+                                <div className="col-span-2 md:col-span-1">
                                     <Input
                                         id="contactName"
                                         name="contactName"
@@ -113,7 +113,7 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                                         </p>
                                     )}
                                 </div>
-                                <div>
+                                <div className="col-span-2 md:col-span-1">
                                     <Autocomplete
                                         value={selectedServices.map((service) => service.label).join(", ")}
                                         label="Services You Want"
@@ -131,7 +131,7 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                                         </p>
                                     )}
                                 </div>
-                                <div>
+                                <div className="col-span-2 md:col-span-1">
                                     <Input
                                         id="email"
                                         name="email"
@@ -145,7 +145,7 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                                         </p>
                                     )}
                                 </div>
-                                <div>
+                                <div className="col-span-2 md:col-span-1">
                                     <Input
                                         id="phone"
                                         name="phone"
