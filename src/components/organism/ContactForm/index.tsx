@@ -101,18 +101,18 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                     >
                         <form onSubmit={handleSubmit}>
                             <motion.div className={buildTailwindClass(formStyles.grid, formDefaultStyles.grid)}>
-                                {/* Contact Name */}
+                                {/* Name Field */}
                                 <div className="col-span-2 md:col-span-1">
                                     <Input
-                                        id="contactName"
-                                        name="contactName"
-                                        label="Contact Name"
+                                        id="name"
+                                        name="name"
+                                        label="Full Name"
                                         type="text"
-                                        placeholder="Your Name"
+                                        placeholder="John Smith"
                                     />
-                                    {errors.contactName && (
+                                    {errors.name && (
                                         <p className={buildTailwindClass(formStyles.inputError, formDefaultStyles.inputError)}>
-                                            {errors.contactName}
+                                            {errors.name}
                                         </p>
                                     )}
                                 </div>
@@ -198,7 +198,7 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                                         )}
                                     </div>
 
-                                    <div className="col-span-2">
+                                    {/* <div className="col-span-2">
                                         <Input
                                             id="additionalInfo"
                                             name="additionalInfo"
@@ -212,7 +212,7 @@ const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, de
                                                 {errors.additionalInfo}
                                             </p>
                                         )}
-                                    </div>
+                                    </div> */}
                                 {/* Button Container */}
                                 <div className={buildTailwindClass(formStyles.buttonContainer, formDefaultStyles.buttonContainer)}>
                                     <Button

@@ -26,7 +26,7 @@ export default function ContactPage() {
         },
         form: {
             wrapper: {
-                padding: "p-4",
+                padding: "py-4 px-8",
             },
             grid: {
                 layout: "grid grid-cols-1 gap-6 md:grid-cols-2",

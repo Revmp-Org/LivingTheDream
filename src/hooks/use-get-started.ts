@@ -3,11 +3,12 @@ import { AutocompleteOption } from "@/components/atoms/autocomplete";
 
 export type FormData = {
     services: string[];
-    contactName: string;
+    name: string;  // Full name from form
+    firstName: string; // Split for submission
+    lastName: string;  // Split for submission
     companyName: string;
     email: string;
     phone: string;
-    additionalInfo: string;
     referralSource: string;
 };
 
@@ -42,8 +43,8 @@ export const useContactForm = () => {
             newErrors.services = ["Please select at least one service"];
         }
 
-        if (!formData.contactName.trim()) {
-            newErrors.contactName = "Contact name is required";
+        if (!formData.name.trim()) {
+            newErrors.name = "Name is required";
         }
 
         if (!formData.companyName.trim()) {
@@ -56,14 +57,9 @@ export const useContactForm = () => {
             newErrors.email = "Please enter a valid email address";
         }
 
-        if (!formData.additionalInfo.trim()) {
-            newErrors.additionalInfo = "Please provide additional information";
-        }
-
         if (!formData.referralSource) {
             newErrors.referralSource = "Please select how you heard about us";
         }
-
 
         return newErrors;
     };
@@ -80,20 +76,34 @@ export const useContactForm = () => {
         }
     };
 
+    const splitName = (fullName: string): { firstName: string; lastName: string } => {
+        const nameParts = fullName.trim().split(/\s+/);
+        if (nameParts.length >= 2) {
+            const lastName = nameParts.pop() || '';
+            const firstName = nameParts.join(' ');
+            return { firstName, lastName };
+        }
+        return { firstName: fullName, lastName: '' };
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
         setErrors({});
 
         const form = e.target as HTMLFormElement;
+        const fullName = (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
+        const { firstName, lastName } = splitName(fullName);
+        const services = selectedServices.map((service) => service.label);
 
         const formData: FormData = {
-            services: selectedServices.map((service) => service.label),
-            contactName: (form.elements.namedItem("contactName") as HTMLInputElement)?.value || "",
+            services: services,
+            name: fullName,
+            firstName,
+            lastName,
             companyName: (form.elements.namedItem("companyName") as HTMLInputElement)?.value || "",
             email: (form.elements.namedItem("email") as HTMLInputElement)?.value || "",
             phone: (form.elements.namedItem("phone") as HTMLInputElement)?.value || "",
-            additionalInfo: (form.elements.namedItem("additionalInfo") as HTMLTextAreaElement)?.value || "",
             referralSource: referralSource.length > 0 ? referralSource[0].label : "",
         };
 
