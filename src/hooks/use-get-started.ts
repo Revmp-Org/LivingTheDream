@@ -4,9 +4,11 @@ import { AutocompleteOption } from "@/components/atoms/autocomplete";
 export type FormData = {
     services: string[];
     contactName: string;
+    companyName: string;
     email: string;
     phone: string;
     additionalInfo: string;
+    referralSource: string;
 };
 
 const serviceOptions: AutocompleteOption[] = [
@@ -16,14 +18,25 @@ const serviceOptions: AutocompleteOption[] = [
     { id: "4", label: "Content Creation" },
 ];
 
+export const referralOptions = [
+    { id: "1", label: "Google Search" },
+    { id: "2", label: "Social Media" },
+    { id: "3", label: "Referral" },
+    { id: "4", label: "Online Advertisement" },
+    { id: "5", label: "Other" },
+];
+
 export const useContactForm = () => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState<Partial<FormData>>({});
     const [selectedServices, setSelectedServices] = useState<AutocompleteOption[]>([]);
+    const [referralSource, setReferralSource] = useState<AutocompleteOption[]>([]);
 
     const validateForm = (formData: FormData) => {
         const newErrors: Partial<FormData> = {};
+
+        console.log(formData);
 
         if (formData.services.length === 0) {
             newErrors.services = ["Please select at least one service"];
@@ -31,6 +44,10 @@ export const useContactForm = () => {
 
         if (!formData.contactName.trim()) {
             newErrors.contactName = "Contact name is required";
+        }
+
+        if (!formData.companyName.trim()) {
+            newErrors.companyName = "Company name is required";
         }
 
         if (!formData.email.trim()) {
@@ -43,6 +60,11 @@ export const useContactForm = () => {
             newErrors.additionalInfo = "Please provide additional information";
         }
 
+        if (!formData.referralSource) {
+            newErrors.referralSource = "Please select how you heard about us";
+        }
+
+
         return newErrors;
     };
 
@@ -51,10 +73,8 @@ export const useContactForm = () => {
 
         if (selectedOption) {
             if (selectedServices.some((service) => service.id === selectedOption.id)) {
-                // Remove the option if it's already selected
                 setSelectedServices(selectedServices.filter((service) => service.id !== selectedOption.id));
             } else {
-                // Add the option if it's not selected
                 setSelectedServices([...selectedServices, selectedOption]);
             }
         }
@@ -70,9 +90,11 @@ export const useContactForm = () => {
         const formData: FormData = {
             services: selectedServices.map((service) => service.label),
             contactName: (form.elements.namedItem("contactName") as HTMLInputElement)?.value || "",
+            companyName: (form.elements.namedItem("companyName") as HTMLInputElement)?.value || "",
             email: (form.elements.namedItem("email") as HTMLInputElement)?.value || "",
             phone: (form.elements.namedItem("phone") as HTMLInputElement)?.value || "",
             additionalInfo: (form.elements.namedItem("additionalInfo") as HTMLTextAreaElement)?.value || "",
+            referralSource: referralSource.length > 0 ? referralSource[0].label : "",
         };
 
         const validationErrors = validateForm(formData);
@@ -99,11 +121,19 @@ export const useContactForm = () => {
             setFormSubmitted(true);
             form.reset();
             setSelectedServices([]);
+            setReferralSource([]);
         } catch (err) {
             setErrors({ email: "Something went wrong. Please try again." });
             console.error("Submission error:", err);
         } finally {
             setIsLoading(false);
+        }
+    };
+
+    const handleReferralSourceChange = (id: string) => {
+        const selectedOption = referralOptions.find((option) => option.id === id);
+        if (selectedOption) {
+            setReferralSource([selectedOption]);
         }
     };
 
@@ -115,5 +145,9 @@ export const useContactForm = () => {
         serviceOptions,
         handleServiceSelect,
         handleSubmit,
+        referralSource,
+        setReferralSource,
+        referralOptions,
+        handleReferralSourceChange,
     };
 };
