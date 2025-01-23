@@ -4,8 +4,8 @@ import { Input } from "@/components/atoms/input";
 import { AnimatePresence, motion } from "framer-motion";
 import { useContactForm } from "@/hooks/use-get-started";
 import { buildTailwindClass } from "@/utils";
-import { useEffect, useState } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
+
 
 const ContactForm: React.FC<{ config: any; defaultStyles: any }> = ({ config, defaultStyles }) => {
     const {

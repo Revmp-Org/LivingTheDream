@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@lottiefiles/react-lottie-player':
-        specifier: ^3.6.0
-        version: 3.6.0(react@18.2.0)
+        specifier: ^3.5.0
+        version: 3.5.0(react@18.2.0)
       '@next/font':
         specifier: 13.0.7
         version: 13.0.7
@@ -215,10 +215,10 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@lottiefiles/react-lottie-player@3.6.0':
-    resolution: {integrity: sha512-WK5TriLJT93VF3w4IjSVyveiedraZCnDhKzCPhpbeLgQeMi6zufxa3dXNc4HmAFRXq+LULPAy+Idv1rAfkReMA==}
+  '@lottiefiles/react-lottie-player@3.5.0':
+    resolution: {integrity: sha512-RSlqcq9d204sqmG5ithFYQwxovLP96uj8yY+f2U8WPtdmv4zMvx1C4V4wv5nlcr2drSxvoyykM50YrVDpXjKwQ==}
     peerDependencies:
-      react: 16 - 19
+      react: 16 - 18
 
   '@next/env@13.1.1':
     resolution: {integrity: sha512-vFMyXtPjSAiOXOywMojxfKIqE3VWN5RCAx+tT3AS3pcKjMLFTCJFUWsKv8hC+87Z1F4W3r68qTwDFZIFmd5Xkw==}
@@ -2658,7 +2658,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@lottiefiles/react-lottie-player@3.6.0(react@18.2.0)':
+  '@lottiefiles/react-lottie-player@3.5.0(react@18.2.0)':
     dependencies:
       lottie-web: 5.12.2
       react: 18.2.0
