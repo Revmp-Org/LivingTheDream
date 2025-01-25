@@ -37,8 +37,6 @@ export const useContactForm = () => {
     const validateForm = (formData: FormData) => {
         const newErrors: Partial<FormData> = {};
 
-        console.log(formData);
-
         if (formData.services.length === 0) {
             newErrors.services = ["Please select at least one service"];
         }

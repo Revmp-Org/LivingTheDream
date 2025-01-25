@@ -1,36 +1,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { buildTailwindClass } from "@/utils";
+import { getStyles } from "@/utils";
 import NavLink from "../NavLink";
+import { PageComponentChild } from "@/types";
 
-interface OverviewSectionProps {
-    title: string;
-    description: string;
-    highlight: string;
-    styles?: Record<string, any>;
-    defaultStyles: Record<string, any>;
-    image: string;
-    button: {
-        text: string;
-        link: string;
-        analytics: {
-            eventLabel: string;
-            eventCategory: string;
-            eventAction: string;
-            eventValue: string;
-        }
-    }
-}
-
-const OverviewSection = ({
-    title = "Default Title",
-    description = "Overview paragraph.",
-    highlight = "Highlight sentence.",
-    styles,
-    defaultStyles,
-    image,
-    button
-}: OverviewSectionProps) => {
+const OverviewSection = (overview: PageComponentChild) => {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -41,83 +15,39 @@ const OverviewSection = ({
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     };
 
-    const fadeInRightVariants = {
-        hidden: { opacity: 0, x: -20 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-    };
+    const styles = overview?.settings?.styles;
+    const { title, description, highlight, button, image } = overview?.settings?.content || {};
 
     return (
-        <section
-            className={buildTailwindClass(
-                styles?.wrapper,
-                defaultStyles.wrapper
-            )}
-        >
+        <section className={getStyles("wrapper", styles)}>
             <motion.div
-                className={buildTailwindClass(
-                    styles?.container,
-                    defaultStyles.container
-                )}
+                className={getStyles("container", styles)}
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
             >
                 {/* Text Section */}
                 <motion.div
-                    className={buildTailwindClass(
-                        styles?.textContainer,
-                        defaultStyles.textContainer
-                    )}
-                    variants={fadeInRightVariants}
+                    className={getStyles("textContainer", styles)}
+                    variants={fadeInVariants}
                 >
-                    <motion.h1
-                        className={buildTailwindClass(
-                            styles?.title,
-                            defaultStyles.title
-                        )}
-                        variants={fadeInVariants}
-                    >
-                        {title}
-                    </motion.h1>
-                    <motion.p
-                        className={buildTailwindClass(
-                            styles?.description,
-                            defaultStyles.description
-                        )}
-                        variants={fadeInVariants}
-                    >
-                        {description}
-                    </motion.p>
-                    <motion.p
-                        className={buildTailwindClass(
-                            styles?.highlight,
-                            defaultStyles?.highlight
-                        )}
-                        variants={fadeInVariants}
-                    >
-                        {highlight}
-                    </motion.p>
-
-                    <div className={buildTailwindClass(styles?.buttonWrapper, defaultStyles?.buttonWrapper)}>
+                    <h1 className={getStyles("title", styles)}>{title}</h1>
+                    <p className={getStyles("description", styles)}>{description}</p>
+                    <p className={getStyles("highlight", styles)}>{highlight}</p>
+                    <div className={getStyles("buttonWrapper", styles)}>
                         <NavLink
-                            href={button.link}
-                            className={buildTailwindClass(
-                                styles?.button,
-                                defaultStyles?.button
-                            )}
-                            analytics={button.analytics}
+                            href={button?.link}
+                            className={getStyles("button", styles)}
+                            analytics={button?.analytics}
                         >
-                            {button.text}
+                            {button?.text}
                         </NavLink>
                     </div>
                 </motion.div>
 
                 {/* Image Section */}
                 <motion.div
-                    className={buildTailwindClass(
-                        styles?.imageContainer,
-                        defaultStyles.imageContainer
-                    )}
+                    className={getStyles("imageContainer", styles)}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
@@ -125,7 +55,7 @@ const OverviewSection = ({
                     <Image
                         src={image}
                         alt="Service overview"
-                        className="rounded-lg shadow-md sm:max-w-xs md:max-w-md lg:max-w-xl"
+                        className="rounded-lg shadow-md"
                         width={1000}
                         height={1000}
                     />

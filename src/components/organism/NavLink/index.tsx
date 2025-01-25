@@ -15,7 +15,14 @@ type NavLinkProps = {
     disableMotion?: boolean;
 };
 
-const NavLink = ({ children, href, disableMotion = false, ...props }: NavLinkProps) => {
+const NavLink = ({
+    children,
+    href,
+    disableMotion = false,
+    baseClassName = "",
+    className = "",
+    ...props
+}: NavLinkProps) => {
     const { trackClick } = useGoogleAnalytics();
     const { buttonHover, buttonTap } = useMotionConfig();
 
@@ -36,11 +43,12 @@ const NavLink = ({ children, href, disableMotion = false, ...props }: NavLinkPro
         }
     };
 
+    // Use disableMotion prop to conditionally disable Framer Motion animations
     if (disableMotion) {
         return (
             <Link
                 href={href}
-                className={`${props.baseClassName || ""} ${props.className || ""} py-2.5 px-4 text-center rounded-lg duration-150`}
+                className={`${baseClassName} ${className}`}
                 onClick={handleClick}
             >
                 {children}
@@ -53,7 +61,7 @@ const NavLink = ({ children, href, disableMotion = false, ...props }: NavLinkPro
             <Link
                 href={href}
                 scroll={props.scroll}
-                className={`${props.baseClassName || ""} ${props.className || ""}`}
+                className={`${baseClassName} ${className}`}
                 onClick={handleClick}
             >
                 {children}
@@ -63,4 +71,3 @@ const NavLink = ({ children, href, disableMotion = false, ...props }: NavLinkPro
 };
 
 export default NavLink;
-

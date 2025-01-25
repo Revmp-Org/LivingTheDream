@@ -1,22 +1,85 @@
-import DesktopHero from '@/components/molecules/hero/desktop';
-import MobileHero from '@/components/molecules/hero/mobile';
-import { HeroSettings } from '@/types';
-import { useEffect, useState } from 'react';
-import { ComponentConfig } from '@/types';
-const Hero: React.FC<ComponentConfig<HeroSettings>> = (hero) => {
-    const [isMobile, setIsMobile] = useState(false);
+import { motion } from "framer-motion";
+import NavLink from "@/components/organism/NavLink";
+import { PageComponent, ButtonConfig } from "@/types";
+import { getStyles } from "@/utils";
+import useMotionConfig from "@/hooks/framer-motion";
 
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
+const Hero: React.FC<PageComponent> = (hero) => {
+    const { containerVariants, itemVariants, buttonHover, buttonTap } = useMotionConfig();
 
-        checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+    const { settings, children } = hero;
+    const { styles, content } = settings || {};
 
-    return isMobile ? <MobileHero {...hero} /> : <DesktopHero {...hero} />;
+    return (
+        <motion.section
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className={getStyles("wrapper", styles)}
+        >
+            <div className={getStyles("container", styles)}>
+                <motion.div
+                    className={getStyles("contentContainer", styles)}
+                    variants={containerVariants}
+                >
+                    <motion.h1
+                        className={getStyles("title", styles)}
+                        variants={itemVariants}
+                    >
+                        {content?.title || "Default Title"}
+                    </motion.h1>
+
+                    <motion.p
+                        className={getStyles("description", styles)}
+                        variants={itemVariants}
+                    >
+                        {content?.description || "Default Description"}
+                    </motion.p>
+
+                    <motion.div
+                        className={getStyles("buttonContainer", styles)}
+                        variants={itemVariants}
+                    >
+                        {children &&
+                        Object.keys(children).map((key) => {
+                            const button = children[key];
+                            if (!button || !button.settings) {
+                                console.warn(`Invalid button configuration for key: ${key}`);
+                                return null;
+                            }
+
+                            const buttonSettings = button.settings as ButtonConfig;
+                            const wrapperClass = getStyles("wrapper", buttonSettings.styles);
+
+                                return (
+                                    <motion.div
+                                        key={button.id}
+                                        whileHover={buttonHover}
+                                        whileTap={buttonTap}
+                                        className={wrapperClass.trim()}
+                                    >
+                                        <NavLink
+                                            href={buttonSettings.href || "#"}
+                                            scroll={buttonSettings.scroll || false}
+                                            analytics={buttonSettings.analytics || {
+                                                eventLabel: "Button Click",
+                                                eventCategory: "Hero Section",
+                                                eventAction: "click",
+                                                eventValue: "Button Clicked",
+                                            }}
+                                        >
+                                            {buttonSettings.text || "Default Button"}
+                                        </NavLink>
+                                    </motion.div>
+                                );
+                            })}
+
+                    </motion.div>
+
+                </motion.div>
+            </div>
+        </motion.section>
+    );
 };
 
 export default Hero;

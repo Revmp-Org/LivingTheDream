@@ -13,179 +13,144 @@ export type ComponentSettings =
     | TestimonialSettings;
 
 
-export type StyleAttributes = {
-    text?: string;
+    export type StyleAttributes = {
     padding?: string;
     margin?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    marginTop?: string;
+    marginBottom?: string;
+    marginLeft?: string;
+    marginRight?: string;
+    text?: string;
+    fontSize?: string;
+    fontWeight?: string;
+    lineHeight?: string;
+    letterSpacing?: string;
     background?: string;
+    backgroundColor?: string;
+    hoverBackgroundColor?: string;
+    activeBackgroundColor?: string;
     layout?: string;
-    border?: string;
-    shadow?: string;
+    display?: string;
     width?: string;
     height?: string;
+    minWidth?: string;
+    maxWidth?: string;
+    minHeight?: string;
+    maxHeight?: string;
+    border?: string;
+    borderColor?: string;
+    borderRadius?: string;
+    shadow?: string;
+    boxShadow?: string;
+    flex?: string;
+    justifyContent?: string;
+    alignItems?: string;
+    gap?: string;
+    gridTemplateColumns?: string;
+    transition?: string;
+    transform?: string;
+    hover?: string;
+    active?: string;
+    position?: string;
+    top?: string;
+    right?: string;
+    bottom?: string;
+    left?: string;
+    zIndex?: string;
     custom?: string;
+    [key: string]: string | Record<string, string>;
 };
 
-// Each specific settings type
-export interface HeroSettings {
-    content: {
-        title: string;
-        description: string;
+export type Styles = {
+    default?: Record<string, StyleAttributes>;
+    mobile?: Record<string, StyleAttributes>;
+    desktop?: Record<string, StyleAttributes>;
+    childStyles?: Record<string, StyleAttributes>;
+};
+
+export type AnalyticsConfig = {
+    eventLabel: string;
+    eventCategory: string;
+    eventAction: string;
+    eventValue: string;
+};
+
+export type ComponentSettings = {
+    styles?: Styles;
+    content?: {
+        title?: string;
+        description?: string | string[];
+        highlight?: string;
     };
-    mobile?: HeroDeviceConfig;
-    desktop?: HeroDeviceConfig;
-    buttons?: ButtonConfig[];
-}
-
-export interface HeroDeviceConfig {
-    styles: {
-        wrapper?: Record<string, string>;
-        container?: Record<string, string>;
-        title?: Record<string, string>;
-        contentContainer?: Record<string, string>;
-        description?: Record<string, string>;
-        imageContainer?: Record<string, string>;
-        buttonContainer?: Record<string, string>;
-        button?: {
-            primary?: string;
-            secondary?: string;
-        };
-    };
-}
-
-
-export interface ServiceCardSettings {
-    title: string;
-    description: string;
-    path?: string;
-    carouselImage?: string;
-    styles?: {
-        wrapper?: Record<string, string> | undefined
-        container?: Record<string, string> | undefined
-        imageContainer?: Record<string, string> | undefined
-        contentContainer?: Record<string, string> | undefined
-        title?: Record<string, string> | undefined
-        description?: Record<string, string> | undefined
-        content?: Record<string, string> | undefined
-        buttonContainer?: Record<string, string> | undefined
-        buttonPrev?: Record<string, string> | undefined
-        buttonNext?: Record<string, string> | undefined
-        dotsContainer?: Record<string, string> | undefined
-        dot?: Record<string, string> | undefined
-        dotActive?: Record<string, string> | undefined
-        dotInactive?: Record<string, string> | undefined
-    };
-    childStyles?: {
-        item?: Record<string, string> | undefined
-        imageContainer?: Record<string, string> | undefined
-        textContainer?: Record<string, string> | undefined
-        title?: Record<string, string> | undefined
-        description?: Record<string, string> | undefined
-        link?: Record<string, string> | undefined
-    }
-}
-
-
-export interface CTASettings {
     image?: {
         src: string;
         alt: string;
         className?: string;
     };
-    content?: {
-        title: string;
-        description: string[];
-        highlight?: string;
-    };
-    styles?: {
-        wrapper?: StyleAttributes;
-        container?: StyleAttributes;
-        imageContainer?: StyleAttributes;
-        contentContainer?: StyleAttributes;
-        title?: StyleAttributes;
-        description?: StyleAttributes;
-        buttonContainer?: StyleAttributes;
-    };
-}
-export interface TestimonialSettings {
-    title: string;
-    description: string;
-    avatar: string;
-    name: string;
-    role: string;
-    quote: string;
-    styles?: {
-        wrapper?: StyleAttributes;
-        testimonialWrapper?: StyleAttributes;
-        container?: StyleAttributes;
-        header?: {
-            container?: StyleAttributes;
-            title?: StyleAttributes;
-            description?: StyleAttributes;
-        };
-        list?: StyleAttributes;
-        listItem?: {
-            wrapper?: StyleAttributes;
-            avatarContainer?: StyleAttributes;
-            avatarImage?: StyleAttributes;
-            name?: StyleAttributes;
-            role?: StyleAttributes;
-            quote?: StyleAttributes;
-        };
-    };
-}
+    analytics?: AnalyticsConfig;
+    text?: string;
+    href?: string;
+    variant?: string;
+    scroll?: boolean;
+    avatar?: string;
+    name?: string;
+    role?: string;
+    quote?: string;
+    path?: string;
+    carouselImage?: string;
+};
 
-export type ComponentSettings =
-    | HeroSettings
-    | ServiceCardSettings
-    | CTASettings
-    | TestimonialSettings;
-
-export type ComponentChildSettings =
-    | ButtonConfig
-    | ServiceCardSettings
-    | TestimonialSettings;
-
-export interface ComponentChild {
+export type PageComponentChild = {
     id: string;
-    type: "atom" | "molecule" | "organism";
+    type: string;
     slug: string;
+    contentType?: string;
     isActive: boolean;
-    contentType: "singleton" | "collection";
-    settings: ComponentChildSettings;
-    children: ComponentChild[];
-}
+    settings?: ComponentSettings;
+    children?: Record<string, PageComponentChild>;
+};
 
-export interface ComponentItemType<T extends ComponentSettings> {
+export type PageComponent = {
     id: string;
-    type: "atom" | "molecule" | "organism";
+    type: string;
     slug: string;
+    contentType?: string;
     isActive: boolean;
-    contentType: "singleton" | "collection";
-    settings: T;
-    children: ComponentChild[];
-}
-
-export interface ComponentConfig<T = ComponentSettings> {
-    visible: boolean;
-    config: T | null;
-    children: ComponentChild[];
-}
-
-
-export interface SEOConfig {
-    title: string;
-    description: string;
-    keywords: string[];
-    canonical: string;
-    structuredData: {
-        "@context": string;
-        "@type": string;
-        name: string;
-        description: string;
-        url: string;
+    settings: {
+        seo?: SEOConfig;
+        styles?: Styles;
+        content?: {
+            title?: string;
+            description?: string | string[];
+            highlight?: string;
+        };
+        image?: {
+            src: string;
+            alt: string;
+            className?: string;
+        };
     };
-}
+    children: Record<string, PageComponentChild>;
+};
+
+type Page = {
+    id: string;
+    created: string;
+    updated: string;
+    websiteId: string;
+    title: string;
+    slug: string;
+    description: string;
+    seo: SEO;
+    isActive: boolean;
+    pageComponents: Record<string, PageComponent>;
+    styles?: StylesType;
+};
+
 export interface AnalyticsConfig {
     eventLabel: string;
     eventCategory: string;
@@ -202,16 +167,14 @@ export interface ComponentChild {
     children: ComponentChild[];
 }
 
-// Structure for a page component
 export interface PageComponent extends ComponentChild {
-    type: "organism"; // Override for top-level components
+    type: "organism";
 }
 
-// Structure for a page configuration
 export interface PageConfig {
     id: string;
-    created: string; // ISO timestamp
-    updated: string; // ISO timestamp
+    created: string;
+    updated: string;
     websiteId: string;
     title: string;
     slug: string;
@@ -227,26 +190,6 @@ export interface DocumentConfig {
     body: Record<string, any>;
     html: Record<string, any>;
     analytics: Record<string, any>;
-}
-
-export interface FooterConfig {
-    cta?: Record<string, any>;
-    copyright?: string;
-    social?: {
-        key?: string;
-        value?: string;
-    }[];
-    navigation?: NavigationItem[];
-    styles?: Record<string, any>;
-    links?: {
-        label?: string;
-        path?: string;
-    }[];
-    address?: {
-        line1?: string;
-        line2?: string;
-        country?: string;
-    };
 }
 
 export interface LayoutConfig {
@@ -273,32 +216,13 @@ export interface Logo {
     };
 }
 
-export interface NavbarConfig {
-    logo?: Logo;
-    ctaButton?: {
-        text?: string;
-        link?: string;
-        analytics?: AnalyticsConfig;
-    };
-    settings?: {
-        styles?: Record<string, any>;
-        desktop?: {
-            styles?: Record<string, any>;
-        };
-        mobile?: {
-            styles?: Record<string, any>;
-        };
-    };
-    navigation?: NavigationItem[];
-}
-
 export interface GlobalConfig {
     layout?: LayoutConfig;
     html?: Record<string, any>;
     body?: Record<string, any>;
     analytics?: Record<string, any>;
-    navbar?: NavbarConfig;
-    footer?: FooterConfig;
+    navbar?: PageComponent;
+    footer?: PageComponent;
 }
 
 export interface GlobalConfigType {
@@ -307,14 +231,6 @@ export interface GlobalConfigType {
     updated: string;
     websiteId: string;
     global: GlobalConfig;
-}
-export interface WebsiteConfig {
-    id?: string;
-    isLive?: boolean;
-    name?: string;
-    publishedAt?: string | null;
-    status?: 'published' | 'draft';
-    version?: number;
 }
 
 export interface ComponentConfig {
@@ -337,11 +253,6 @@ export interface PageConfig {
         };
     };
     components?: { [key: string]: ComponentConfig };
-}
-
-export interface PagesConfig {
-    home: PageConfig;
-    [key: string]: PageConfig;
 }
 
 export interface SiteConfigProviderProps {
@@ -389,27 +300,13 @@ export interface Testimonial {
     quote?: string;
 }
 
-export type ServiceConfig = {
-    title?: string;
-    desc?: string;
-    carouselImage?: string;
-    icon?: string;
-    path?: string
-}
-
-export type AnalyticsConfig = {
-    eventLabel?: string;
-    eventCategory?: string;
-    eventAction?: string;
-    eventValue?: string;
-}
-
 export type ButtonConfig = {
     text?: string;
     href?: string;
     variant?: 'primary' | 'secondary';
     analytics?: AnalyticsConfig;
     scroll?: boolean;
+    styles?: StylesType;
 }
 
 export interface NavigationSubItem {

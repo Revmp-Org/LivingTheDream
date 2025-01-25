@@ -3,25 +3,21 @@ import { useState } from "react";
 import Brand from "../../molecules/brand";
 import NavLink from "../../organism/NavLink";
 import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
-import { buildTailwindClass } from "@/utils";
+import { getStyles } from "@/utils";
 import { FiMenu, FiX } from "react-icons/fi";
-import { AnalyticsConfig, Logo, NavigationItem } from "@/types";
+import { NavigationItem, PageComponentChild } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MobileNavbar = ({
     navigation,
     styles,
     ctaButton,
-    logo,
+    brand,
 }: {
     navigation: NavigationItem[];
     styles: Record<string, any>;
-    ctaButton?: {
-        text?: string;
-        link?: string;
-        analytics?: AnalyticsConfig;
-    };
-    logo?: Logo;
+    ctaButton?: PageComponentChild;
+    brand: any;
 }) => {
     const { push } = useRouter();
     const [state, setState] = useState(false);
@@ -31,21 +27,8 @@ const MobileNavbar = ({
         document.body.classList.remove("overflow-hidden");
         setState(false);
     };
-
-    const defaultStyles: Record<string, any> = {
-        toggleButton: {
-            color: "text-gray-500 hover:text-gray-800",
-            transition: "transition-colors duration-200",
-            layout: "block lg:hidden",
-        },
-        navButton: {
-            layout: "block w-full text-center",
-            text: "text-white bg-primary hover:bg-primary-light active:bg-primary-dark",
-            rounded: "rounded-md",
-            padding: "px-6 py-3",
-            transition: "transition-colors duration-200",
-        },
-    };
+    const toggleButtonStyles = getStyles("toggleButton", styles);
+    const navButtonStyles = getStyles("navButton", styles);
 
     const menuVariants = {
         hidden: { opacity: 0, x: "100%" },
@@ -64,10 +47,7 @@ const MobileNavbar = ({
             {/* Toggle Button */}
             <button
                 aria-label="Toggle menu"
-                className={buildTailwindClass(
-                    styles.toggleButton || {},
-                    defaultStyles.toggleButton
-                )}
+                className={toggleButtonStyles}
                 onClick={() => {
                     setState(true);
                     document.body.classList.add("overflow-hidden");
@@ -100,7 +80,7 @@ const MobileNavbar = ({
                         >
                             {/* Header */}
                             <div className="flex items-center justify-between p-6 border-b">
-                                <Brand logo={logo || {}} />
+                                <Brand brand={brand} />
                                 <button
                                     aria-label="Close menu"
                                     className="text-gray-500 hover:text-gray-800"
@@ -161,20 +141,17 @@ const MobileNavbar = ({
                                 ))}
                                 <div className="mt-8">
                                     <NavLink
-                                        href={ctaButton?.link || "/get-started"}
-                                        analytics={ctaButton?.analytics || {
+                                        href={ctaButton?.settings?.content?.link || "/get-started"}
+                                        analytics={ctaButton?.settings?.analytics || {
                                             eventLabel: "Get Started",
                                             eventCategory: "Mobile Nav",
                                             eventAction: "link_click",
                                             eventValue: "Get Started",
                                         }}
-                                        className={buildTailwindClass(
-                                            styles.navButton || {},
-                                            defaultStyles.navButton
-                                        )}
+                                        className={navButtonStyles}
                                         onClick={handleState}
                                     >
-                                        {ctaButton?.text || "Get Started"}
+                                        {ctaButton?.settings?.content?.ctaButton?.text || "Get Started"}
                                     </NavLink>
                                 </div>
                             </div>

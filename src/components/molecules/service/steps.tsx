@@ -1,28 +1,30 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import { Styles } from "@/types";
+import { getStyles } from "@/utils";
 
-const StepSection = ({
-    step,
-}: {
-    step: {
-        title: string;
-        description: string;
-        image: string;
-        index: number;
-        points: string[];
-    };
-}) => {
+type StepSectionType = {
+    index: number;
+    title: string;
+    description: string;
+    image: string;
+    points: string[];
+};
+
+const StepSection: React.FC<{ stepSection: StepSectionType; styles: Styles }> = ({ stepSection, styles }) => {
     const ref = useRef(null);
     const inView = useInView(ref, { amount: 0.3, once: true });
 
+    const { index, title, description, image, points } = stepSection;
+
     const textVariants = {
-        hidden: { opacity: 0, x: step.index % 2 === 0 ? 50 : -50 },
+        hidden: { opacity: 0, x: index % 2 === 0 ? 50 : -50 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
     };
 
     const imageVariants = {
-        hidden: { opacity: 0, x: step.index % 2 === 0 ? -50 : 50 },
+        hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
     };
 
@@ -34,65 +36,62 @@ const StepSection = ({
             transition: { duration: 0.5, ease: "easeIn", delay: 0.2 },
         },
     };
+
     return (
-        <section ref={ref} className={`py-16 bg-gradient-to-b from-gray-100 to-gray-200`}>
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
+        <section ref={ref} className={getStyles("wrapper", styles)}>
+            <div className={getStyles("container", styles)}>
                 <div
-                    className={`flex flex-col lg:flex-row items-center gap-12 ${step.index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                    className={`${getStyles("stepLayout", styles)} ${index % 2 === 1 ? "lg:flex-row-reverse" : ""
                         }`}
                 >
                     {/* Image Section */}
                     <motion.div
-                        className="lg:w-1/2"
+                        className={getStyles("stepImageContainer", styles)}
                         initial="hidden"
                         animate={inView ? "visible" : "hidden"}
                         variants={imageVariants}
                     >
-                        <div className="rounded-lg overflow-hidden shadow-xl border-4 border-primary">
+                        <div className={getStyles("stepImageWrapper", styles)}>
                             <Image
-                                src={step.image}
-                                alt={step.title}
-                                width={600}
-                                height={400}
-                                className="object-cover"
+                                src={image}
+                                alt={title}
+                                width={1200}
+                                height={800}
+                                className="object-cover w-full"
                             />
                         </div>
                     </motion.div>
 
                     {/* Text Section */}
                     <motion.div
-                        className="lg:w-1/2 space-y-6 text-center lg:text-left"
+                        className={getStyles("stepTextContainer", styles)}
                         initial="hidden"
                         animate={inView ? "visible" : "hidden"}
                         variants={textVariants}
                     >
-                        <h2 className="text-3xl font-extrabold text-primary">
-                            {step.title}
-                        </h2>
-                        <p className="text-lg text-gray-700 leading-relaxed">
-                            {step.description}
-                        </p>
-                        {step.points && step.points.length > 0 && (
+                        <h2 className={getStyles("stepTitle", styles)}>{title}</h2>
+                        <p className={getStyles("stepDescription", styles)}>{description}</p>
+                        {points && points.length > 0 && (
                             <motion.ul
-                                className="text-gray-800 text-base leading-relaxed space-y-4 list-none"
+                                className={getStyles("stepPoints", styles)}
                                 initial="hidden"
                                 animate={inView ? "visible" : "hidden"}
                                 variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
                             >
-                                {step.points.map((point, idx) => (
+                                {points.map((point: string, idx: number) => (
                                     <motion.li
                                         key={idx}
-                                        className="flex items-center text-left space-x-3"
+                                        className={getStyles("stepBulletWrapper", styles)}
                                         variants={bulletVariants}
                                     >
-                                        <div className="w-6 h-6 flex items-center justify-center bg-primary text-white rounded-full shadow-md">
+                                        <div className={getStyles("stepBullet", styles)}>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 strokeWidth={2}
                                                 stroke="currentColor"
-                                                className="w-4 h-4"
+                                                className={getStyles("stepBulletIcon", styles)}
                                             >
                                                 <path
                                                     strokeLinecap="round"

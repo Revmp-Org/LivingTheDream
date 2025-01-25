@@ -1,8 +1,11 @@
 {
     "id": "contact-page",
+    "created": "2025-01-01T00:00:00Z",
+    "updated": "2025-01-01T01:00:00Z",
+    "websiteId": "website-id-123",
     "title": "Contact Us",
-    "description": "Reach out to us with your requirements and we’ll get back to you!",
     "slug": "contact",
+    "description": "Reach out to us with your requirements and we’ll get back to you!",
     "seo": {
         "title": "Contact Us - Revamp Marketing",
         "description": "Reach out to Revamp Marketing for expert guidance and solutions tailored to your business needs.",
@@ -11,49 +14,131 @@
             "marketing",
             "services"
         ],
-        "canonical": "https://example.com/contact"
+        "canonical": "https://example.com/contact",
+        "structuredData": {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Us - Revamp Marketing",
+            "description": "Reach out to Revamp Marketing for expert guidance and solutions tailored to your business needs.",
+            "url": "https://example.com/contact"
+        }
     },
-    "components": {
-        "header": {
-            "title": "Contact Us",
-            "subtitle": "Have questions or need assistance? Fill out the form below, and we'll get back to you promptly.",
-            "styles": {
-                "wrapper": {
-                    "margin": "mb-8"
-                },
-                "title": {
-                    "color": "text-gray-800",
-                    "typography": "text-3xl font-semibold"
-                },
-                "subtitle": {
-                    "color": "text-gray-600",
-                    "margin": "mt-2"
-                }
+    "styles": {
+        "default": {
+            "container": {
+                "padding": "px-8"
             }
+        }
+    },
+    "isActive": true,
+    "pageComponents": {
+        "header": {
+            "id": "component-header",
+            "type": "organism",
+            "contentType": "singleton",
+            "slug": "header",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "container": {
+                            "marginTop": "mt-12",
+                            "marginBottom": "mb-16",
+                            "padding": "px-8"
+                        },
+                        "titleWrapper": {
+                            "marginBottom": "mb-8",
+                            "paddingLeft": "pl-4"
+                        },
+                        "title": {
+                            "color": "text-gray-800",
+                            "typography": "text-3xl font-semibold"
+                        },
+                        "subtitle": {
+                            "color": "text-gray-600",
+                            "margin": "mt-2"
+                        }
+                    }
+                },
+                "content": {
+                    "title": "Contact Us",
+                    "subtitle": "Have questions or need assistance? Fill out the form below, and we'll get back to you promptly."
+                }
+            },
+            "children": {}
         },
         "form": {
-            "styles": {}
+            "id": "component-form",
+            "type": "organism",
+            "contentType": "singleton",
+            "slug": "form",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-4 px-8"
+                        },
+                        "grid": {
+                            "layout": "grid grid-cols-1 gap-6 md:grid-cols-2"
+                        },
+                        "inputError": {
+                            "color": "text-red-500",
+                            "typography": "text-sm",
+                            "margin": "mt-1"
+                        },
+                        "buttonContainer": {
+                            "layout": "col-span-2 flex justify-end mt-4"
+                        },
+                        "button": {
+                            "color": {
+                                "text": "text-white",
+                                "background": "bg-indigo-600",
+                                "hover": "hover:bg-indigo-700"
+                            },
+                            "typography": "font-medium",
+                            "rounded": "rounded-lg",
+                            "padding": "py-3 px-4",
+                            "transition": "transition-colors duration-200",
+                            "disabled": "disabled:opacity-70"
+                        }
+                    }
+                }
+            },
+            "children": {}
         },
         "thankYou": {
-            "title": "Thank You!",
-            "message": "Your form has been submitted. We will get in touch with you shortly.",
-            "styles": {
-                "wrapper": {
-                    "padding": "p-8",
-                    "alignment": "text-center flex flex-col pt-16",
-                    "minHeight": "min-h-[500px]"
+            "id": "component-thank-you",
+            "type": "organism",
+            "contentType": "singleton",
+            "slug": "thank-you",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "p-8",
+                            "alignment": "text-center flex flex-col pt-16",
+                            "minHeight": "min-h-[500px]"
+                        },
+                        "title": {
+                            "color": "text-gray-800",
+                            "typography": "text-3xl font-semibold",
+                            "margin": "mt-4"
+                        },
+                        "message": {
+                            "color": "text-gray-600",
+                            "typography": "text-lg",
+                            "margin": "mt-2"
+                        }
+                    }
                 },
-                "title": {
-                    "color": "text-gray-800",
-                    "typography": "text-3xl font-semibold",
-                    "margin": "mt-4"
-                },
-                "message": {
-                    "color": "text-gray-600",
-                    "typography": "text-lg",
-                    "margin": "mt-2"
+                "content": {
+                    "title": "Thank You!",
+                    "message": "Your form has been submitted. We will get in touch with you shortly."
                 }
-            }
+            },
+            "children": {}
         }
     }
 }

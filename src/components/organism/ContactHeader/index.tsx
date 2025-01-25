@@ -1,16 +1,16 @@
-import { buildTailwindClass } from "@/utils";
+import { getStyles } from "@/utils";
 
-const ContactHeader: React.FC<{ config: any; defaultStyles: any }> = ({ config, defaultStyles }) => {
-    const styles = config.header.styles;
+const ContactHeader: React.FC<{ config: any }> = ({ config }) => {
+    const styles = config.settings.styles;
+
+    const titleWrapperStyles = getStyles("titleWrapper", styles);
+    const titleStyles = getStyles("title", styles);
+    const subtitleStyles = getStyles("subtitle", styles);
 
     return (
-        <div className={buildTailwindClass(styles.wrapper, defaultStyles.wrapper)}>
-            <h1 className={buildTailwindClass(styles.title, defaultStyles.title)}>
-                {config.header.title}
-            </h1>
-            <p className={buildTailwindClass(styles.subtitle, defaultStyles.subtitle)}>
-                {config.header.subtitle}
-            </p>
+        <div className={titleWrapperStyles}>
+            <h1 className={titleStyles}>{config.settings.content.title}</h1>
+            <p className={subtitleStyles}>{config.settings.content.subtitle}</p>
         </div>
     );
 };

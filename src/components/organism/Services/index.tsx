@@ -1,18 +1,14 @@
 import Carousel from "@/components/molecules/carousel";
 import SectionWrapper from "../../SectionWrapper";
-import { ComponentConfig,ServiceCardSettings } from "@/types";
-import { buildTailwindClass } from "@/utils";
+import { PageComponent } from "@/types";
+import { getStyles } from "@/utils";
 
-const Services: React.FC<ComponentConfig<ServiceCardSettings>> = (services) => {
-    const styles = services.config?.styles;
+const Services: React.FC<PageComponent> = (services) => {
+    const { settings } = services;
+    const styles = settings?.styles;
 
-    const defaultStyles = {
-        wrapper: {
-            background: "bg-gray-50"
-        }
-    }
     return (
-        <SectionWrapper className={buildTailwindClass(styles?.wrapper, defaultStyles.wrapper)}>
+        <SectionWrapper className={getStyles("wrapper", styles)}>
             <div>
                 <Carousel {...services} />
             </div>

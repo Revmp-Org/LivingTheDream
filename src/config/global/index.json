@@ -34,226 +34,386 @@
             }
         },
         "navbar": {
-            "logo": {
-                "mobile": {
-                    "src": "https://cdn.revampmarketing.net/logo-small.png",
-                    "alt": "Revamp Marketing Logo",
-                    "width": 50,
-                    "height": 50
-                },
-                "desktop": {
-                    "src": "https://cdn.revampmarketing.net/logo-large-light.svg",
-                    "alt": "Revamp Marketing Logo",
-                    "width": 250,
-                    "height": 100
-                }
-            },
-            "navigation": [
-                {
-                    "id": 1,
-                    "label": "Services",
-                    "items": [
-                        {
-                            "id": 1,
-                            "label": "Website Development",
-                            "path": "/website-development"
-                        },
-                        {
-                            "id": 2,
-                            "label": "SEO Management",
-                            "path": "/seo"
-                        },
-                        {
-                            "id": 3,
-                            "label": "Social Media Management",
-                            "path": "/social-media"
-                        }
-                    ]
-                },
-                {
-                    "id": 4,
-                    "label": "FAQs",
-                    "path": "/faqs"
-                    
-                }
-            ],
-            "ctaButton": {
-                "text": "Get Started",
-                "link": "/contact",
-                "analytics": {
-                    "eventLabel": "Get Started",
-                    "eventCategory": "Navbar Interaction",
-                    "eventAction": "link_click",
-                    "eventValue": "Get Started"
-                }
-            },
+            "id": "component-navbar",
+            "type": "organism",
+            "slug": "navbar",
+            "isActive": true,
             "settings": {
                 "styles": {
-                    "header": {
-                        "position": "sticky",
-                        "top": "top-4",
-                        "zIndex": "z-50",
-                        "border": "border",
-                        "padding": "py-2",
-                        "shadow": "shadow-lg",
-                        "rounded": "rounded-lg",
-                        "margin": "mx-4 md:mx-24",
-                        "background": "bg-white"
-                    },
-                    "nav": {
-                        "maxWidth": "max-w-screen-xl",
-                        "centered": "mx-auto"
-                    },
-                    "container": {
-                        "layout": "flex items-center justify-between",
-                        "padding": "py-5 px-6",
-                        "rounded": "rounded-lg"
-                    }
-                },
-                "desktop": {
-                    "styles": {
-                        "list": {
-                            "display": "hidden lg:flex",
-                            "alignment": "items-center justify-end",
-                            "spacing": "space-x-8"
+                    "default": {
+                        "header": {
+                            "position": "sticky",
+                            "top": "top-4",
+                            "zIndex": "z-50",
+                            "border": "border",
+                            "padding": "py-2",
+                            "shadow": "shadow-lg",
+                            "rounded": "rounded-lg",
+                            "margin": "mx-4 md:mx-24",
+                            "background": "bg-white",
+                            "transition": "transition-all duration-300 ease-in-out"
                         },
-                        "listItem": {
-                            "position": "relative",
-                            "group": "group"
+                        "nav": {
+                            "maxWidth": "max-w-screen-xl",
+                            "centered": "mx-auto"
                         },
-                        "title": {
-                            "text": "text-md text-gray-800",
-                            "cursor": "cursor-pointer",
-                            "inline": "inline-block relative",
-                            "underline": "after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-[#18CB96] after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
-                        },
-                        "dropdown": {
-                            "container": "absolute left-0 top-full mt-2 bg-white shadow-md rounded-md p-3 w-60 z-10",
-                            "transition": "transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible"
-                        },
-                        "dropdownItem": {
-                            "padding": "p-2",
-                            "alignment": "flex items-center",
-                            "text": "text-gray-700",
-                            "cursor": "cursor-pointer",
-                            "rounded": "rounded-md",
-                            "hover": "hover:bg-gray-100"
-                        },
-                        "button": {
-                            "text": "text-white",
-                            "background": "bg-primary hover:bg-primary-light",
-                            "rounded": "rounded-md",
-                            "padding": "px-6 py-3",
-                            "cursor": "cursor-pointer",
-                            "transition": "transition-colors duration-200"
+                        "container": {
+                            "layout": "flex items-center justify-between",
+                            "padding": "py-5 px-6",
+                            "rounded": "rounded-lg"
                         }
                     }
                 }
             },
-            "mobile": {
-                "toggleButton": {
-                    "color": "text-gray-500 hover:text-gray-800",
-                    "transition": "transition-colors duration-200",
-                    "layout": "block lg:hidden"
+            "children": {
+                "desktopNavbar": {
+                    "id": "component-desktop-navbar",
+                    "type": "molecule",
+                    "slug": "desktop-navbar",
+                    "isActive": true,
+                    "settings": {
+                        "content": {
+                            "navigation": [
+                                {
+                                    "id": 1,
+                                    "label": "Services",
+                                    "items": [
+                                        {
+                                            "id": 1,
+                                            "label": "Website Development",
+                                            "path": "/website-development"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "label": "SEO Management",
+                                            "path": "/seo"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "label": "Social Media Management",
+                                            "path": "/social-media"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 4,
+                                    "label": "FAQs",
+                                    "path": "/faqs"
+                                }
+                            ]
+                        },
+                        "styles": {
+                            "default": {
+                                "list": {
+                                    "display": "hidden lg:flex",
+                                    "alignment": "items-center justify-end",
+                                    "spacing": "space-x-8"
+                                },
+                                "listItem": {
+                                    "position": "relative",
+                                    "group": "group"
+                                },
+                                "title": {
+                                    "text": "text-md text-gray-800",
+                                    "cursor": "cursor-pointer",
+                                    "inline": "inline-block relative",
+                                    "underline": "after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-[#18CB96] after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
+                                },
+                                "dropdown": {
+                                    "container": "absolute left-0 top-full mt-2 bg-white shadow-md rounded-md p-3 w-60 z-10",
+                                    "transition": "transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible"
+                                },
+                                "dropdownItem": {
+                                    "padding": "p-2",
+                                    "alignment": "flex items-center",
+                                    "text": "text-gray-700",
+                                    "cursor": "cursor-pointer",
+                                    "rounded": "rounded-md",
+                                    "hover": "hover:bg-gray-100"
+                                },
+                                "button": {
+                                    "text": "text-white",
+                                    "background": "bg-primary hover:bg-primary-light",
+                                    "rounded": "rounded-md",
+                                    "padding": "px-6 py-2.5",
+                                    "cursor": "cursor-pointer",
+                                    "transition": "transition-colors duration-200"
+                                }
+                            }
+                        }
+                    }
                 },
-                "menuContainer": {
-                    "position": "fixed inset-0 top-0 bg-white lg:hidden",
-                    "transition": "transition-transform duration-300",
-                    "layout": "flex flex-col h-full"
+                "mobileNavbar": {
+                    "id": "component-mobile-navbar",
+                    "type": "molecule",
+                    "slug": "mobile-navbar",
+                    "isActive": true,
+                    "settings": {
+                        "content": {
+                            "navigation": [
+                                {
+                                    "id": 1,
+                                    "label": "Services",
+                                    "items": [
+                                        {
+                                            "id": 1,
+                                            "label": "Website Development",
+                                            "path": "/website-development"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "label": "SEO Management",
+                                            "path": "/seo"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "label": "Social Media Management",
+                                            "path": "/social-media"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 4,
+                                    "label": "FAQs",
+                                    "path": "/faqs"
+                                }
+                            ]
+                        },
+                        "styles": {
+                            "default": {
+                                "toggleButton": {
+                                    "color": "text-gray-500 hover:text-gray-800",
+                                    "transition": "transition-colors duration-200",
+                                    "layout": "block lg:hidden"
+                                },
+                                "navButton": {
+                                    "layout": "block w-full text-center",
+                                    "text": "text-white bg-primary hover:bg-primary-light active:bg-primary-dark",
+                                    "rounded": "rounded-md",
+                                    "padding": "px-6 py-3",
+                                    "transition": "transition-colors duration-200"
+                                }
+                            }
+                        }
+                    }
                 },
-                "menuContent": {
-                    "layout": "flex-1 overflow-y-auto px-6 py-8"
+                "brand": {
+                    "id": "component-brand",
+                    "type": "atom",
+                    "slug": "brand",
+                    "isActive": true,
+                    "settings": {
+                        "content": {
+                            "logo": {
+                                "mobile": {
+                                    "src": "https://cdn.revampmarketing.net/logo-small.png",
+                                    "alt": "Revamp Marketing Logo",
+                                    "width": 50,
+                                    "height": 50
+                                },
+                                "desktop": {
+                                    "src": "https://cdn.revampmarketing.net/logo-large-light.svg",
+                                    "alt": "Revamp Marketing Logo",
+                                    "width": 250,
+                                    "height": 100
+                                }
+                            }
+                        },
+                        "styles": {
+                            "default": {
+                                "text": "text-white",
+                                "background": "bg-primary hover:bg-primary-light active:bg-primary-dark",
+                                "padding": "px-6 py-3",
+                                "rounded": "rounded-md",
+                                "transition": "transition-colors duration-200"
+                            }
+                        }
+                    }
                 },
-                "menuVisible": {
-                    "transform": "translate-x-0"
-                },
-                "menuHidden": {
-                    "transform": "translate-x-full"
-                },
-                "header": {
-                    "layout": "flex items-center justify-between",
-                    "padding": "p-6",
-                    "border": "border-b"
-                },
-                "itemGroup": {
-                    "container": "mb-6",
-                    "title": "text-lg font-semibold text-gray-800 mb-4",
-                    "itemList": "space-y-3 pl-4"
-                },
-                "listItem": {
-                    "text": "p-3 text-gray-700",
-                    "hover": "hover:bg-gray-100 active:bg-gray-200",
-                    "rounded": "rounded-md",
-                    "transition": "transition-colors duration-200"
-                },
-                "navButton": {
-                    "layout": "block w-full text-center",
-                    "text": "text-white bg-primary hover:bg-primary-light active:bg-primary-dark",
-                    "rounded": "rounded-md",
-                    "padding": "px-6 py-3",
-                    "transition": "transition-colors duration-200"
-                },
-                "ctaButtonContainer": {
-                    "marginTop": "mt-8"
+                "ctaButton": {
+                    "id": "component-cta-button",
+                    "type": "atom",
+                    "slug": "cta-button",
+                    "isActive": true,
+                    "settings": {
+                        "content": {
+                            "text": "Get Started",
+                            "link": "/contact",
+                            "analytics": {
+                                "event": "cta_click",
+                                "label": "Contact Us",
+                                "category": "Navbar Interaction",
+                                "action": "link_click"
+                            }
+                        },
+                        "styles": {
+                            "default": {
+                                "button": {
+                                    "text": "text-white",
+                                    "background": "bg-primary hover:bg-primary-light active:bg-primary-dark",
+                                    "padding": "px-6 py-3",
+                                    "rounded": "rounded-md",
+                                    "transition": "transition-colors duration-200"
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
         "footer": {
-            "navigation": [
-                {
-                    "id": 1,
-                    "label": "Services",
-                    "items": [
-                        {
-                            "id": 1,
-                            "label": "Website Development",
-                            "path": "/website-development"
+            "id": "component-footer",
+            "type": "organism",
+            "slug": "footer",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "background": "bg-gray-900",
+                            "textColor": "text-white",
+                            "padding": "py-10"
                         },
-                        {
-                            "id": 2,
-                            "label": "SEO Management",
-                            "path": "/seo"
+                        "container": {
+                            "layout": "max-w-screen-xl mx-auto px-6 md:px-12"
                         },
-                        {
-                            "id": 3,
-                            "label": "Social Media Management",
-                            "path": "/social-media"
+                        "topSection": {
+                            "layout": "flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-gray-800 pb-8"
+                        },
+                        "bottomSection": {
+                            "layout": "flex flex-col md:flex-row justify-between items-center mt-8 text-sm text-gray-500"
                         }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "label": "Resources",
-                    "items": [
-                        {
-                            "id": 3,
-                            "label": "FAQs",
-                            "path": "/faqs"
-                        }
-                    ]
+                    }
                 }
-            ],
-            "address": {
-                "line1": "123 Revamp St",
-                "line2": "Marketing City, NY 12345",
-                "country": "USA"
             },
-            "social": [
-                {
-                    "key": "facebook",
-                    "value": "https://facebook.com"
+            "children": {
+                "logo": {
+                    "id": "component-footer-logo",
+                    "type": "atom",
+                    "slug": "footer-logo",
+                    "isActive": true,
+                    "settings": {
+                        "content": {
+                            "src": "https://cdn.revampmarketing.net/logo-small.png",
+                            "alt": "Revamp Marketing Footer Logo",
+                            "width": 100,
+                            "height": 50
+                        },
+                        "styles": {
+                            "default": {
+                                "layout": "w-auto h-16 md:h-20 object-contain"
+                            }
+                        }
+                    }
                 },
-                {
-                    "key": "twitter",
-                    "value": "https://twitter.com"
+                "navigation": {
+                    "id": "component-footer-navigation",
+                    "type": "molecule",
+                    "slug": "footer-navigation",
+                    "isActive": true,
+                    "settings": {
+                        "content": {
+                            "sections": [
+                                {
+                                    "id": 1,
+                                    "label": "Services",
+                                    "items": [
+                                        {
+                                            "id": 1,
+                                            "label": "Website Development",
+                                            "path": "/website-development"
+                                        },
+                                        {
+                                            "id": 2,
+                                            "label": "SEO Management",
+                                            "path": "/seo"
+                                        },
+                                        {
+                                            "id": 3,
+                                            "label": "Social Media Management",
+                                            "path": "/social-media"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 2,
+                                    "label": "Resources",
+                                    "items": [
+                                        {
+                                            "id": 3,
+                                            "label": "FAQs",
+                                            "path": "/faqs"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "styles": {
+                            "default": {
+                                "container": {
+                                    "layout": "flex flex-wrap gap-12"
+                                },
+                                "title": {
+                                    "text": "text-lg font-semibold mb-2 text-gray-200 tracking-wide"
+                                },
+                                "link": {
+                                    "text": "text-gray-400 hover:text-white transition-all duration-200 text-base"
+                                },
+                                "linkWrapper": {
+                                    "marginBottom": "mb-2"
+                                }
+                            }
+                        }
+                    }
                 },
-                {
-                    "key": "linkedin",
-                    "value": "https://linkedin.com"
+                "social": {
+                    "id": "component-footer-social",
+                    "type": "molecule",
+                    "slug": "footer-social",
+                    "isActive": false,
+                    "settings": {
+                        "content": {
+                            "links": [
+                                {
+                                    "key": "facebook",
+                                    "value": "https://facebook.com"
+                                },
+                                {
+                                    "key": "twitter",
+                                    "value": "https://twitter.com"
+                                },
+                                {
+                                    "key": "linkedin",
+                                    "value": "https://linkedin.com"
+                                }
+                            ]
+                        },
+                        "styles": {
+                            "default": {
+                                "container": {
+                                    "layout": "flex space-x-6 text-gray-400 hover:text-white transition-all duration-200"
+                                }
+                            }
+                        }
+                    }
+                },
+                "copyright": {
+                    "id": "component-footer-copyright",
+                    "type": "atom",
+                    "slug": "footer-copyright",
+                    "isActive": true,
+                    "settings": {
+                        "content": {
+                            "text": "© 2025 RevampMarketing. All rights reserved."
+                        },
+                        "styles": {
+                            "default": {
+                                "text": "text-center md:text-left text-sm text-gray-500"
+                            }
+                        }
+                    }
                 }
-            ],
-            "copyright": "© 2025 RevampMarketing. All rights reserved.",
-            "links": []
+            }
         }
     }
 }

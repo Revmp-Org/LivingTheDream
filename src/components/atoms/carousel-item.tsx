@@ -1,33 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
-import { ComponentItemType, ServiceCardSettings } from "@/types";
-import { buildTailwindClass } from "@/utils";
+import { getStyles } from "@/utils";
 import NavLink from "../organism/NavLink";
-
-type CarouselItemStyles = {
-    item?: {
-        wrapper?: Record<string, string>;
-        imageContainer?: Record<string, string>;
-        textContainer?: Record<string, string>;
-        title?: Record<string, string>;
-        description?: Record<string, string>;
-        linkUrl?: Record<string, string>;
-        button?: Record<string, string>;
-        buttonContainer?: Record<string, string>;
-    };
-};
+import { PageComponentChild, Styles } from "@/types";
 
 type CarouselItemProps = {
-    item: ComponentItemType<ServiceCardSettings>;
-    childStyles: CarouselItemStyles | undefined;
-    defaultStyles: CarouselItemStyles;
+    item: PageComponentChild;
+    childStyles: Styles | undefined;
 };
 
-const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles, defaultStyles }) => {
+const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
     const controls = useAnimation();
     const ref = React.useRef<HTMLDivElement>(null);
-
+    
     const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
     const inView = useInView(ref, {
         margin: isMobile ? "-50px 0px -50px 0px" : "-100px 0px -100px 0px",
@@ -36,7 +22,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles, defaultS
 
     const [scrollProgress, setScrollProgress] = useState(() => {
         const scrollY = typeof window !== "undefined" ? window.scrollY : 0;
-        const maxScroll = isMobile ? 400 : 600; // Reduce maxScroll for mobile
+        const maxScroll = isMobile ? 400 : 600;
         return Math.min(scrollY / maxScroll, 1);
     });
 
@@ -63,10 +49,10 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles, defaultS
     }, [inView, controls]);
 
     return (
-        <div className={buildTailwindClass(childStyles?.item?.wrapper, defaultStyles?.item?.wrapper)}>
+        <div className={getStyles("wrapper", childStyles)}>
             {/* Image */}
             <motion.div
-                className={buildTailwindClass(childStyles?.item?.imageContainer, defaultStyles?.item?.imageContainer)}
+                className={getStyles("imageContainer", childStyles)}
                 style={{
                     transform: `perspective(1000px) rotateX(${20 - scrollProgress * 20}deg)`,
                     boxShadow: `0 ${20 - scrollProgress * 15}px ${30 - scrollProgress * 20}px rgba(0, 0, 0, ${0.25 - scrollProgress * 0.15})`,
@@ -87,23 +73,23 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles, defaultS
             {/* Text */}
             <motion.div
                 ref={ref}
-                className={buildTailwindClass(childStyles?.item?.textContainer, defaultStyles?.item?.textContainer)}
+                className={getStyles("textContainer", childStyles)}
                 initial={{ opacity: 0, x: 50 }}
                 animate={controls}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-                <h3 className={buildTailwindClass(childStyles?.item?.title, defaultStyles?.item?.title)}>
+                <h3 className={getStyles("title", childStyles)}>
                     {item.settings.title || "Default Title"}
                 </h3>
-                <p className={buildTailwindClass(childStyles?.item?.description, defaultStyles?.item?.description)}>
+                <p className={getStyles("description", childStyles)}>
                     {item.settings.description || "Default Description"}
                 </p>
                 {item.settings.path && (
-                    <div className={buildTailwindClass(childStyles?.item?.buttonContainer, defaultStyles?.item?.buttonContainer)}>
+                    <div className={getStyles("buttonContainer", childStyles)}>
                         <NavLink
                             href={item.settings.path}
                             disableMotion={true}
-                            className={buildTailwindClass(childStyles?.item?.button, defaultStyles?.item?.button)}
+                            className={getStyles("button", childStyles)}
                             analytics={
                             {
                                 eventLabel: item.settings.title || "Default Title",
