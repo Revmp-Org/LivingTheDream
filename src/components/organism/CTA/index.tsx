@@ -1,44 +1,19 @@
 import SectionWrapper from "../../SectionWrapper";
 import NavLink from "../NavLink";
 import Image from "next/image";
-import { AnalyticsConfig, ComponentConfig, CTASettings, ComponentChild } from "@/types";
-import { buildTailwindClass } from "@/utils";
+import { AnalyticsConfig, PageComponent } from "@/types";
 import { motion } from "framer-motion";
+import { getStyles } from "@/utils";
 
-const CTA: React.FC<ComponentConfig<CTASettings>> = (cta) => {
-    const { config, children } = cta;
-    const { image, content, styles } = config || {};
-    const button = children?.find((child: ComponentChild) => child.slug === "cta-button")?.settings as {
+const CTA: React.FC<PageComponent> = (cta) => {
+    const { settings, children } = cta;
+    const { image, content, styles } = settings || {};
+    
+
+    const button = children?.["cta-button"]?.settings as {
         text?: string;
         href?: string;
         analytics?: AnalyticsConfig;
-    };
-
-    const defaultStyles = {
-        wrapper: {
-            padding: "pb-16 pt-16 px-4 sm:px-6 lg:px-12",
-            background: "bg-gradient-to-br from-blue-50 via-white to-gray-100",
-            flex: "flex items-center justify-center",
-        },
-        container: {
-            layout: "flex flex-col-reverse lg:flex-row items-center lg:items-start lg:gap-x-16",
-        },
-        imageContainer: {
-            layout: "flex-1 max-w-full lg:max-w-[50%] flex justify-center",
-        },
-        contentContainer: {
-            layout: "flex-1 max-w-full lg:max-w-[50%] px-4 sm:px-6 lg:px-0 text-center lg:text-left",
-        },
-        title: {
-            text: "text-gray-900 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight",
-        },
-        description: {
-            text: "mt-4 text-gray-700 text-base sm:text-lg leading-relaxed max-h-[150px] overflow-hidden",
-        },
-
-        buttonContainer: {
-            layout: "flex justify-center lg:justify-start mt-6 space-x-4",
-        },
     };
 
     const imageSlideInVariant = {
@@ -52,9 +27,9 @@ const CTA: React.FC<ComponentConfig<CTASettings>> = (cta) => {
     };
 
     return (
-        <SectionWrapper className={buildTailwindClass(styles?.wrapper, defaultStyles.wrapper)}>
+        <section className="pb-16 pt-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-blue-100 via-white to-gray-100 flex flex-col items-center sm:flex-row sm:justify-between">
             <motion.div
-                className={buildTailwindClass(styles?.container, defaultStyles.container)}
+                className="flex flex-col items-center gap-y-8 sm:gap-y-6 lg:flex-row lg:items-start lg:gap-x-16"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
@@ -62,7 +37,7 @@ const CTA: React.FC<ComponentConfig<CTASettings>> = (cta) => {
                 {/* Image Section */}
                 {image && (
                     <motion.div
-                        className={buildTailwindClass(styles?.imageContainer, defaultStyles.imageContainer)}
+                        className="flex justify-center mb-6 sm:mb-0 flex-1 max-w-full lg:max-w-[50%]"
                         variants={imageSlideInVariant}
                     >
                         <Image
@@ -77,40 +52,46 @@ const CTA: React.FC<ComponentConfig<CTASettings>> = (cta) => {
 
                 {/* Content Section */}
                 <motion.div
-                    className={buildTailwindClass(styles?.contentContainer, defaultStyles.contentContainer)}
+                    className="sm:text-left px-4 sm:px-6 lg:px-0 flex-1 max-w-full lg:max-w-[50%]"
                     variants={textSlideInVariant}
                 >
                     {/* Title */}
-                    <h2 className={buildTailwindClass(styles?.title, defaultStyles.title)}>
+                    <h2 className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                         {content?.title || "Default Title"}
                     </h2>
 
                     {/* Description */}
-                    {content?.description?.map((desc, idx) => (
-                        <p key={idx} className={buildTailwindClass(styles?.description, defaultStyles.description)}>
-                            {desc}
-                        </p>
-                    ))}
+                    {Array.isArray(content?.description) &&
+                        content.description.map((desc, idx) => (
+                            <p
+                                key={idx}
+                                className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed"
+                            >
+                                {desc}
+                            </p>
+                        ))}
 
                     {content?.highlight && (
-                        <p className={buildTailwindClass(styles?.description, defaultStyles.description)}>
+                        <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
                             <span className="font-bold text-primary">{content?.highlight}</span>
                         </p>
                     )}
 
                     {/* Button */}
                     {button && (
-                        <div className={buildTailwindClass(styles?.buttonContainer, defaultStyles.buttonContainer)}>
+                        <div className="flex mt-6 space-x-4">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <NavLink
                                     href={button.href || "#"}
                                     className="inline-block font-medium text-sm text-white bg-primary hover:bg-primary-light active:bg-primary-dark px-6 py-3 rounded-lg shadow-md transition-all duration-300"
-                                    analytics={button.analytics || {
-                                        eventLabel: "Get Started",
-                                        eventCategory: "Navbar Interaction",
-                                        eventAction: "link_click",
-                                        eventValue: "Get Started",
-                                    }}
+                                    analytics={
+                                        button.analytics || {
+                                            eventLabel: "Get Started",
+                                            eventCategory: "CTA Interaction",
+                                            eventAction: "link_click",
+                                            eventValue: "Get Started",
+                                        }
+                                    }
                                 >
                                     {button.text || "Get Started"}
                                 </NavLink>
@@ -119,8 +100,7 @@ const CTA: React.FC<ComponentConfig<CTASettings>> = (cta) => {
                     )}
                 </motion.div>
             </motion.div>
-        </SectionWrapper>
-
+        </section>
     );
 };
 

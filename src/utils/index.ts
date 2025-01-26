@@ -1,53 +1,45 @@
-import { ComponentChild, ComponentConfig, ComponentItemType, ComponentSettings, ServiceCardSettings } from "@/types";
-
-export const getComponent = <T = ComponentSettings>(
-    components: ComponentItemType<ComponentSettings>[], 
-    componentSlug: string
-): ComponentConfig<T> => {
-    const component = components.find((comp) => comp.slug === componentSlug);
-    return component
-        ? {
-            visible: component.isActive || false,
-            config: component.settings as T,
-            children: component.children || [],
-        }
-        : { visible: false, config: null as T, children: [] };
-};
-
-export const getChildComponent = <T = ComponentSettings>(
-    children: ComponentChild[],
-    childId: string
-): ComponentConfig<T> => {
-    const child = children.find((child) => child.slug === childId);
-    return child
-        ? {
-            visible: child.isActive || false,
-            config: child.settings as T,
-            children: child.children || [],
-        }
-        : { visible: false, config: null as T, children: [] };
-};
-
+import { Styles } from "@/types";
 
 export function buildTailwindClass(
-    styleObject: Record<string, any> | undefined,
-    defaultStyles: Record<string, any> | undefined
+    styleObject: Record<string, string> | undefined,
 ): string {
-    const mergeStyles = (styles: Record<string, any> | undefined): string[] => {
-        if (!styles) return [];
-        return Object.values(styles).flatMap((value) => {
-            if (typeof value === "string") return value;
-            if (typeof value === "object") return mergeStyles(value);
-            return [];
-        });
-    };
+    if (!styleObject) return "";
 
-    const combinedStyles = {
-        ...defaultStyles,
-        ...styleObject,
-    };
+    const styleArray: string[] = Object.values(styleObject).filter(
+        (value) => typeof value === "string" && value.trim() !== ""
+    );
 
-    return mergeStyles(combinedStyles).filter(Boolean).join(" ");
+    const formattedStyles = styleArray
+        .join(" ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    return formattedStyles;
 }
 
-export const isClient = typeof window !== 'undefined';
+export function getStyles(
+    key: string,
+    styles: Styles | undefined
+): string {
+    const styleLevels = ["default", "mobile", "desktop"] as const;
+
+    const getNestedStyle = (obj: any, path: string): any => {
+        return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+    };
+
+    const combinedStyles = styleLevels
+        .map((level) => {
+            const levelStyle = getNestedStyle(styles?.[level as keyof Styles], key);
+            return levelStyle ? levelStyle : undefined;
+        })
+        .filter(Boolean);
+
+    const finalStyles = combinedStyles.reduce(
+        (acc, current) => `${acc} ${buildTailwindClass(current)}`,
+        ""
+    ).trim();
+
+    return finalStyles;
+}
+
+export const isClient = typeof window !== "undefined";

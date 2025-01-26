@@ -1,0 +1,303 @@
+{
+    "id": "seo-services-page",
+    "created": "2025-01-01T00:00:00Z",
+    "updated": "2025-01-01T01:00:00Z",
+    "websiteId": "website-id-123",
+    "title": "SEO Services",
+    "slug": "seo",
+    "description": "Discover our SEO services to boost your online presence, improve search rankings, and drive organic traffic to your website.",
+    "seo": {
+        "title": "SEO Services - Revamp Marketing",
+        "description": "Explore our tailored SEO services to enhance your online visibility, attract organic traffic, and achieve measurable growth.",
+        "keywords": [
+            "SEO",
+            "search engine optimization",
+            "keyword research",
+            "on-page SEO"
+        ],
+        "canonical": "https://revampmarketing.net/seo"
+    },
+    "isActive": true,
+    "pageComponents": {
+        "overview": {
+            "id": "component-overview",
+            "type": "organism",
+            "contentType": "singleton",
+            "slug": "overview",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-24",
+                            "background": "bg-gray-50"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left"
+                        },
+                        "textContainer": {
+                            "layout": "flex-1 max-w-full lg:max-w-[50%]"
+                        },
+                        "title": {
+                            "color": "text-gray-900",
+                            "typography": "text-4xl lg:text-5xl font-bold mb-4"
+                        },
+                        "description": {
+                            "color": "text-gray-700",
+                            "typography": "text-lg mb-4 leading-relaxed"
+                        },
+                        "highlight": {
+                            "color": "text-primary",
+                            "typography": "text-lg font-semibold"
+                        },
+                        "buttonWrapper": {
+                            "layout": "flex justify-center lg:justify-start mt-6"
+                        },
+                        "button": {
+                            "color": "text-white",
+                            "background": "bg-primary hover:bg-primary-light active:bg-primary-dark",
+                            "padding": "px-6 py-3",
+                            "rounded": "rounded-md",
+                            "transition": "transition-colors duration-200"
+                        },
+                        "imageContainer": {
+                            "layout": "flex-1 max-w-full lg:max-w-[50%] flex justify-center items-center mt-6 lg:mt-0 mb-12 lg:mb-0 lg:ml-12"
+                        }
+                    }
+                },
+                "content": {
+                    "image": "https://cdn.revampmarketing.net/seo-optimization.jpg",
+                    "title": "Search Engine Optimization",
+                    "description": "Our SEO services help your business rank higher on search engines, attract more organic traffic, and achieve measurable growth in your online presence.",
+                    "highlight": "Partner with us to elevate your visibility and credibility in the digital landscape.",
+                    "button": {
+                        "text": "Get Started",
+                        "link": "/contact",
+                        "analytics": {
+                            "eventLabel": "Get Started",
+                            "eventCategory": "Navbar Interaction",
+                            "eventAction": "link_click",
+                            "eventValue": "Get Started"
+                        }
+                    }
+                }
+            }
+        },
+        "benefits": {
+            "id": "component-benefits",
+            "type": "organism",
+            "contentType": "collection",
+            "slug": "benefits",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-16",
+                            "background": "bg-gray-50",
+                            "border": "border-t border-gray-200"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
+                        },
+                        "grid": {
+                            "layout": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                        },
+                        "item": {
+                            "background": "bg-gradient-to-br from-white via-gray-100 to-gray-50",
+                            "padding": "p-6",
+                            "rounded": "rounded-2xl",
+                            "shadow": "shadow-lg hover:shadow-2xl",
+                            "transition": "transition-transform duration-300 hover:scale-105"
+                        },
+                        "itemIcon": {
+                            "background": "bg-gradient-to-br from-indigo-500 to-purple-500 text-white",
+                            "layout": "w-16 h-16 rounded-full flex items-center justify-center",
+                            "typography": "text-xl font-bold shadow-md",
+                            "margin": "mx-auto mb-4"
+                        },
+                        "itemTitle": {
+                            "color": "text-gray-900",
+                            "typography": "text-lg font-bold text-center"
+                        },
+                        "itemDescription": {
+                            "color": "text-gray-600",
+                            "typography": "text-sm mt-2 leading-relaxed text-center"
+                        }
+                    }
+                },
+                "content": [
+                    {
+                        "title": "Increased Visibility",
+                        "description": "Rank higher on search engine results pages."
+                    },
+                    {
+                        "title": "Enhanced Credibility",
+                        "description": "Build trust and authority with effective SEO practices."
+                    },
+                    {
+                        "title": "Improved Traffic",
+                        "description": "Attract more organic visitors to your website."
+                    },
+                    {
+                        "title": "Higher ROI",
+                        "description": "Maximize your marketing investment with targeted optimization."
+                    }
+                ]
+            }
+        },
+        "steps": {
+            "id": "component-steps",
+            "type": "organism",
+            "contentType": "collection",
+            "slug": "steps",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-20",
+                            "background": "bg-gray-50",
+                            "border": "border-t border-b border-gray-200"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
+                        },
+                        "stepLayout": {
+                            "layout": "flex flex-col lg:flex-row items-center gap-12"
+                        },
+                        "stepImageContainer": {
+                            "layout": "lg:w-1/2 w-full",
+                            "border": "border-2 border-primary rounded-lg"
+                        },
+                        "stepImageWrapper": {
+                            "rounded": "rounded-lg overflow-hidden",
+                            "shadow": "shadow-md"
+                        },
+                        "stepTextContainer": {
+                            "layout": "lg:w-1/2 w-full space-y-6 text-center lg:text-left"
+                        },
+                        "stepTitle": {
+                            "color": "text-gray-900",
+                            "typography": "text-3xl font-extrabold mb-4"
+                        },
+                        "stepDescription": {
+                            "color": "text-gray-600",
+                            "typography": "text-lg leading-relaxed mb-4"
+                        },
+                        "stepPoints": {
+                            "color": "text-gray-700",
+                            "typography": "text-base leading-relaxed",
+                            "list": "list-none space-y-4"
+                        },
+                        "stepBulletWrapper": {
+                            "layout": "flex items-center text-left space-x-3"
+                        },
+                        "stepBullet": {
+                            "color": "text-primary",
+                            "typography": "text-xl font-bold"
+                        },
+                        "stepBulletIcon": {
+                            "color": "text-white",
+                            "background": "bg-primary",
+                            "layout": "w-6 h-6 flex items-center justify-center rounded-full"
+                        }
+                    }
+                },
+                "content": [
+                    {
+                        "index": 1,
+                        "title": "Step 1: SEO Audit",
+                        "description": "Our team conducts a comprehensive audit to identify strengths, weaknesses, and opportunities for your website.",
+                        "image": "https://cdn.revampmarketing.net/seo-service-research.jpg",
+                        "points": [
+                            "Analyze current keyword rankings and performance.",
+                            "Evaluate website structure and on-page elements.",
+                            "Identify areas for technical and content improvements."
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "title": "Step 2: Keyword Research",
+                        "description": "We find the best keywords to target based on search volume, competition, and relevance to your business.",
+                        "image": "https://cdn.revampmarketing.net/seo-service-keywords.png",
+                        "points": [
+                            "Discover high-traffic, low-competition keywords.",
+                            "Align keywords with your target audience's intent.",
+                            "Optimize for local, national, or global search priorities."
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "title": "Step 3: On-Page Optimization",
+                        "description": "We optimize your website's pages to improve relevance and search engine rankings.",
+                        "image": "https://cdn.revampmarketing.net/seo-service-optimization.jpg",
+                        "points": [
+                            "Enhance meta titles, descriptions, and headers.",
+                            "Improve internal linking and content readability.",
+                            "Optimize images and page load speed."
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "title": "Step 4: Ongoing Strategy & Reporting",
+                        "description": "We provide continuous SEO support to adapt to changing algorithms and maintain performance.",
+                        "image": "https://cdn.revampmarketing.net/seo-service-reporting.png",
+                        "points": [
+                            "Monitor performance metrics and refine strategies.",
+                            "Stay up-to-date with algorithm changes.",
+                            "Provide detailed reports on progress and outcomes."
+                        ]
+                    }
+                ]
+            }
+        },
+        "cta": {
+            "id": "component-cta",
+            "type": "organism",
+            "contentType": "singleton",
+            "slug": "cta",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-20 px-6 lg:px-12",
+                            "background": "bg-gradient-to-br from-indigo-400 via-indigo-500 to-purple-600"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-lg mx-auto text-center space-y-6"
+                        },
+                        "title": {
+                            "color": "text-white",
+                            "typography": "text-3xl lg:text-4xl font-extrabold"
+                        },
+                        "description": {
+                            "color": "text-gray-200",
+                            "typography": "text-lg lg:text-xl leading-relaxed"
+                        },
+                        "buttonWrapper": {
+                            "layout": "flex justify-center mt-8"
+                        },
+                        "button": {
+                            "color": "text-indigo-700",
+                            "background": "bg-white",
+                            "padding": "px-8 py-4",
+                            "rounded": "rounded-lg",
+                            "shadow": "shadow-lg",
+                            "hover": "hover:bg-gray-200 transition-colors duration-200"
+                        }
+                    }
+                },
+                "content": {
+                    "title": "Ready to Boost Your Online Visibility?",
+                    "description": "Contact our SEO experts today to create a tailored strategy that improves your search rankings and drives sustainable growth.",
+                    "button": {
+                        "text": "Get Started",
+                        "link": "/contact"
+                    }
+                }
+            }
+        }
+    }
+}

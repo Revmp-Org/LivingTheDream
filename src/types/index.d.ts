@@ -13,179 +13,163 @@ export type ComponentSettings =
     | TestimonialSettings;
 
 
+// General style attributes for dynamic class names
 export type StyleAttributes = {
-    text?: string;
     padding?: string;
     margin?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    marginTop?: string;
+    marginBottom?: string;
+    marginLeft?: string;
+    marginRight?: string;
+    text?: string;
+    fontSize?: string;
+    fontWeight?: string;
+    lineHeight?: string;
+    letterSpacing?: string;
     background?: string;
+    backgroundColor?: string;
+    hoverBackgroundColor?: string;
+    activeBackgroundColor?: string;
     layout?: string;
-    border?: string;
-    shadow?: string;
+    display?: string;
     width?: string;
     height?: string;
-    custom?: string;
+    minWidth?: string;
+    maxWidth?: string;
+    minHeight?: string;
+    maxHeight?: string;
+    border?: string;
+    borderColor?: string;
+    borderRadius?: string;
+    shadow?: string;
+    boxShadow?: string;
+    flex?: string;
+    justifyContent?: string;
+    alignItems?: string;
+    gap?: string;
+    gridTemplateColumns?: string;
+    transition?: string;
+    transform?: string;
+    hover?: string;
+    active?: string;
+    position?: string;
+    top?: string;
+    right?: string;
+    bottom?: string;
+    left?: string;
+    zIndex?: string;
+    custom?: string; // For custom classes
+    [key: string]: string | Record<string, string>; // Allow nested structures
+
 };
 
-// Each specific settings type
-export interface HeroSettings {
-    content: {
-        title: string;
-        description: string;
-    };
-    mobile?: HeroDeviceConfig;
-    desktop?: HeroDeviceConfig;
-    buttons?: ButtonConfig[];
-}
-
-export interface HeroDeviceConfig {
-    styles: {
-        wrapper?: Record<string, string>;
-        container?: Record<string, string>;
-        title?: Record<string, string>;
-        contentContainer?: Record<string, string>;
-        description?: Record<string, string>;
-        imageContainer?: Record<string, string>;
-        buttonContainer?: Record<string, string>;
-        button?: {
-            primary?: string;
-            secondary?: string;
-        };
-    };
-}
-
-
-export interface ServiceCardSettings {
-    title: string;
-    description: string;
+export type BrandConfig = {
+    logo?: string;
+    name?: string;
     path?: string;
-    carouselImage?: string;
-    styles?: {
-        wrapper?: Record<string, string> | undefined
-        container?: Record<string, string> | undefined
-        imageContainer?: Record<string, string> | undefined
-        contentContainer?: Record<string, string> | undefined
-        title?: Record<string, string> | undefined
-        description?: Record<string, string> | undefined
-        content?: Record<string, string> | undefined
-        buttonContainer?: Record<string, string> | undefined
-        buttonPrev?: Record<string, string> | undefined
-        buttonNext?: Record<string, string> | undefined
-        dotsContainer?: Record<string, string> | undefined
-        dot?: Record<string, string> | undefined
-        dotActive?: Record<string, string> | undefined
-        dotInactive?: Record<string, string> | undefined
-    };
-    childStyles?: {
-        item?: Record<string, string> | undefined
-        imageContainer?: Record<string, string> | undefined
-        textContainer?: Record<string, string> | undefined
-        title?: Record<string, string> | undefined
-        description?: Record<string, string> | undefined
-        link?: Record<string, string> | undefined
-    }
 }
 
+// Component styles for different breakpoints
+export type Styles = {
+    default?: Record<string, StyleAttributes>; // Default styles for all devices
+    mobile?: Record<string, StyleAttributes>; // Mobile-specific styles
+    desktop?: Record<string, StyleAttributes>; // Desktop-specific styles
+    childStyles?: Record<string, StyleAttributes>; // Styles specific to child components
+};
 
-export interface CTASettings {
+// Analytics configuration for tracking events
+export type AnalyticsConfig = {
+    eventLabel: string;
+    eventCategory: string;
+    eventAction: string;
+    eventValue: string;
+};
+
+// General settings for a component
+export type ComponentSettings = {
+    styles?: Styles;
+    content?: {
+        title?: string;
+        description?: string | string[];
+        highlight?: string;
+    };
     image?: {
         src: string;
         alt: string;
         className?: string;
     };
-    content?: {
-        title: string;
-        description: string[];
-        highlight?: string;
-    };
-    styles?: {
-        wrapper?: StyleAttributes;
-        container?: StyleAttributes;
-        imageContainer?: StyleAttributes;
-        contentContainer?: StyleAttributes;
-        title?: StyleAttributes;
-        description?: StyleAttributes;
-        buttonContainer?: StyleAttributes;
-    };
-}
-export interface TestimonialSettings {
-    title: string;
-    description: string;
-    avatar: string;
-    name: string;
-    role: string;
-    quote: string;
-    styles?: {
-        wrapper?: StyleAttributes;
-        testimonialWrapper?: StyleAttributes;
-        container?: StyleAttributes;
-        header?: {
-            container?: StyleAttributes;
-            title?: StyleAttributes;
-            description?: StyleAttributes;
-        };
-        list?: StyleAttributes;
-        listItem?: {
-            wrapper?: StyleAttributes;
-            avatarContainer?: StyleAttributes;
-            avatarImage?: StyleAttributes;
-            name?: StyleAttributes;
-            role?: StyleAttributes;
-            quote?: StyleAttributes;
-        };
-    };
-}
+    analytics?: AnalyticsConfig;
+    text?: string;
+    href?: string;
+    variant?: string;
+    scroll?: boolean;
+    avatar?: string;
+    name?: string;
+    role?: string;
+    quote?: string;
+    path?: string;
+    carouselImage?: string;
+};
 
-export type ComponentSettings =
-    | HeroSettings
-    | ServiceCardSettings
-    | CTASettings
-    | TestimonialSettings;
-
-export type ComponentChildSettings =
-    | ButtonConfig
-    | ServiceCardSettings
-    | TestimonialSettings;
-
-export interface ComponentChild {
+// Type for a child component
+export type PageComponentChild = {
     id: string;
-    type: "atom" | "molecule" | "organism";
+    type: string;
     slug: string;
+    contentType?: string;
     isActive: boolean;
-    contentType: "singleton" | "collection";
-    settings: ComponentChildSettings;
-    children: ComponentChild[];
-}
+    settings?: ComponentSettings;
+    children?: Record<string, PageComponentChild>;
+};
 
-export interface ComponentItemType<T extends ComponentSettings> {
+// Type for a main page component
+export type PageComponent = {
     id: string;
-    type: "atom" | "molecule" | "organism";
+    type: string;
     slug: string;
+    contentType?: string;
     isActive: boolean;
-    contentType: "singleton" | "collection";
-    settings: T;
-    children: ComponentChild[];
-}
-
-export interface ComponentConfig<T = ComponentSettings> {
-    visible: boolean;
-    config: T | null;
-    children: ComponentChild[];
-}
-
-
-export interface SEOConfig {
-    title: string;
-    description: string;
-    keywords: string[];
-    canonical: string;
-    structuredData: {
-        "@context": string;
-        "@type": string;
-        name: string;
-        description: string;
-        url: string;
+    settings: {
+        seo?: SEOConfig;
+        styles?: Styles;
+        content?: {
+            title?: string;
+            description?: string | string[];
+            highlight?: string;
+        };
+        image?: {
+            src: string;
+            alt: string;
+            className?: string;
+        };
     };
-}
+    children: Record<string, PageComponentChild>;
+};
+
+// Props for the CTA component
+export type ComponentConfig<T = any> = {
+    config: T;
+    children: Record<string, PageComponentChild>;
+};
+
+type Page = {
+    id: string;
+    created: string;
+    updated: string;
+    websiteId: string;
+    title: string;
+    slug: string;
+    description: string;
+    seo: SEO;
+    isActive: boolean;
+    pageComponents: Record<string, PageComponent>;
+    styles?: Styles;
+};
+
 export interface AnalyticsConfig {
     eventLabel: string;
     eventCategory: string;
@@ -297,8 +281,8 @@ export interface GlobalConfig {
     html?: Record<string, any>;
     body?: Record<string, any>;
     analytics?: Record<string, any>;
-    navbar?: NavbarConfig;
-    footer?: FooterConfig;
+    navbar?: PageComponent;
+    footer?: PageComponent;
 }
 
 export interface GlobalConfigType {
@@ -410,6 +394,7 @@ export type ButtonConfig = {
     variant?: 'primary' | 'secondary';
     analytics?: AnalyticsConfig;
     scroll?: boolean;
+    styles?: StylesType;
 }
 
 export interface NavigationSubItem {
@@ -426,3 +411,9 @@ export interface NavigationItem {
     path?: string;
     items?: NavigationSubItem[]
 }
+
+export type StylesType = {
+    default?: Record<string, any>;
+    mobile?: Record<string, any>;
+    desktop?: Record<string, any>;
+};

@@ -1,36 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { buildTailwindClass } from "@/utils";
 import NavLink from "../NavLink";
+import { PageComponentChild } from "@/types";
 
-interface OverviewSectionProps {
-    title: string;
-    description: string;
-    highlight: string;
-    styles?: Record<string, any>;
-    defaultStyles: Record<string, any>;
-    image: string;
-    button: {
-        text: string;
-        link: string;
-        analytics: {
-            eventLabel: string;
-            eventCategory: string;
-            eventAction: string;
-            eventValue: string;
-        }
-    }
-}
-
-const OverviewSection = ({
-    title = "Default Title",
-    description = "Overview paragraph.",
-    highlight = "Highlight sentence.",
-    styles,
-    defaultStyles,
-    image,
-    button
-}: OverviewSectionProps) => {
+const OverviewSection = (overview: PageComponentChild) => {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
@@ -41,83 +14,36 @@ const OverviewSection = ({
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     };
 
-    const fadeInRightVariants = {
-        hidden: { opacity: 0, x: -20 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-    };
+    const { title, description, highlight, button, image } = overview?.settings?.content || {};
 
     return (
-        <section
-            className={buildTailwindClass(
-                styles?.wrapper,
-                defaultStyles.wrapper
-            )}
-        >
+        <section className="py-24 bg-gray-50">
             <motion.div
-                className={buildTailwindClass(
-                    styles?.container,
-                    defaultStyles.container
-                )}
+                className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
             >
-                {/* Text Section */}
                 <motion.div
-                    className={buildTailwindClass(
-                        styles?.textContainer,
-                        defaultStyles.textContainer
-                    )}
-                    variants={fadeInRightVariants}
+                    className="flex-1 max-w-full lg:max-w-[50%]"
+                    variants={fadeInVariants}
                 >
-                    <motion.h1
-                        className={buildTailwindClass(
-                            styles?.title,
-                            defaultStyles.title
-                        )}
-                        variants={fadeInVariants}
-                    >
-                        {title}
-                    </motion.h1>
-                    <motion.p
-                        className={buildTailwindClass(
-                            styles?.description,
-                            defaultStyles.description
-                        )}
-                        variants={fadeInVariants}
-                    >
-                        {description}
-                    </motion.p>
-                    <motion.p
-                        className={buildTailwindClass(
-                            styles?.highlight,
-                            defaultStyles?.highlight
-                        )}
-                        variants={fadeInVariants}
-                    >
-                        {highlight}
-                    </motion.p>
-
-                    <div className={buildTailwindClass(styles?.buttonWrapper, defaultStyles?.buttonWrapper)}>
+                    <h1 className="text-gray-900 text-4xl lg:text-5xl font-bold mb-4">{title}</h1>
+                    <p className="text-gray-700 text-lg mb-4 leading-relaxed">{description}</p>
+                    <p className="text-primary text-lg font-semibold">{highlight}</p>
+                    <div className="flex justify-center lg:justify-start mt-6">
                         <NavLink
-                            href={button.link}
-                            className={buildTailwindClass(
-                                styles?.button,
-                                defaultStyles?.button
-                            )}
-                            analytics={button.analytics}
+                            href={button?.link}
+                            className="text-white bg-primary hover:bg-primary-light active:bg-primary-dark px-6 py-3 rounded-md transition-colors duration-200"
+                            analytics={button?.analytics}
                         >
-                            {button.text}
+                            {button?.text}
                         </NavLink>
                     </div>
                 </motion.div>
 
-                {/* Image Section */}
                 <motion.div
-                    className={buildTailwindClass(
-                        styles?.imageContainer,
-                        defaultStyles.imageContainer
-                    )}
+                    className="flex-1 max-w-full lg:max-w-[50%] flex justify-center items-center mt-6 lg:mt-0 mb-12 lg:mb-0 lg:ml-12"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
@@ -125,9 +51,10 @@ const OverviewSection = ({
                     <Image
                         src={image}
                         alt="Service overview"
-                        className="rounded-lg shadow-md sm:max-w-xs md:max-w-md lg:max-w-xl"
+                        className="rounded-lg shadow-md"
                         width={1000}
                         height={1000}
+                        loading="eager"
                     />
                 </motion.div>
             </motion.div>
