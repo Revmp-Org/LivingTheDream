@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContactForm } from "@/hooks/use-get-started";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { isClient, getStyles } from "@/utils";
+import { isClient } from "@/utils";
 import { Autocomplete } from "@/components/atoms/autocomplete";
 
 const Player = dynamic(
@@ -26,9 +26,6 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
         handleReferralSourceChange,
     } = useContactForm();
 
-    const formStyles = form?.settings?.styles || {};
-    const thankYouStyles = thankYou?.settings?.styles || {};
-
     const thankYouVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -49,7 +46,7 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                     initial="hidden"
                     animate="visible"
                     exit="hidden"
-                    className={getStyles("wrapper", thankYouStyles)}
+                    className="p-8 text-center flex flex-col pt-16 min-h-[500px]" // Static wrapper style for Thank You
                 >
                     {/* Lottie Animation */}
                     {isClient && (
@@ -71,20 +68,20 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                         </motion.div>
                     )}
                     {/* Thank You Message */}
-                    <h2 className={getStyles("title", thankYouStyles)}>
+                    <h2 className="text-gray-800 text-3xl font-semibold mt-4"> {/* Static title style */}
                         {thankYou?.settings?.content?.title}
                     </h2>
-                    <p className={getStyles("message", thankYouStyles)}>
+                    <p className="text-gray-600 text-lg mt-2"> {/* Static message style */}
                         {thankYou?.settings?.content?.message}
                     </p>
                 </motion.div>
             ) : (
                 <motion.div
                     variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-                    className={getStyles("wrapper", formStyles)}
+                    className="py-4 px-8" // Static wrapper style
                 >
                     <form onSubmit={handleSubmit}>
-                        <motion.div className={getStyles("grid", formStyles)}>
+                        <motion.div className="grid grid-cols-1 gap-6 md:grid-cols-2"> {/* Static grid style */}
                             {/* Name Field */}
                             <div className="col-span-2 md:col-span-1">
                                 <Input
@@ -95,7 +92,7 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                                     placeholder="John Smith"
                                 />
                                 {errors.name && (
-                                    <p className={getStyles("inputError", formStyles)}>
+                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
                                         {errors.name}
                                     </p>
                                 )}
@@ -111,7 +108,7 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                                     placeholder="Your Company"
                                 />
                                 {errors.companyName && (
-                                    <p className={getStyles("inputError", formStyles)}>
+                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
                                         {errors.companyName}
                                     </p>
                                 )}
@@ -127,7 +124,7 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                                     placeholder="you@example.com"
                                 />
                                 {errors.email && (
-                                    <p className={getStyles("inputError", formStyles)}>
+                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
                                         {errors.email}
                                     </p>
                                 )}
@@ -156,7 +153,7 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                                     disableFilter={true}
                                 />
                                 {errors.services && (
-                                    <p className={getStyles("inputError", formStyles)}>
+                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
                                         {errors.services}
                                     </p>
                                 )}
@@ -176,18 +173,18 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                                     disableFilter={true}
                                 />
                                 {errors.referralSource && (
-                                    <p className={getStyles("inputError", formStyles)}>
+                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
                                         {errors.referralSource}
                                     </p>
                                 )}
                             </div>
 
                             {/* Button Container */}
-                            <div className={getStyles("buttonContainer", formStyles)}>
+                            <div className="col-span-2 flex justify-end mt-4"> {/* Static buttonContainer style */}
                                 <Button
                                     type="submit"
                                     disabled={isLoading}
-                                    className={getStyles("button", formStyles)}
+                                    className="text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg py-3 px-4 transition-colors duration-200 disabled:opacity-70" // Static button style
                                 >
                                     {isLoading ? "Submitting..." : "Submit"}
                                 </Button>

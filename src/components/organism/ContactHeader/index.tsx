@@ -1,16 +1,12 @@
-import { getStyles } from "@/utils";
-
-const ContactHeader: React.FC<{ config: any }> = ({ config }) => {
-    const styles = config.settings.styles;
-
-    const titleWrapperStyles = getStyles("titleWrapper", styles);
-    const titleStyles = getStyles("title", styles);
-    const subtitleStyles = getStyles("subtitle", styles);
-
+const ContactHeader: React.FC<{ content: { title: string, subtitle: string } }> = ({ content }) => {
     return (
-        <div className={titleWrapperStyles}>
-            <h1 className={titleStyles}>{config.settings.content.title}</h1>
-            <p className={subtitleStyles}>{config.settings.content.subtitle}</p>
+        <div className="mb-8 pl-4">
+            <h1 className="text-gray-800 text-3xl font-semibold">
+                {content.title}
+            </h1>
+            <p className="text-gray-600 mt-2">
+                {content.subtitle}
+            </p>
         </div>
     );
 };

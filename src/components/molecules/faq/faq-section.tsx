@@ -1,6 +1,5 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/atoms/accordian";
 import { PageComponentChild } from "@/types";
-import { getStyles } from "@/utils";
 
 type Section = {
     category: string;
@@ -11,27 +10,22 @@ type Section = {
 };
 
 const FAQSection = (faq: PageComponentChild) => {
-    const faqStyles = getStyles("wrapper", faq?.settings?.styles);
-    const faqContainerStyles = getStyles("container", faq?.settings?.styles);
-    const categoryTitleStyles = getStyles("categoryTitle", faq?.settings?.styles);
-    const accordionItemStyles = getStyles("accordion.item", faq?.settings?.styles);
-
     return (
-        <section className={faqStyles}>
-            <div className={faqContainerStyles}>
+        <section className="py-8">
+            <div className="max-w-screen-lg mx-auto px-6 lg:px-12">
                 <Accordion type="single" collapsible>
                     {faq?.settings?.content?.sections.map((section: Section, sectionIdx: number) => (
                         <div key={sectionIdx} className="mb-8">
-                            <h2 className={categoryTitleStyles}>
+                            <h2 className="text-gray-800 text-2xl font-semibold mb-4 text-center">
                                 {section.category}
                             </h2>
                             {section.questions.map((faqItem, idx) => (
                                 <AccordionItem
                                     key={idx}
                                     value={`${sectionIdx}-${idx}`}
-                                    className={accordionItemStyles}
+                                    className="border-b text-sm text-left"
                                 >
-                                    <AccordionTrigger className={accordionItemStyles}>
+                                    <AccordionTrigger className="border-b text-sm text-left">
                                         {faqItem.question}
                                     </AccordionTrigger>
                                     <AccordionContent>

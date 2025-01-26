@@ -11,7 +11,7 @@ export function buildTailwindClass(
 
     const formattedStyles = styleArray
         .join(" ")
-        .replace(/\s+/g, " ") // Ensure no excessive spaces
+        .replace(/\s+/g, " ")
         .trim();
 
     return formattedStyles;

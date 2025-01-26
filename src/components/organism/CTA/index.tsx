@@ -27,16 +27,19 @@ const CTA: React.FC<PageComponent> = (cta) => {
     };
 
     return (
-        <SectionWrapper className={getStyles("wrapper", styles)}>
+        <section className="pb-16 pt-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-blue-100 via-white to-gray-100 flex flex-col items-center sm:flex-row sm:justify-between">
             <motion.div
-                className={getStyles("container", styles)}
+                className="flex flex-col items-center gap-y-8 sm:gap-y-6 lg:flex-row lg:items-start lg:gap-x-16"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
             >
                 {/* Image Section */}
                 {image && (
-                    <motion.div className={getStyles("imageContainer", styles)} variants={imageSlideInVariant}>
+                    <motion.div
+                        className="flex justify-center mb-6 sm:mb-0 flex-1 max-w-full lg:max-w-[50%]"
+                        variants={imageSlideInVariant}
+                    >
                         <Image
                             src={image?.src || ""}
                             className={image?.className || "rounded-lg shadow-md"}
@@ -48,39 +51,47 @@ const CTA: React.FC<PageComponent> = (cta) => {
                 )}
 
                 {/* Content Section */}
-                <motion.div className={getStyles("contentContainer", styles)} variants={textSlideInVariant}>
+                <motion.div
+                    className="sm:text-left px-4 sm:px-6 lg:px-0 flex-1 max-w-full lg:max-w-[50%]"
+                    variants={textSlideInVariant}
+                >
                     {/* Title */}
-                    <h2 className={getStyles("title", styles)}>
+                    <h2 className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                         {content?.title || "Default Title"}
                     </h2>
 
                     {/* Description */}
                     {Array.isArray(content?.description) &&
                         content.description.map((desc, idx) => (
-                            <p key={idx} className={getStyles("description", styles)}>
+                            <p
+                                key={idx}
+                                className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed"
+                            >
                                 {desc}
                             </p>
                         ))}
 
                     {content?.highlight && (
-                        <p className={getStyles("description", styles)}>
+                        <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
                             <span className="font-bold text-primary">{content?.highlight}</span>
                         </p>
                     )}
 
                     {/* Button */}
                     {button && (
-                        <div className={getStyles("buttonContainer", styles)}>
+                        <div className="flex mt-6 space-x-4">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <NavLink
                                     href={button.href || "#"}
                                     className="inline-block font-medium text-sm text-white bg-primary hover:bg-primary-light active:bg-primary-dark px-6 py-3 rounded-lg shadow-md transition-all duration-300"
-                                    analytics={button.analytics || {
-                                        eventLabel: "Get Started",
-                                        eventCategory: "CTA Interaction",
-                                        eventAction: "link_click",
-                                        eventValue: "Get Started",
-                                    }}
+                                    analytics={
+                                        button.analytics || {
+                                            eventLabel: "Get Started",
+                                            eventCategory: "CTA Interaction",
+                                            eventAction: "link_click",
+                                            eventValue: "Get Started",
+                                        }
+                                    }
                                 >
                                     {button.text || "Get Started"}
                                 </NavLink>
@@ -89,7 +100,7 @@ const CTA: React.FC<PageComponent> = (cta) => {
                     )}
                 </motion.div>
             </motion.div>
-        </SectionWrapper>
+        </section>
     );
 };
 

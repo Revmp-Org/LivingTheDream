@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { getStyles } from "@/utils";
 import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
 import useMotionConfig from "@/hooks/framer-motion";
 import NavLink from "@/components/organism/NavLink";
@@ -8,35 +7,28 @@ import Link from "next/link";
 
 const DesktopNavbar = ({
     navigation,
-    styles,
     ctaButton,
 }: {
     navigation: NavigationItem[];
-    styles: Record<string, any>;
     ctaButton?: PageComponentChild;
 }) => {
     const { trackClick } = useGoogleAnalytics();
     const { listItemHover, listItemTap } = useMotionConfig();
-    
-    const listStyles = getStyles("list", styles);
-    const listItemStyles = getStyles("listItem", styles);
-    const titleStyles = getStyles("title", styles);
-    const dropdownStyles = getStyles("dropdown", styles);
-    const dropdownItemStyles = getStyles("dropdownItem", styles);
-    const buttonStyles = getStyles("button", styles);
-    
 
     return (
-        <ul className={listStyles}>
+        <ul className="flex items-center justify-end space-x-8">
             {navigation.map((item) => (
-                <li key={item.id} className={listItemStyles}>
+                <li key={item.id} className="relative group">
                     {item.items ? (
                         <div className="group relative">
                             {/* Navigation Item */}
-                            <span className={titleStyles}>{item.label}</span>
+                            <span className="text-md text-gray-800 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-[#18CB96] after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full">
+                                {/* Static title styles */}
+                                {item.label}
+                            </span>
                             {/* Dropdown Content */}
                             <motion.ul
-                                className={`${dropdownStyles} group-hover:opacity-100 group-hover:visible`}
+                                className="absolute left-0 top-full mt-2 bg-white shadow-md rounded-md p-3 w-60 z-10 transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
@@ -47,7 +39,7 @@ const DesktopNavbar = ({
                                         key={subItem.id}
                                         whileHover={listItemHover}
                                         whileTap={listItemTap}
-                                        className={dropdownItemStyles}
+                                        className="p-2 flex items-center text-gray-700 cursor-pointer rounded-md hover:bg-gray-100"
                                         onClick={() =>
                                             trackClick(
                                                 subItem?.label || "",
@@ -66,7 +58,7 @@ const DesktopNavbar = ({
                         </div>
                     ) : (
                         <span
-                            className={titleStyles}
+                            className="text-md text-gray-800 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-[#18CB96] after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
                             onClick={() =>
                                 trackClick(
                                     item?.label || "",
@@ -91,9 +83,9 @@ const DesktopNavbar = ({
                         eventAction: "link_click",
                         eventValue: "Get Started",
                     }}
-                    className={buttonStyles}
+                    className="text-white bg-primary hover:bg-primary-light rounded-md px-6 py-3 cursor-pointer transition-colors duration-200"
                 >
-                    {ctaButton?.settings?.content?.ctaButton?.text || "Get Started"}
+                    {ctaButton?.settings?.content?.text || "Get Started"}
                 </NavLink>
             </li>
         </ul>

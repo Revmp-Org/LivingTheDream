@@ -273,7 +273,8 @@
                                 "title": "Website Design",
                                 "description": "Captivate your audience, optimize conversions, and reflect your brand identity through a custom website.",
                                 "path": "/website-development",
-                                "carouselImage": "https://cdn.revampmarketing.net/web-design.jpg"
+                                "carouselImage": "https://cdn.revampmarketing.net/web-design.jpg",
+                                "buttonText": "Learn More"
                             },
                             "children": {}
                         },
@@ -287,7 +288,8 @@
                                 "title": "SEO Marketing",
                                 "description": "Boost your website's visibility with data-driven SEO techniques designed to rank higher and drive traffic.",
                                 "path": "/seo",
-                                "carouselImage": "https://cdn.revampmarketing.net/seo-optimization.jpg"
+                                "carouselImage": "https://cdn.revampmarketing.net/seo-optimization.jpg",
+                                "buttonText": "Learn More"
                             },
                             "children": {}
                         },
@@ -301,7 +303,8 @@
                                 "title": "Social Media Management",
                                 "description": "Build a loyal following and express your brand with expertly crafted content and engagement strategies.",
                                 "path": "/social-media",
-                                "carouselImage": "https://cdn.revampmarketing.net/social-media-management.jpg"
+                                "carouselImage": "https://cdn.revampmarketing.net/social-media-management.jpg",
+                                "buttonText": "Learn More"
                             },
                             "children": {}
                         }

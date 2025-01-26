@@ -3,19 +3,16 @@ import { useState } from "react";
 import Brand from "../../molecules/brand";
 import NavLink from "../../organism/NavLink";
 import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
-import { getStyles } from "@/utils";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NavigationItem, PageComponentChild } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MobileNavbar = ({
     navigation,
-    styles,
     ctaButton,
     brand,
 }: {
     navigation: NavigationItem[];
-    styles: Record<string, any>;
     ctaButton?: PageComponentChild;
     brand: any;
 }) => {
@@ -27,8 +24,6 @@ const MobileNavbar = ({
         document.body.classList.remove("overflow-hidden");
         setState(false);
     };
-    const toggleButtonStyles = getStyles("toggleButton", styles);
-    const navButtonStyles = getStyles("navButton", styles);
 
     const menuVariants = {
         hidden: { opacity: 0, x: "100%" },
@@ -47,7 +42,7 @@ const MobileNavbar = ({
             {/* Toggle Button */}
             <button
                 aria-label="Toggle menu"
-                className={toggleButtonStyles}
+                className="text-gray-500 hover:text-gray-800 transition-colors duration-200 block lg:hidden"
                 onClick={() => {
                     setState(true);
                     document.body.classList.add("overflow-hidden");
@@ -79,11 +74,11 @@ const MobileNavbar = ({
                             exit="exit"
                         >
                             {/* Header */}
-                            <div className="flex items-center justify-between p-6 border-b">
+                            <div className="flex items-center justify-between p-6 border-b"> {/* Static header styles */}
                                 <Brand brand={brand} />
                                 <button
                                     aria-label="Close menu"
-                                    className="text-gray-500 hover:text-gray-800"
+                                    className="text-gray-500 hover:text-gray-800" // Static close button styles
                                     onClick={handleState}
                                 >
                                     <FiX size={24} />
@@ -91,9 +86,9 @@ const MobileNavbar = ({
                             </div>
 
                             {/* Navigation Items */}
-                            <div className="flex-1 overflow-y-auto px-6 py-8">
+                            <div className="flex-1 overflow-y-auto px-6 py-8"> {/* Static nav items container */}
                                 {navigation.map((item, idx) => (
-                                    <div key={idx} className="mb-6">
+                                    <div key={idx} className="mb-6"> {/* Static nav item wrapper */}
                                         {item.items ? (
                                             <>
                                                 <div className="text-lg font-semibold text-gray-800 mb-4">
@@ -148,7 +143,7 @@ const MobileNavbar = ({
                                             eventAction: "link_click",
                                             eventValue: "Get Started",
                                         }}
-                                        className={navButtonStyles}
+                                        className="block w-full text-center text-white bg-primary hover:bg-primary-light active:bg-primary-dark rounded-md px-6 py-3 transition-colors duration-200"
                                         onClick={handleState}
                                     >
                                         {ctaButton?.settings?.content?.ctaButton?.text || "Get Started"}

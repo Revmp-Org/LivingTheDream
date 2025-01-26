@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import NavLink from "@/components/organism/NavLink";
-import { PageComponent, ButtonConfig } from "@/types";
-import { getStyles } from "@/utils";
+import { PageComponent } from "@/types";
 import useMotionConfig from "@/hooks/framer-motion";
 
 const Hero: React.FC<PageComponent> = (hero) => {
@@ -15,67 +14,63 @@ const Hero: React.FC<PageComponent> = (hero) => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className={getStyles("wrapper", styles)}
+            className="bg-white bg-opacity-50 flex items-center justify-center min-h-[calc(100vh-5rem)]"
         >
-            <div className={getStyles("container", styles)}>
-                <motion.div
-                    className={getStyles("contentContainer", styles)}
-                    variants={containerVariants}
-                >
+            <div className="max-w-7xl mx-auto px-8 py-20">
+                <motion.div className="space-y-8 text-center max-w-4xl mx-auto" variants={containerVariants}>
                     <motion.h1
-                        className={getStyles("title", styles)}
+                        className="text-5xl font-bold text-gray-900 tracking-tight md:text-6xl"
                         variants={itemVariants}
                     >
-                        {content?.title || "Default Title"}
+                        {content?.title || "Elevate Your Business with Data-Driven Solutions"}
                     </motion.h1>
-
                     <motion.p
-                        className={getStyles("description", styles)}
+                        className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
                         variants={itemVariants}
                     >
-                        {content?.description || "Default Description"}
+                        {content?.description ||
+                            "At Revamp Marketing, we specialize in SEO, social media, and web design to transform your business. Let's take your business to the next level."}
                     </motion.p>
-
                     <motion.div
-                        className={getStyles("buttonContainer", styles)}
+                        className="flex items-center justify-center gap-x-6 mt-10"
                         variants={itemVariants}
                     >
                         {children &&
-                        Object.keys(children).map((key) => {
-                            const button = children[key];
-                            if (!button || !button.settings) {
-                                console.warn(`Invalid button configuration for key: ${key}`);
-                                return null;
-                            }
+                            Object.keys(children).map((key) => {
+                                const button = children[key];
+                                if (!button || !button.settings) return null;
 
-                            const buttonSettings = button.settings as ButtonConfig;
-                            const wrapperClass = getStyles("wrapper", buttonSettings.styles);
+                                const { href, text, analytics, styles } = button.settings;
+                                const defaultStyle =
+                                    key === "button-primary"
+                                        ? "flex justify-center bg-primary px-6 py-3 rounded-lg shadow-primary/30 shadow-lg hover:bg-primary-light active:bg-primary-dark text-white"
+                                        : "flex justify-center bg-white px-6 py-3 rounded-lg shadow-primary/30 shadow-lg border border-primary text-primary hover:bg-primary hover:text-white active:bg-primary-dark";
 
                                 return (
                                     <motion.div
                                         key={button.id}
                                         whileHover={buttonHover}
                                         whileTap={buttonTap}
-                                        className={wrapperClass.trim()}
+                                        className={defaultStyle}
                                     >
                                         <NavLink
-                                            href={buttonSettings.href || "#"}
-                                            scroll={buttonSettings.scroll || false}
-                                            analytics={buttonSettings.analytics || {
-                                                eventLabel: "Button Click",
-                                                eventCategory: "Hero Section",
-                                                eventAction: "click",
-                                                eventValue: "Button Clicked",
-                                            }}
+                                            href={href || "#"}
+                                            scroll={button.settings?.scroll || false}
+                                            analytics={
+                                                analytics || {
+                                                    eventLabel: text || "Button Click",
+                                                    eventCategory: "Hero Section",
+                                                    eventAction: "click",
+                                                    eventValue: text || "Button Clicked",
+                                                }
+                                            }
                                         >
-                                            {buttonSettings.text || "Default Button"}
+                                            {text || "Default Button"}
                                         </NavLink>
                                     </motion.div>
                                 );
                             })}
-
                     </motion.div>
-
                 </motion.div>
             </div>
         </motion.section>

@@ -1,8 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { Styles } from "@/types";
-import { getStyles } from "@/utils";
 
 type StepSectionType = {
     index: number;
@@ -12,7 +10,7 @@ type StepSectionType = {
     points: string[];
 };
 
-const StepSection: React.FC<{ stepSection: StepSectionType; styles: Styles }> = ({ stepSection, styles }) => {
+const StepSection: React.FC<{ stepSection: StepSectionType }> = ({ stepSection }) => {
     const ref = useRef(null);
     const inView = useInView(ref, { amount: 0.3, once: true });
 
@@ -38,20 +36,23 @@ const StepSection: React.FC<{ stepSection: StepSectionType; styles: Styles }> = 
     };
 
     return (
-        <section ref={ref} className={getStyles("wrapper", styles)}>
-            <div className={getStyles("container", styles)}>
+        <section
+            ref={ref}
+            className="py-20 bg-gray-50 border-t border-b border-gray-200"
+        >
+            <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
                 <div
-                    className={`${getStyles("stepLayout", styles)} ${index % 2 === 1 ? "lg:flex-row-reverse" : ""
+                    className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? "lg:flex-row-reverse" : ""
                         }`}
                 >
                     {/* Image Section */}
                     <motion.div
-                        className={getStyles("stepImageContainer", styles)}
+                        className="lg:w-1/2 w-full border-2 border-primary rounded-lg"
                         initial="hidden"
                         animate={inView ? "visible" : "hidden"}
                         variants={imageVariants}
                     >
-                        <div className={getStyles("stepImageWrapper", styles)}>
+                        <div className="rounded-lg overflow-hidden shadow-md">
                             <Image
                                 src={image}
                                 alt={title}
@@ -64,34 +65,34 @@ const StepSection: React.FC<{ stepSection: StepSectionType; styles: Styles }> = 
 
                     {/* Text Section */}
                     <motion.div
-                        className={getStyles("stepTextContainer", styles)}
+                        className="lg:w-1/2 w-full space-y-6 text-center lg:text-left"
                         initial="hidden"
                         animate={inView ? "visible" : "hidden"}
                         variants={textVariants}
                     >
-                        <h2 className={getStyles("stepTitle", styles)}>{title}</h2>
-                        <p className={getStyles("stepDescription", styles)}>{description}</p>
+                        <h2 className="text-gray-900 text-3xl font-extrabold mb-4">{title}</h2>
+                        <p className="text-gray-600 text-lg leading-relaxed mb-4">{description}</p>
                         {points && points.length > 0 && (
                             <motion.ul
-                                className={getStyles("stepPoints", styles)}
+                                className="text-gray-700 text-base leading-relaxed list-none space-y-4"
                                 initial="hidden"
                                 animate={inView ? "visible" : "hidden"}
                                 variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
                             >
-                                {points.map((point: string, idx: number) => (
+                                {points.map((point, idx) => (
                                     <motion.li
                                         key={idx}
-                                        className={getStyles("stepBulletWrapper", styles)}
+                                        className="flex items-center text-left space-x-3"
                                         variants={bulletVariants}
                                     >
-                                        <div className={getStyles("stepBullet", styles)}>
+                                        <div className="text-primary text-xl font-bold">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 strokeWidth={2}
                                                 stroke="currentColor"
-                                                className={getStyles("stepBulletIcon", styles)}
+                                                className="text-white bg-primary w-6 h-6 flex items-center justify-center rounded-full"
                                             >
                                                 <path
                                                     strokeLinecap="round"

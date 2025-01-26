@@ -1,28 +1,20 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { getStyles } from "@/utils";
 import DesktopNavbar from "../atoms/navbar/desktop";
 import MobileNavbar from "../atoms/navbar/mobile";
 import Brand from "./brand";
-import { useSiteConfig } from "@/context/site-config-context";
+import { PageComponent } from "@/types";
 
-const Navbar = () => {
-    const siteConfigTest = useSiteConfig();
-    const navbarConfig = siteConfigTest?.global?.navbar
-    const settings = navbarConfig?.settings
-    const defaultStyles = settings?.styles
+const Navbar = ({ config }: { config: PageComponent }) => {
+    const navbarConfig = config;
 
-    const desktopNavbar = navbarConfig?.children?.desktopNavbar
-    const mobileNavbar = navbarConfig?.children?.mobileNavbar
-    const brand = navbarConfig?.children?.brand
-    const ctaButton = navbarConfig?.children?.ctaButton
+    const desktopNavbar = navbarConfig?.children?.desktopNavbar;
+    const mobileNavbar = navbarConfig?.children?.mobileNavbar;
+    const brand = navbarConfig?.children?.brand;
+    const ctaButton = navbarConfig?.children?.ctaButton;
 
     const desktopNavbarNavigation = desktopNavbar?.settings?.content?.navigation || [];
     const mobileNavbarNavigation = mobileNavbar?.settings?.content?.navigation || [];
-
-
-    const desktopStyles = desktopNavbar?.settings?.styles || {};
-    const mobileStyles = mobileNavbar?.settings?.styles || {};
 
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -43,14 +35,9 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
 
-
-    const headerStyles = getStyles("header", defaultStyles);
-    const navStyles = getStyles("nav", defaultStyles);
-    const containerStyles = getStyles("container", defaultStyles);
-    
     return (
         <motion.header
-            className={headerStyles}
+            className="sticky top-4 z-50 border py-2 shadow-lg rounded-lg mx-4 md:mx-24 bg-white transition-all duration-300 ease-in-out" // Static header styles
             initial={{ opacity: 1, y: 0 }}
             animate={{
                 opacity: isVisible ? 1 : 0,
@@ -58,11 +45,11 @@ const Navbar = () => {
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
         >
-            <nav className={navStyles}>
-                <div className={containerStyles}>
+            <nav className="max-w-screen-xl mx-auto"> {/* Static nav styles */}
+                <div className="flex items-center justify-between py-5 px-6 rounded-lg"> {/* Static container styles */}
                     <Brand brand={brand} />
-                    <DesktopNavbar navigation={desktopNavbarNavigation} styles={desktopStyles} ctaButton={ctaButton} />
-                    <MobileNavbar navigation={mobileNavbarNavigation} styles={mobileStyles} ctaButton={ctaButton} brand={brand} />
+                    <DesktopNavbar navigation={desktopNavbarNavigation} ctaButton={ctaButton} />
+                    <MobileNavbar navigation={mobileNavbarNavigation} ctaButton={ctaButton} brand={brand} />
                 </div>
             </nav>
         </motion.header>

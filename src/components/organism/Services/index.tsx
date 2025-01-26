@@ -1,14 +1,10 @@
 import Carousel from "@/components/molecules/carousel";
 import SectionWrapper from "../../SectionWrapper";
 import { PageComponent } from "@/types";
-import { getStyles } from "@/utils";
 
 const Services: React.FC<PageComponent> = (services) => {
-    const { settings } = services;
-    const styles = settings?.styles;
-
     return (
-        <SectionWrapper className={getStyles("wrapper", styles)}>
+        <SectionWrapper className="bg-gray-50">
             <div>
                 <Carousel {...services} />
             </div>
