@@ -13,7 +13,8 @@ export type ComponentSettings =
     | TestimonialSettings;
 
 
-    export type StyleAttributes = {
+// General style attributes for dynamic class names
+export type StyleAttributes = {
     padding?: string;
     margin?: string;
     paddingTop?: string;
@@ -61,17 +62,26 @@ export type ComponentSettings =
     bottom?: string;
     left?: string;
     zIndex?: string;
-    custom?: string;
-    [key: string]: string | Record<string, string>;
+    custom?: string; // For custom classes
+    [key: string]: string | Record<string, string>; // Allow nested structures
+
 };
 
+export type BrandConfig = {
+    logo?: string;
+    name?: string;
+    path?: string;
+}
+
+// Component styles for different breakpoints
 export type Styles = {
-    default?: Record<string, StyleAttributes>;
-    mobile?: Record<string, StyleAttributes>;
-    desktop?: Record<string, StyleAttributes>;
-    childStyles?: Record<string, StyleAttributes>;
+    default?: Record<string, StyleAttributes>; // Default styles for all devices
+    mobile?: Record<string, StyleAttributes>; // Mobile-specific styles
+    desktop?: Record<string, StyleAttributes>; // Desktop-specific styles
+    childStyles?: Record<string, StyleAttributes>; // Styles specific to child components
 };
 
+// Analytics configuration for tracking events
 export type AnalyticsConfig = {
     eventLabel: string;
     eventCategory: string;
@@ -79,6 +89,7 @@ export type AnalyticsConfig = {
     eventValue: string;
 };
 
+// General settings for a component
 export type ComponentSettings = {
     styles?: Styles;
     content?: {
@@ -104,6 +115,7 @@ export type ComponentSettings = {
     carouselImage?: string;
 };
 
+// Type for a child component
 export type PageComponentChild = {
     id: string;
     type: string;
@@ -114,6 +126,7 @@ export type PageComponentChild = {
     children?: Record<string, PageComponentChild>;
 };
 
+// Type for a main page component
 export type PageComponent = {
     id: string;
     type: string;
@@ -137,6 +150,12 @@ export type PageComponent = {
     children: Record<string, PageComponentChild>;
 };
 
+// Props for the CTA component
+export type ComponentConfig<T = any> = {
+    config: T;
+    children: Record<string, PageComponentChild>;
+};
+
 type Page = {
     id: string;
     created: string;
@@ -148,7 +167,7 @@ type Page = {
     seo: SEO;
     isActive: boolean;
     pageComponents: Record<string, PageComponent>;
-    styles?: StylesType;
+    styles?: Styles;
 };
 
 export interface AnalyticsConfig {
@@ -167,14 +186,16 @@ export interface ComponentChild {
     children: ComponentChild[];
 }
 
+// Structure for a page component
 export interface PageComponent extends ComponentChild {
-    type: "organism";
+    type: "organism"; // Override for top-level components
 }
 
+// Structure for a page configuration
 export interface PageConfig {
     id: string;
-    created: string;
-    updated: string;
+    created: string; // ISO timestamp
+    updated: string; // ISO timestamp
     websiteId: string;
     title: string;
     slug: string;
@@ -190,6 +211,26 @@ export interface DocumentConfig {
     body: Record<string, any>;
     html: Record<string, any>;
     analytics: Record<string, any>;
+}
+
+export interface FooterConfig {
+    cta?: Record<string, any>;
+    copyright?: string;
+    social?: {
+        key?: string;
+        value?: string;
+    }[];
+    navigation?: NavigationItem[];
+    styles?: Record<string, any>;
+    links?: {
+        label?: string;
+        path?: string;
+    }[];
+    address?: {
+        line1?: string;
+        line2?: string;
+        country?: string;
+    };
 }
 
 export interface LayoutConfig {
@@ -216,6 +257,25 @@ export interface Logo {
     };
 }
 
+export interface NavbarConfig {
+    logo?: Logo;
+    ctaButton?: {
+        text?: string;
+        link?: string;
+        analytics?: AnalyticsConfig;
+    };
+    settings?: {
+        styles?: Record<string, any>;
+        desktop?: {
+            styles?: Record<string, any>;
+        };
+        mobile?: {
+            styles?: Record<string, any>;
+        };
+    };
+    navigation?: NavigationItem[];
+}
+
 export interface GlobalConfig {
     layout?: LayoutConfig;
     html?: Record<string, any>;
@@ -231,6 +291,14 @@ export interface GlobalConfigType {
     updated: string;
     websiteId: string;
     global: GlobalConfig;
+}
+export interface WebsiteConfig {
+    id?: string;
+    isLive?: boolean;
+    name?: string;
+    publishedAt?: string | null;
+    status?: 'published' | 'draft';
+    version?: number;
 }
 
 export interface ComponentConfig {
@@ -253,6 +321,11 @@ export interface PageConfig {
         };
     };
     components?: { [key: string]: ComponentConfig };
+}
+
+export interface PagesConfig {
+    home: PageConfig;
+    [key: string]: PageConfig;
 }
 
 export interface SiteConfigProviderProps {
@@ -300,6 +373,21 @@ export interface Testimonial {
     quote?: string;
 }
 
+export type ServiceConfig = {
+    title?: string;
+    desc?: string;
+    carouselImage?: string;
+    icon?: string;
+    path?: string
+}
+
+export type AnalyticsConfig = {
+    eventLabel?: string;
+    eventCategory?: string;
+    eventAction?: string;
+    eventValue?: string;
+}
+
 export type ButtonConfig = {
     text?: string;
     href?: string;
@@ -323,3 +411,9 @@ export interface NavigationItem {
     path?: string;
     items?: NavigationSubItem[]
 }
+
+export type StylesType = {
+    default?: Record<string, any>;
+    mobile?: Record<string, any>;
+    desktop?: Record<string, any>;
+};

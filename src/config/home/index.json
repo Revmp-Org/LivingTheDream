@@ -35,44 +35,47 @@
                 "styles": {
                     "default": {
                         "wrapper": {
-                            "background": "bg-gray-50"
+                            "background": "bg-white bg-opacity-50"
                         }
                     },
                     "mobile": {
                         "wrapper": {
-                            "padding": "py-20",
+                            "padding": "py-16",
                             "flex": "flex items-center"
                         },
                         "container": {
-                            "layout": "space-y-8 max-w-4xl mx-auto text-center px-4"
+                            "layout": "max-w-7xl mx-auto px-4"
+                        },
+                        "contentContainer": {
+                            "layout": "space-y-6 text-center"
                         },
                         "title": {
-                            "text": "text-4xl sm:text-5xl text-gray-900 font-bold leading-tight"
+                            "text": "text-3xl font-bold text-gray-900 sm:text-4xl"
                         },
                         "description": {
-                            "text": "text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
+                            "text": "text-lg text-gray-600 max-w-2xl mx-auto"
                         },
                         "buttonContainer": {
-                            "layout": "flex flex-col items-center gap-8 w-full"
+                            "layout": "flex flex-col items-center gap-4 mt-8 sm:flex-row sm:justify-center"
                         }
                     },
                     "desktop": {
                         "wrapper": {
-                            "height": "min-h-[calc(100vh-4rem)]",
+                            "height": "min-h-[calc(100vh-5rem)]",
                             "flex": "flex items-center justify-center"
                         },
                         "container": {
-                            "padding": "py-32",
-                            "text": "text-gray-600"
+                            "padding": "py-20",
+                            "layout": "max-w-7xl mx-auto px-8"
                         },
                         "contentContainer": {
-                            "layout": "space-y-8 max-w-4xl mx-auto text-center px-4"
+                            "layout": "space-y-8 text-center max-w-4xl mx-auto"
                         },
                         "title": {
-                            "text": "text-6xl lg:text-7xl text-gray-900 font-bold leading-tight tracking-tight"
+                            "text": "text-5xl font-bold text-gray-900 tracking-tight md:text-6xl"
                         },
                         "description": {
-                            "text": "text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
+                            "text": "text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
                         },
                         "buttonContainer": {
                             "layout": "flex items-center justify-center gap-x-6 mt-10"

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { getStyles } from "@/utils";
-import { PageComponent } from "@/types";
 import ContactHeader from "@/components/organism/ContactHeader";
 import ContactForm from "@/components/organism/ContactForm";
 import ContactConfig from "@/config/contact/index.json";

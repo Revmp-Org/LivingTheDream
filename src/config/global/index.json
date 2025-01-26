@@ -104,8 +104,29 @@
                         },
                         "styles": {
                             "default": {
+                                "header": {
+                                    "position": "sticky",
+                                    "top": "top-4",
+                                    "zIndex": "z-50",
+                                    "border": "border",
+                                    "padding": "py-2",
+                                    "shadow": "shadow-lg",
+                                    "rounded": "rounded-lg",
+                                    "margin": "mx-4 md:mx-24",
+                                    "background": "bg-white",
+                                    "transition": "transition-all duration-300 ease-in-out"
+                                },
+                                "nav": {
+                                    "maxWidth": "max-w-screen-xl",
+                                    "centered": "mx-auto"
+                                },
+                                "container": {
+                                    "layout": "flex items-center justify-between",
+                                    "padding": "py-5 px-6",
+                                    "rounded": "rounded-lg"
+                                },
                                 "list": {
-                                    "display": "hidden lg:flex",
+                                    "display": "flex",
                                     "alignment": "items-center justify-end",
                                     "spacing": "space-x-8"
                                 },
@@ -135,7 +156,7 @@
                                     "text": "text-white",
                                     "background": "bg-primary hover:bg-primary-light",
                                     "rounded": "rounded-md",
-                                    "padding": "px-6 py-2.5",
+                                    "padding": "px-6 py-3",
                                     "cursor": "cursor-pointer",
                                     "transition": "transition-colors duration-200"
                                 }
