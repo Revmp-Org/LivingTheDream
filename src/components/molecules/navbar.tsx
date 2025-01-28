@@ -46,11 +46,18 @@ const Navbar = ({ config }: { config: PageComponent }) => {
             transition={{ duration: 0.3, ease: "easeOut" }}
         >
             <nav className="max-w-screen-xl mx-auto"> {/* Static nav styles */}
-                <div className="flex items-center justify-between py-5 px-6 rounded-lg"> {/* Static container styles */}
+                <div className="flex items-center justify-between py-5 px-6 rounded-lg">
                     <Brand brand={brand} />
-                    <DesktopNavbar navigation={desktopNavbarNavigation} ctaButton={ctaButton} />
-                    <MobileNavbar navigation={mobileNavbarNavigation} ctaButton={ctaButton} brand={brand} />
+                    {/* Desktop Navbar: Hidden on small screens */}
+                    <div className="hidden md:flex">
+                        <DesktopNavbar navigation={desktopNavbarNavigation} ctaButton={ctaButton} />
+                    </div>
+                    {/* Mobile Navbar: Hidden on large screens */}
+                    <div className="md:hidden">
+                        <MobileNavbar navigation={mobileNavbarNavigation} ctaButton={ctaButton} brand={brand} />
+                    </div>
                 </div>
+
             </nav>
         </motion.header>
     );
