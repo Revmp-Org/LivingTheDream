@@ -8,7 +8,6 @@ export const SiteConfigProvider: React.FC<SiteConfigProviderProps> = ({
     children,
 }) => {
     const [siteConfig, setSiteConfig] = useState<GlobalConfigType | null>(GlobalConfig);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchSiteConfig = async () => {
@@ -33,8 +32,6 @@ export const SiteConfigProvider: React.FC<SiteConfigProviderProps> = ({
             } catch (error) {
                 console.error("Error fetching site config, falling back to global config:", error);
                 setSiteConfig(GlobalConfig);
-            } finally {
-                setLoading(false);
             }
         };
 
