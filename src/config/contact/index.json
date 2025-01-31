@@ -135,7 +135,7 @@
                 },
                 "content": {
                     "title": "Thank You!",
-                    "message": "Your form has been submitted. We will get in touch with you shortly."
+                    "message": "Your form has been submitted successfully. Check your email for the next steps."
                 }
             },
             "children": {}
