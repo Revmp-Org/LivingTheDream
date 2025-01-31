@@ -67,13 +67,15 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                             />
                         </motion.div>
                     )}
-                    {/* Thank You Message */}
-                    <h2 className="text-gray-800 text-3xl font-semibold mt-4"> {/* Static title style */}
-                        {thankYou?.settings?.content?.title}
+                    <div className="flex flex-col items-center justify-center max-w-xl mx-auto">
+                        {/* Thank You Message */}
+                        <h2 className="text-gray-800 text-3xl font-semibold mt-4"> {/* Static title style */}
+                            {thankYou?.settings?.content?.title}
                     </h2>
                     <p className="text-gray-600 text-lg mt-2"> {/* Static message style */}
-                        {thankYou?.settings?.content?.message}
-                    </p>
+                            {thankYou?.settings?.content?.message}
+                        </p>
+                    </div>
                 </motion.div>
             ) : (
                 <motion.div
