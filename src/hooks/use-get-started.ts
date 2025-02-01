@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AutocompleteOption } from "@/components/atoms/autocomplete";
+import useGoogleAnalytics from "./use-google-analytics";
 
 export type FormData = {
     services: string[];
@@ -33,7 +34,7 @@ export const useContactForm = () => {
     const [errors, setErrors] = useState<Partial<FormData>>({});
     const [selectedServices, setSelectedServices] = useState<AutocompleteOption[]>([]);
     const [referralSource, setReferralSource] = useState<AutocompleteOption[]>([]);
-
+    const { trackClick } = useGoogleAnalytics();
     const validateForm = (formData: FormData) => {
         const newErrors: Partial<FormData> = {};
 
@@ -125,6 +126,9 @@ export const useContactForm = () => {
             if (!response.ok) {
                 throw new Error("Failed to submit form");
             }
+
+            trackClick("Contact Form Submit", "Contact Form", "contact_form_submit", "");
+
 
             setFormSubmitted(true);
             form.reset();
