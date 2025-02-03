@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import LogoTransition from "@/components/atoms/on-load-transition";
+import CookieConsentBanner from "@/components/atoms/cooke-consent";
 
 function App({
   Component,
@@ -67,6 +68,8 @@ export default function MyApp(props: any) {
             transition={{ duration: 0.5 }}
             onAnimationStart={() => window.scrollTo(0, 0)}
           >
+              <CookieConsentBanner />
+
             <App {...props} />
           </motion.div>
         </AnimatePresence>

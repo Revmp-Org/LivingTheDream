@@ -37,7 +37,7 @@ const Navbar = ({ config }: { config: PageComponent }) => {
 
     return (
         <motion.header
-            className="sticky top-4 z-50 border py-2 shadow-lg rounded-lg mx-4 md:mx-24 bg-white transition-all duration-300 ease-in-out" // Static header styles
+            className="sticky top-4 z-50 border py-4 shadow-lg rounded-lg mx-auto bg-white transition-all duration-300 ease-in-out max-w-5xl w-full lg:px-12 px-4"
             initial={{ opacity: 1, y: 0 }}
             animate={{
                 opacity: isVisible ? 1 : 0,
@@ -45,19 +45,18 @@ const Navbar = ({ config }: { config: PageComponent }) => {
             }}
             transition={{ duration: 0.3, ease: "easeOut" }}
         >
-            <nav className="max-w-screen-xl mx-auto"> {/* Static nav styles */}
-                <div className="flex items-center justify-between py-5 px-6 rounded-lg">
+            <nav className="w-full">
+                <div className="flex items-center justify-between py-3">
                     <Brand brand={brand} />
-                    {/* Desktop Navbar: Hidden on small screens */}
+                    {/* Desktop Navbar */}
                     <div className="hidden md:flex">
                         <DesktopNavbar navigation={desktopNavbarNavigation} ctaButton={ctaButton} />
                     </div>
-                    {/* Mobile Navbar: Hidden on large screens */}
+                    {/* Mobile Navbar */}
                     <div className="md:hidden">
                         <MobileNavbar navigation={mobileNavbarNavigation} ctaButton={ctaButton} brand={brand} />
                     </div>
                 </div>
-
             </nav>
         </motion.header>
     );
