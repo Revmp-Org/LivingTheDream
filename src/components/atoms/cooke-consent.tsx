@@ -24,7 +24,7 @@ const CookieConsentBanner = () => {
     if (!showBanner) return null;
 
     return (
-        <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white text-sm px-6 py-4 flex flex-col sm:flex-row items-center justify-between shadow-lg">
+        <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white text-sm px-6 py-4 flex flex-col sm:flex-row items-center justify-between shadow-lg z-[9999]">
             <div className="flex items-center gap-2">
                 <span className="text-lg">🍪</span>
                 <p className="text-white">
