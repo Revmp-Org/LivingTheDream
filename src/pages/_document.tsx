@@ -39,6 +39,7 @@ export default function Document() {
             __html: `
               (function() {
                 if (typeof window !== "undefined") {
+                console.log('test')
                   const isCookieAccepted = localStorage.getItem("cookieConsent") === "true";
                   if (isCookieAccepted) {
                     var script = document.createElement("script");
