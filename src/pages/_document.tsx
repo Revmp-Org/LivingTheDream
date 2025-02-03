@@ -33,12 +33,23 @@ export default function Document() {
         />
       </Head>
       <body className="md:overflow-visible">
-        {/* Google Tag Manager - NoScript Fallback */}
-        <noscript
+        {/* GTM NoScript */}
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-              <iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}"
-              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+              (function() {
+                if (typeof window !== "undefined") {
+                  const isCookieAccepted = localStorage.getItem("cookieConsent") === "true";
+                  if (isCookieAccepted) {
+                    document.write(\`
+                      <noscript>
+                        <iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}"
+                        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+                      </noscript>
+                    \`);
+                  }
+                }
+              })();
             `,
           }}
         />
