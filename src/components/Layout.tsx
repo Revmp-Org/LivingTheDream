@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Your Website Title" />
                 <meta property="og:description" content="A short description of your website." />
-                <meta property="og:url" content="https://yourwebsite.com" />
+                <meta property="og:url" content="https://www.revampmarketing.net" />
                 <meta property="og:image" content="/logo-small.png" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
@@ -34,7 +34,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <meta name="twitter:title" content="Your Website Title" />
                 <meta name="twitter:description" content="A short description of your website." />
                 <meta name="twitter:image" content="/logo-small.png" />
-                <meta name="twitter:url" content="https://yourwebsite.com" />
+                <meta name="twitter:url" content="https://www.revampmarketing.net" />
 
                 {/* Force Browsers to Use PNG Favicon */}
                 <link rel="icon" type="image/png" href="/logo-small.png" sizes="512x512" />
