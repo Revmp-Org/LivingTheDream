@@ -33,26 +33,14 @@ export default function Document() {
         />
       </Head>
       <body className="md:overflow-visible">
-        {/* GTM NoScript */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                if (typeof window !== "undefined") {
-                  const isCookieAccepted = localStorage.getItem("cookieConsent") === "true";
-                  if (isCookieAccepted) {
-                    document.write(\`
-                      <noscript>
-                        <iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}"
-                        height="0" width="0" style="display:none;visibility:hidden"></iframe>
-                      </noscript>
-                    \`);
-                  }
-                }
-              })();
-            `,
-          }}
-        />
+        {/* GTM NoScript (Fix: Directly inside <body>) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM_ID}"
+            height="0" width="0" style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <Main />
         <NextScript />
       </body>
