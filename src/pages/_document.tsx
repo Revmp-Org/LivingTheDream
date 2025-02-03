@@ -32,6 +32,25 @@ export default function Document() {
             `,
           }}
         />
+
+        {/* Leadfeeder Tracking – Loads Only if Consent is Given */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if (typeof window !== "undefined") {
+                  const isCookieAccepted = localStorage.getItem("cookieConsent") === "true";
+                  if (isCookieAccepted) {
+                    var script = document.createElement("script");
+                    script.src = "https://sc.lfeeder.com/lftracker_v1_lAxoEaK3EOBaOYGd.js";
+                    script.async = true;
+                    document.head.appendChild(script);
+                  }
+                }
+              })();
+            `,
+          }}
+        />
       </Head>
       <body className="md:overflow-visible">
         <Main />
