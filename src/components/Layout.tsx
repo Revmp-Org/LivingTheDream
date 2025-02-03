@@ -19,23 +19,32 @@ const Layout = ({ children }: LayoutProps) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="robots" content="index, follow" />
+
+                {/* Open Graph for Social Media (Facebook, LinkedIn, Discord, etc.) */}
                 <meta property="og:type" content="website" />
-
-                {/* Force Browsers to Use the PNG Instead of ICO */}
-                <link rel="icon" type="image/png" href="/logo-small.png" sizes="512x512" />
-                <link rel="apple-touch-icon" href="/logo-small.png" />
-
-                {/* Open Graph Image for Social Sharing */}
+                <meta property="og:title" content="Your Website Title" />
+                <meta property="og:description" content="A short description of your website." />
+                <meta property="og:url" content="https://yourwebsite.com" />
                 <meta property="og:image" content="/logo-small.png" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
 
+                {/* Twitter Card (for Twitter/X previews) */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Your Website Title" />
+                <meta name="twitter:description" content="A short description of your website." />
+                <meta name="twitter:image" content="/logo-small.png" />
+                <meta name="twitter:url" content="https://yourwebsite.com" />
+
+                {/* Force Browsers to Use PNG Favicon */}
+                <link rel="icon" type="image/png" href="/logo-small.png" sizes="512x512" />
+                <link rel="apple-touch-icon" href="/logo-small.png" />
+
                 {/* Theme Color */}
                 <meta name="theme-color" content={themeColor} />
-
-                {/* Smooth Scrolling */}
                 <style>{`html { scroll-behavior: smooth; }`}</style>
             </Head>
+
             {navbarConfig && <Navbar config={navbarConfig} />}
             <main className="min-h-screen">{children}</main>
             {footerConfig && <Footer config={footerConfig} />}
