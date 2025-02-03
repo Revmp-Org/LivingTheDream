@@ -3,24 +3,28 @@
     "created": "2025-01-01T00:00:00Z",
     "updated": "2025-01-01T01:00:00Z",
     "websiteId": "website-id-123",
-    "title": "Home Page",
+    "title": "Revamp Marketing - Transform Your Business with Data-Driven Growth",
     "slug": "home",
-    "description": "Welcome to our homepage!",
+    "description": "Revamp Marketing is a marketing agency that helps businesses grow.",
     "seo": {
-        "title": "Welcome to Our Website",
-        "description": "Discover what we offer and how we can help you succeed.",
+        "title": "Revamp Marketing - Transform Your Business with Data-Driven Growth",
+        "description": "Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results.",
         "keywords": [
-            "home",
-            "business",
-            "services"
+            "revamp marketing",
+            "marketing",
+            "agency",
+            "growth",
+            "seo",
+            "social media",
+            "web design"
         ],
-        "canonical": "https://example.com/home",
+        "canonical": "https://www.revampmarketing.net",
         "structuredData": {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Welcome to Our Website",
-            "description": "Discover what we offer and how we can help you succeed.",
-            "url": "https://example.com/home"
+            "name": "Revamp Marketing",
+            "description": "Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results.",
+            "url": "https://www.revampmarketing.net"
         }
     },
     "isActive": true,

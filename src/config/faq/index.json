@@ -10,9 +10,15 @@
             "faq",
             "website development",
             "seo",
-            "social media"
+            "social media",
+            "marketing",
+            "agency",
+            "growth",
+            "seo",
+            "social media",
+            "web design"
         ],
-        "canonical": "https://example.com/faq"
+        "canonical": "https://www.revampmarketing.net/faq"
     },
     "isActive": true,
     "pageComponents": {

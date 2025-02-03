@@ -22,8 +22,8 @@ const Layout = ({ children }: LayoutProps) => {
 
                 {/* Open Graph for Social Media (Facebook, LinkedIn, Discord, etc.) */}
                 <meta property="og:type" content="website" />
-                <meta property="og:title" content="Your Website Title" />
-                <meta property="og:description" content="A short description of your website." />
+                <meta property="og:title" content="Revamp Marketing - Transform Your Business with Data-Driven Growth" />
+                <meta property="og:description" content="Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results." />
                 <meta property="og:url" content="https://www.revampmarketing.net" />
                 <meta property="og:image" content="/logo-small.png" />
                 <meta property="og:image:width" content="1200" />
@@ -31,10 +31,11 @@ const Layout = ({ children }: LayoutProps) => {
 
                 {/* Twitter Card (for Twitter/X previews) */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Your Website Title" />
-                <meta name="twitter:description" content="A short description of your website." />
+                <meta name="twitter:title" content="Revamp Marketing - Transform Your Business with Data-Driven Growth" />
+                <meta name="twitter:description" content="Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results." />
                 <meta name="twitter:image" content="/logo-small.png" />
                 <meta name="twitter:url" content="https://www.revampmarketing.net" />
+
 
                 {/* Force Browsers to Use PNG Favicon */}
                 <link rel="icon" type="image/png" href="/logo-small.png" sizes="512x512" />
