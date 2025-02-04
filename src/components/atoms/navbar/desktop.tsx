@@ -4,7 +4,7 @@ import useMotionConfig from "@/hooks/framer-motion";
 import NavLink from "@/components/organism/NavLink";
 import { NavigationItem, PageComponentChild } from "@/types";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 const DesktopNavbar = ({
     navigation,
     ctaButton,
@@ -14,7 +14,7 @@ const DesktopNavbar = ({
 }) => {
     const { trackClick } = useGoogleAnalytics();
     const { listItemHover, listItemTap } = useMotionConfig();
-
+    const router = useRouter();
     return (
         <ul className="flex items-center justify-end space-x-8">
             {navigation.map((item) => (
@@ -40,14 +40,15 @@ const DesktopNavbar = ({
                                         whileHover={listItemHover}
                                         whileTap={listItemTap}
                                         className="p-2 flex items-center text-gray-500 cursor-pointer rounded-md hover:bg-gray-100"
-                                        onClick={() =>
+                                        onClick={() =>{
                                             trackClick(
                                                 subItem?.label || "",
                                                 "Navbar Interaction",
                                                 "link_click",
                                                 subItem?.label || ""
-                                            )
-                                        }
+                                            );
+                                            router.push(subItem.path || "");
+                                        }}
                                     >
                                         <Link href={subItem.path || ""}>
                                             {subItem.label}

@@ -66,10 +66,10 @@
                     }
                 },
                 "content": {
-                    "image": "https://cdn.revampmarketing.net/social-media-service-cta.jpg",
-                    "title": "Social Media Management",
-                    "description": "We help grow your brand, engage your audience, and drive conversions with impactful social media strategies, ensuring alignment with your business goals.",
-                    "highlight": "Let us handle your social presence while you focus on what you do best.",
+                    "image": "https://cdn.ltdflorals.com/C7EA8D29-802B-45F0-8267-D1C3E80EECF7.JPG",
+                    "title": "Bespoke Wedding Floral Design",
+                    "description": "Transform your wedding day with stunning, custom floral arrangements tailored to your love story. From elegant bridal bouquets to breathtaking ceremony florals, we create timeless designs that capture the essence of your special day.",
+                    "highlight": "Let us bring your vision to life with hand-selected blooms, thoughtfully arranged for a day you'll never forget.",
                     "button": {
                         "text": "Get Started",
                         "link": "/contact",
@@ -83,171 +83,33 @@
                 }
             }
         },
-        "benefits": {
-            "id": "component-benefits",
-            "type": "organism",
+        "gallery": {
+            "id": "component-gallery",
+            "type": "molecule",
+            "slug": "gallery-section",
             "contentType": "collection",
-            "slug": "benefits",
             "isActive": true,
             "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-16",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "grid": {
-                            "layout": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-                        },
-                        "item": {
-                            "background": "bg-gradient-to-br from-white via-gray-100 to-gray-50",
-                            "padding": "p-6",
-                            "rounded": "rounded-2xl",
-                            "shadow": "shadow-lg hover:shadow-2xl",
-                            "transition": "transition-transform duration-300 hover:scale-105"
-                        },
-                        "itemIcon": {
-                            "background": "bg-gradient-to-br from-indigo-500 to-purple-500 text-white",
-                            "layout": "w-16 h-16 rounded-full flex items-center justify-center",
-                            "typography": "text-xl font-bold shadow-md",
-                            "margin": "mx-auto mb-4"
-                        },
-                        "itemTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-lg font-bold text-center"
-                        },
-                        "itemDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-sm mt-2 leading-relaxed text-center"
-                        }
-                    }
-                },
                 "content": [
                     {
-                        "title": "Increased Brand Awareness",
-                        "description": "Grow your brand's visibility across multiple platforms."
+                        "image": "https://cdn.ltdflorals.com/0231DCFE-13E9-41D6-AD5B-FE497174CA3D.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James"
                     },
                     {
-                        "title": "Better Audience Engagement",
-                        "description": "Foster meaningful connections with your audience."
+                        "image": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
+                        "quote": "Living The Dream Florals brought my vision to life with elegance and grace.",
+                        "author": "Sophia M."
                     },
                     {
-                        "title": "Improved Conversion Rates",
-                        "description": "Drive traffic and turn followers into loyal customers."
+                        "image": "https://cdn.ltdflorals.com/821F05B9-520F-4AA3-9CBD-DE90F2F77A56.JPG",
+                        "quote": "Every bouquet was designed with so much love and attention to detail.",
+                        "author": "Olivia & Matt"
                     },
                     {
-                        "title": "Time-Saving Management",
-                        "description": "Let us handle your accounts so you can focus on your business."
-                    }
-                ]
-            }
-        },
-        "steps": {
-            "id": "component-steps",
-            "type": "organism",
-            "contentType": "collection",
-            "slug": "steps",
-            "isActive": true,
-            "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-20",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-b border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "stepLayout": {
-                            "layout": "flex flex-col lg:flex-row items-center gap-12"
-                        },
-                        "stepImageContainer": {
-                            "layout": "lg:w-1/2 w-full",
-                            "border": "border-2 border-primary rounded-lg"
-                        },
-                        "stepImageWrapper": {
-                            "rounded": "rounded-lg overflow-hidden",
-                            "shadow": "shadow-md"
-                        },
-                        "stepTextContainer": {
-                            "layout": "lg:w-1/2 w-full space-y-6 text-center lg:text-left"
-                        },
-                        "stepTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-3xl font-extrabold mb-4"
-                        },
-                        "stepDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-lg leading-relaxed mb-4"
-                        },
-                        "stepPoints": {
-                            "color": "text-gray-700",
-                            "typography": "text-base leading-relaxed",
-                            "list": "list-none space-y-4"
-                        },
-                        "stepBulletWrapper": {
-                            "layout": "flex items-center text-left space-x-3"
-                        },
-                        "stepBullet": {
-                            "color": "text-primary",
-                            "typography": "text-xl font-bold"
-                        },
-                        "stepBulletIcon": {
-                            "color": "text-white",
-                            "background": "bg-primary",
-                            "layout": "w-6 h-6 flex items-center justify-center rounded-full"
-                        }
-                    }
-                },
-                "content": [
-                    {
-                        "index": 1,
-                        "title": "Step 1: Strategy Development",
-                        "description": "We create a tailored social media strategy based on your goals, audience, and industry.",
-                        "image": "https://cdn.revampmarketing.net/social-media-service-planning.jpg",
-                        "points": [
-                            "Define your target audience and brand voice.",
-                            "Set clear objectives and KPIs for social media growth.",
-                            "Select the best platforms for your business."
-                        ]
-                    },
-                    {
-                        "index": 2,
-                        "title": "Step 2: Content Creation",
-                        "description": "We craft engaging and visually appealing content that resonates with your audience.",
-                        "image": "https://cdn.revampmarketing.net/social-media-service-creation.png",
-                        "points": [
-                            "Design eye-catching graphics and visuals.",
-                            "Write compelling captions and calls-to-action.",
-                            "Ensure all content aligns with your brand's identity."
-                        ]
-                    },
-                    {
-                        "index": 3,
-                        "title": "Step 3: Scheduling & Posting",
-                        "description": "Our team ensures consistent posting to maximize reach and engagement.",
-                        "image": "https://cdn.revampmarketing.net/social-media-calendar.jpg",
-                        "points": [
-                            "Use analytics to determine the best posting times.",
-                            "Automate scheduling for seamless management.",
-                            "Ensure all posts maintain a consistent tone and quality."
-                        ]
-                    },
-                    {
-                        "index": 4,
-                        "title": "Step 4: Monitoring & Reporting",
-                        "description": "We monitor your social media accounts and provide detailed reports on performance.",
-                        "image": "https://cdn.revampmarketing.net/social-media-reporting.jpg",
-                        "points": [
-                            "Track audience engagement and growth.",
-                            "Monitor comments and messages for responsiveness.",
-                            "Provide actionable insights for ongoing improvement."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James"
                     }
                 ]
             }
@@ -290,8 +152,8 @@
                     }
                 },
                 "content": {
-                    "title": "Ready to Grow Your Social Presence?",
-                    "description": "Contact our social media experts today to develop a strategy that strengthens your brand and maximizes engagement.",
+                    "title": "Let’s Create the Wedding of Your Dreams",
+                    "description": "Connect with us today to design breathtaking floral arrangements that make your special day unforgettable. From timeless bouquets to elegant ceremony florals, we’ll bring your vision to life.",
                     "button": {
                         "text": "Get Started",
                         "link": "/contact"
