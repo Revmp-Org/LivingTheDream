@@ -17,7 +17,7 @@ const OverviewSection = (overview: PageComponentChild) => {
     const { title, description, highlight, button, image } = overview?.settings?.content || {};
 
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-24 px-6 mt-8 lg:px-12 bg-gradient-to-b from-bg-primary-light via-white to-bg-primary-light">
             <motion.div
                 className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left"
                 initial="hidden"

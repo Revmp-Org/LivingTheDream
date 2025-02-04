@@ -7,20 +7,35 @@
     "slug": "contact",
     "description": "Reach out to us with your requirements and we’ll get back to you!",
     "seo": {
-        "title": "Contact Us - Living The Dream",
-        "description": "Reach out to Living The Dream for expert guidance and solutions tailored to your business needs.",
+        "title": "Contact Us - Living The Dream Florals | Wedding & Event Flowers",
+        "description": "Get in touch with Living The Dream Florals to discuss your wedding, event, or custom floral needs. Our expert florists are here to bring your floral vision to life.",
         "keywords": [
-            "contact",
-            "marketing",
-            "services"
+            "contact florist",
+            "wedding flowers consultation",
+            "event floral arrangements",
+            "custom bouquets inquiry",
+            "bridal bouquet request",
+            "florist near me",
+            "flower delivery",
+            "luxury wedding florals",
+            "private event flowers"
         ],
         "canonical": "https://www.ltdflorals.com/contact",
         "structuredData": {
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "name": "Contact Us - Living The Dream",
-            "description": "Reach out to Living The Dream for expert guidance and solutions tailored to your business needs.",
-            "url": "https://www.ltdflorals.com/contact"
+            "name": "Contact Us - Living The Dream Florals",
+            "description": "Contact Living The Dream Florals to schedule a consultation for wedding flowers, event florals, or custom bouquets. Let us bring your floral vision to life.",
+            "url": "https://www.ltdflorals.com/contact",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-555-555-5555",
+                "contactType": "customer service",
+                "areaServed": "US",
+                "availableLanguage": [
+                    "English"
+                ]
+            }
         }
     },
     "styles": {

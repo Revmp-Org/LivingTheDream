@@ -69,7 +69,7 @@ export default function MyApp(props: any) {
             onAnimationStart={() => window.scrollTo(0, 0)}
           >
               <CookieConsentBanner />
-        <div className="bg-primary-light">
+        <div className="bg-primary-light font-serif">
             <App {...props} />
         </div>
           </motion.div>

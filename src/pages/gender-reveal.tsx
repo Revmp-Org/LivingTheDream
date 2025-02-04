@@ -2,11 +2,11 @@ import OverviewSection from "@/components/organism/ServiceOverview";
 import BenefitsSection from "@/components/molecules/service/benefits";
 import StepSection from "@/components/molecules/service/steps";
 import FooterCTA from "@/components/molecules/footer-cta";
-import SEOConfig from "@/config/service/seo.json";
+import GenderRevealConfig from "@/config/service/gender-reveal.json";
 import SEO from "@/components/atoms/seo-config";
 
-export default function SEOPage() {
-    const { seo, pageComponents } = SEOConfig;
+export default function GenderRevealPage() {
+    const { seo, pageComponents } = GenderRevealConfig;
 
     const overview = pageComponents?.overview;
     const benefits = pageComponents?.benefits;
@@ -15,8 +15,8 @@ export default function SEOPage() {
 
     return (
         <div>
+            {/* SEO Metadata */}
             <SEO seo={seo} />
-
             {/* Overview Section */}
             <OverviewSection {...overview} />
 

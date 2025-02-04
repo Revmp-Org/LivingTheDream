@@ -2,11 +2,11 @@ import OverviewSection from "@/components/organism/ServiceOverview";
 import BenefitsSection from "@/components/molecules/service/benefits";
 import StepSection from "@/components/molecules/service/steps";
 import FooterCTA from "@/components/molecules/footer-cta";
-import SocialMediaConfig from "@/config/service/social-media.json";
+import PrivateEventsConfig from "@/config/service/private-events.json";
 import SEO from "@/components/atoms/seo-config";
 
-export default function SocialMediaPage() {
-    const { seo, pageComponents } = SocialMediaConfig;
+export default function PrivateEventsPage() {
+    const { seo, pageComponents } = PrivateEventsConfig;
 
     const overview = pageComponents?.overview;
     const benefits = pageComponents?.benefits;
@@ -17,6 +17,7 @@ export default function SocialMediaPage() {
         <div>
             {/* SEO Metadata */}
             <SEO seo={seo} />
+
             {/* Overview Section */}
             <OverviewSection {...overview} />
 

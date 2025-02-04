@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { isClient } from "@/utils";
 import { Autocomplete } from "@/components/atoms/autocomplete";
+import DatePickerField from "@/components/atoms/date-picker";
 
 const Player = dynamic(
     () => import("@lottiefiles/react-lottie-player").then((mod) => mod.Player),
@@ -24,6 +25,8 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
         referralSource,
         referralOptions,
         handleReferralSourceChange,
+        eventDate,
+        handleEventDateChange,
     } = useContactForm();
 
     const thankYouVariants = {
@@ -82,117 +85,114 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                     variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
                     className="py-4 px-8" // Static wrapper style
                 >
-                    <form onSubmit={handleSubmit}>
-                        <motion.div className="grid grid-cols-1 gap-6 md:grid-cols-2"> {/* Static grid style */}
-                            {/* Name Field */}
-                            <div className="col-span-2 md:col-span-1">
-                                <Input
-                                    id="name"
-                                    name="name"
-                                    label="Full Name"
-                                    type="text"
-                                    placeholder="John Smith"
-                                />
-                                {errors.name && (
-                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
-                                        {errors.name}
-                                    </p>
-                                )}
-                            </div>
+                        <form onSubmit={handleSubmit}>
+                            <motion.div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-                            {/* Company Name */}
-                            <div className="col-span-2 md:col-span-1">
-                                <Input
-                                    id="companyName"
-                                    name="companyName"
-                                    label="Company Name"
-                                    type="text"
-                                    placeholder="Your Company"
-                                />
-                                {errors.companyName && (
-                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
-                                        {errors.companyName}
-                                    </p>
-                                )}
-                            </div>
+                                {/* Name */}
+                                <div className="col-span-2 md:col-span-1">
+                                    <Input
+                                        id="name"
+                                        name="name"
+                                        label="Name"
+                                        type="text"
+                                        placeholder="John Smith"
+                                    />
+                                    {errors.name && (
+                                        <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                                    )}
+                                </div>
 
-                            {/* Input Fields */}
-                            <div className="col-span-2 md:col-span-1">
-                                <Input
-                                    id="email"
-                                    name="email"
-                                    label="Email"
-                                    type="email"
-                                    placeholder="you@example.com"
-                                />
-                                {errors.email && (
-                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
-                                        {errors.email}
-                                    </p>
-                                )}
-                            </div>
-                            <div className="col-span-2 md:col-span-1">
-                                <Input
-                                    id="phone"
-                                    name="phone"
-                                    label="Phone"
-                                    type="tel"
-                                    placeholder="(123) 456-7890"
-                                />
-                            </div>
+                                {/* Email */}
+                                <div className="col-span-2 md:col-span-1">
+                                    <Input
+                                        id="email"
+                                        name="email"
+                                        label="Email"
+                                        type="email"
+                                        placeholder="you@example.com"
+                                    />
+                                    {errors.email && (
+                                        <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                                    )}
+                                </div>
 
-                            {/* Services Selection */}
-                            <div className="col-span-2 md:col-span-1">
-                                <Autocomplete
-                                    value={selectedServices.map((service) => service.label).join(", ")}
-                                    label="Services You Want"
-                                    onChange={() => { }}
-                                    onSelect={handleServiceSelect}
-                                    options={serviceOptions}
-                                    selectedOptions={selectedServices}
-                                    placeholder="Select services"
-                                    noResultsMessage="No services available"
-                                    disableFilter={true}
-                                />
-                                {errors.services && (
-                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
-                                        {errors.services}
-                                    </p>
-                                )}
-                            </div>
+                                {/* Phone */}
+                                <div className="col-span-2 md:col-span-1">
+                                    <Input
+                                        id="phone"
+                                        name="phone"
+                                        label="Phone Number"
+                                        type="tel"
+                                        placeholder="(123) 456-7890"
+                                    />
+                                    {errors.phone && (
+                                        <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                                    )}
+                                </div>
 
-                            {/* Referral Source */}
-                            <div className="col-span-2 md:col-span-1">
-                                <Autocomplete
-                                    onSelect={handleReferralSourceChange}
-                                    label="How did you hear about us?"
-                                    value={referralSource.map((option) => option.label).join(", ")}
-                                    onChange={handleReferralSourceChange}
-                                    options={referralOptions}
-                                    selectedOptions={referralSource}
-                                    placeholder="Select an option"
-                                    noResultsMessage="No options available"
-                                    disableFilter={true}
-                                />
-                                {errors.referralSource && (
-                                    <p className="text-red-500 text-sm mt-1"> {/* Static inputError style */}
-                                        {errors.referralSource}
-                                    </p>
-                                )}
-                            </div>
+                                {/* Event Type Selection */}
+                                <div className="col-span-2 md:col-span-1">
+                                    <Autocomplete
+                                        value={selectedServices.map((service) => service.label).join(", ")}
+                                        label="Type of Event"
+                                        onChange={() => { }}
+                                        onSelect={handleServiceSelect}
+                                        options={serviceOptions}
+                                        selectedOptions={selectedServices}
+                                        placeholder="Select event type"
+                                        noResultsMessage="No event types available"
+                                        disableFilter={true}
+                                    />
+                                    {errors.services && (
+                                        <p className="text-red-500 text-sm mt-1">{errors.services}</p>
+                                    )}
+                                </div>
 
-                            {/* Button Container */}
-                            <div className="col-span-2 flex justify-end mt-4"> {/* Static buttonContainer style */}
-                                <Button
-                                    type="submit"
-                                    disabled={isLoading}
-                                    className="text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg py-3 px-4 transition-colors duration-200 disabled:opacity-70" // Static button style
-                                >
-                                    {isLoading ? "Submitting..." : "Submit"}
-                                </Button>
-                            </div>
-                        </motion.div>
-                    </form>
+                                {/* Event Date Picker */}
+                                <div className="col-span-2 md:col-span-1">
+                                    <DatePickerField
+                                        label="Event Date"
+                                        selectedDate={eventDate || undefined}
+                                        onChange={handleEventDateChange}
+                                        minDate={new Date()}
+                                        hideTimeField={true}
+                                    />
+                                    {errors.eventDate && (
+                                        <p className="text-red-500 text-sm mt-1">{errors.eventDate}</p>
+                                    )}
+                                </div>
+
+                                {/* Referral Source */}
+                                <div className="col-span-2 md:col-span-1">
+                                    <Autocomplete
+                                        onSelect={handleReferralSourceChange}
+                                        label="How did you hear about us?"
+                                        value={referralSource.map((option) => option.label).join(", ")}
+                                        onChange={handleReferralSourceChange}
+                                        options={referralOptions}
+                                        selectedOptions={referralSource}
+                                        placeholder="Select an option"
+                                        noResultsMessage="No options available"
+                                        disableFilter={true}
+                                    />
+                                    {errors.referralSource && (
+                                        <p className="text-red-500 text-sm mt-1">{errors.referralSource}</p>
+                                    )}
+                                </div>
+
+                                {/* Submit Button */}
+                                <div className="col-span-2 flex justify-end mt-4">
+                                    <Button
+                                        type="submit"
+                                        disabled={isLoading}
+                                        className="text-white bg-primary hover:bg-primary-dark font-medium rounded-lg py-3 px-4 transition-colors duration-200 disabled:opacity-70"
+                                    >
+                                        {isLoading ? "Submitting..." : "Submit"}
+                                    </Button>
+                                </div>
+                            </motion.div>
+                        </form>
+
                 </motion.div>
             )}
         </AnimatePresence>

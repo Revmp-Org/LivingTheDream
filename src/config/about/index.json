@@ -1,0 +1,79 @@
+{
+    "id": "about-page",
+    "title": "About",
+    "description": "Learn more about Living The Dream Florals, our passion, and our story.",
+    "slug": "about",
+    "seo": {
+        "title": "About - Living The Dream Florals",
+        "description": "Discover the heart behind Living The Dream Florals, our dedication to crafting elegant floral arrangements for weddings, private events, and special occasions.",
+        "keywords": [
+            "about",
+            "florist",
+            "wedding flowers",
+            "bouquets",
+            "event florals",
+            "flower arrangements",
+            "custom bouquets",
+            "luxury flowers",
+            "floral designs"
+        ],
+        "canonical": "https://www.ltdflorals.com/about"
+    },
+    "isActive": true,
+    "pageComponents": {
+        "hero": {
+            "id": "component-hero",
+            "type": "hero",
+            "slug": "about-hero",
+            "isActive": true,
+            "settings": {
+                "content": {
+                    "title": "A Passion for Floral Artistry",
+                    "subtitle": "Thank you for taking the time to get to know me and my passion for floral design!"
+                }
+            }
+        },
+        "about": {
+            "id": "component-about",
+            "type": "organism",
+            "slug": "about-section",
+            "isActive": true,
+            "settings": {
+                "image": {
+                    "src": "https://cdn.ltdflorals.com/4E4ADCFD-FA83-437B-BA63-5C2E08E450AD.JPG",
+                    "alt": "Sara Nolan, owner of Living The Dream Florals"
+                },
+                "content": {
+                    "title": "Meet Sara Nolan",
+                    "description": [
+                        "Sara Nolan was born and raised in Maryland and moved to Florida for college, where she fell in love with the floral business.",
+                        "With a deep admiration for nature’s beauty, Sara began designing floral arrangements for friends and family. Soon, her passion blossomed into a business, bringing stunning floral designs to weddings, private events, and special occasions."
+                    ],
+                    "quote": "“I have always had an admiration for nature’s beauty and loved picking flowers, arranging them, and making moments unforgettable.”"
+                }
+            }
+        },
+        "footerCTA": {
+            "id": "component-footer-cta",
+            "type": "cta",
+            "slug": "footer-cta",
+            "isActive": true,
+            "settings": {
+                "content": {
+                    "title": "Let's Create Something Beautiful Together",
+                    "description": "From weddings to private events, Living The Dream Florals is dedicated to crafting breathtaking floral arrangements for every special moment.",
+                    "button": {
+                        "text": "Get Started",
+                        "link": "/contact",
+                        "analytics": {
+                            "eventLabel": "Get Started",
+                            "eventCategory": "CTA Interaction",
+                            "eventAction": "link_click",
+                            "eventValue": "Get Started"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

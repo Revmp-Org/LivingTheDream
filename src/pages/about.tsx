@@ -1,21 +1,27 @@
-import FAQHeader from "@/components/molecules/faq/faq-header";
-import FAQSection from "@/components/molecules/faq/faq-section";
-import FaqConfig from "@/config/faq/index.json";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import SEO from "@/components/atoms/seo-config";
+import FooterCTA from "@/components/molecules/footer-cta";
+import AboutConfig from "@/config/about/index.json";
+import AboutSection from "@/components/molecules/about/about-details";
 
 const AboutPage: React.FC = () => {
-    const { pageComponents, seo } = FaqConfig;
+    const { pageComponents, seo } = AboutConfig;
 
-    const header = pageComponents?.header;
-    const faq = pageComponents?.faq;
+    const about = pageComponents?.about;
+    const hero = pageComponents?.hero;
+    const footerCTA = pageComponents?.footerCTA;
 
     return (
-        <div>
+        <>
             <SEO seo={seo} />
+            
+            {/* About Section */}
+            <AboutSection {...about} />
 
-            <FAQHeader {...header} />
-            <FAQSection {...faq} />
-        </div>
+            {/* Footer CTA Section */}
+            <FooterCTA {...footerCTA} />
+        </>
     );
 };
 

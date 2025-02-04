@@ -1,0 +1,302 @@
+{
+    "id": "website-development-page",
+    "created": "2025-01-01T00:00:00Z",
+    "updated": "2025-01-01T01:00:00Z",
+    "websiteId": "website-id-123",
+    "title": "Website Development",
+    "slug": "website-development",
+    "description": "Learn about our website development services and how we can create a custom solution for your business.",
+    "seo": {
+        "title": "Website Development - Revamp Marketing",
+        "description": "Explore our custom website development services tailored to captivate your audience and enhance your online presence.",
+        "keywords": [
+            "website development",
+            "custom websites",
+            "responsive design"
+        ],
+        "canonical": "https://revampmarketing.net/website-development"
+    },
+    "isActive": true,
+    "pageComponents": {
+        "overview": {
+            "id": "component-overview",
+            "type": "organism",
+            "contentType": "singleton",
+            "slug": "overview",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-24",
+                            "background": "bg-gray-50"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left"
+                        },
+                        "textContainer": {
+                            "layout": "flex-1 max-w-full lg:max-w-[50%]"
+                        },
+                        "title": {
+                            "color": "text-gray-900",
+                            "typography": "text-4xl lg:text-5xl font-bold mb-4"
+                        },
+                        "description": {
+                            "color": "text-gray-700",
+                            "typography": "text-lg mb-4 leading-relaxed"
+                        },
+                        "highlight": {
+                            "color": "text-primary",
+                            "typography": "text-lg font-semibold"
+                        },
+                        "buttonWrapper": {
+                            "layout": "flex justify-center lg:justify-start mt-6"
+                        },
+                        "button": {
+                            "color": "text-white",
+                            "background": "bg-primary hover:bg-primary-light active:bg-primary-dark",
+                            "padding": "px-6 py-3",
+                            "rounded": "rounded-md",
+                            "transition": "transition-colors duration-200"
+                        },
+                        "imageContainer": {
+                            "layout": "flex-1 max-w-full lg:max-w-[50%] flex justify-center items-center mt-6 lg:mt-0 mb-12 lg:mb-0 lg:ml-12"
+                        }
+                    }
+                },
+                "content": {
+                    "image": "https://cdn.revampmarketing.net/web-design.jpg",
+                    "title": "Website Development",
+                    "description": "Our website development service offers tailored solutions to captivate your audience and enhance your online presence. From responsive designs to seamless user experiences, our team is dedicated to delivering exceptional results.",
+                    "highlight": "Let us help you create a website that drives your success.",
+                    "button": {
+                        "text": "Learn More",
+                        "link": "/contact",
+                        "analytics": {
+                            "eventLabel": "Learn More",
+                            "eventCategory": "Navbar Interaction",
+                            "eventAction": "link_click",
+                            "eventValue": "Learn More"
+                        }
+                    }
+                }
+            }
+        },
+        "benefits": {
+            "id": "component-benefits",
+            "type": "organism",
+            "contentType": "collection",
+            "slug": "benefits",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-16",
+                            "background": "bg-gray-50",
+                            "border": "border-t border-gray-200"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
+                        },
+                        "grid": {
+                            "layout": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                        },
+                        "item": {
+                            "background": "bg-gradient-to-br from-white via-gray-100 to-gray-50",
+                            "padding": "p-6",
+                            "rounded": "rounded-2xl",
+                            "shadow": "shadow-lg hover:shadow-2xl",
+                            "transition": "transition-transform duration-300 hover:scale-105"
+                        },
+                        "itemIcon": {
+                            "background": "bg-gradient-to-br from-indigo-500 to-purple-500 text-white",
+                            "layout": "w-16 h-16 rounded-full flex items-center justify-center",
+                            "typography": "text-xl font-bold shadow-md",
+                            "margin": "mx-auto mb-4"
+                        },
+                        "itemTitle": {
+                            "color": "text-gray-900",
+                            "typography": "text-lg font-bold text-center"
+                        },
+                        "itemDescription": {
+                            "color": "text-gray-600",
+                            "typography": "text-sm mt-2 leading-relaxed text-center"
+                        }
+                    }
+                },
+                "content": [
+                    {
+                        "title": "Boost Engagement",
+                        "description": "Enhance audience interaction with captivating designs."
+                    },
+                    {
+                        "title": "Increase Traffic",
+                        "description": "Reach more users with mobile-friendly interfaces."
+                    },
+                    {
+                        "title": "Improve SEO",
+                        "description": "Rank higher on search engines with optimized content."
+                    },
+                    {
+                        "title": "Streamline UX",
+                        "description": "Ensure seamless navigation and user satisfaction."
+                    }
+                ]
+            }
+        },
+        "steps": {
+            "id": "component-steps",
+            "type": "organism",
+            "contentType": "collection",
+            "slug": "steps",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-20",
+                            "background": "bg-gray-50",
+                            "border": "border-t border-b border-gray-200"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
+                        },
+                        "stepLayout": {
+                            "layout": "flex flex-col lg:flex-row items-center gap-12"
+                        },
+                        "stepImageContainer": {
+                            "layout": "lg:w-1/2 w-full",
+                            "border": "border-2 border-primary rounded-lg"
+                        },
+                        "stepImageWrapper": {
+                            "rounded": "rounded-lg overflow-hidden",
+                            "shadow": "shadow-md"
+                        },
+                        "stepTextContainer": {
+                            "layout": "lg:w-1/2 w-full space-y-6 text-center lg:text-left"
+                        },
+                        "stepTitle": {
+                            "color": "text-gray-900",
+                            "typography": "text-3xl font-extrabold mb-4"
+                        },
+                        "stepDescription": {
+                            "color": "text-gray-600",
+                            "typography": "text-lg leading-relaxed mb-4"
+                        },
+                        "stepPoints": {
+                            "color": "text-gray-700",
+                            "typography": "text-base leading-relaxed",
+                            "list": "list-none space-y-4"
+                        },
+                        "stepBulletWrapper": {
+                            "layout": "flex items-center text-left space-x-3"
+                        },
+                        "stepBullet": {
+                            "color": "text-primary",
+                            "typography": "text-xl font-bold"
+                        },
+                        "stepBulletIcon": {
+                            "color": "text-white",
+                            "background": "bg-primary",
+                            "layout": "w-6 h-6 flex items-center justify-center rounded-full"
+                        }
+                    }
+                },
+                "content": [
+                    {
+                        "index": 1,
+                        "title": "Step 1: Discovery & Planning",
+                        "description": "We work closely with you to understand your goals, target audience, and unique requirements. This phase ensures a clear roadmap for success.",
+                        "image": "https://cdn.revampmarketing.net/website-service-todo.jpg",
+                        "points": [
+                            "Analyze business goals and objectives.",
+                            "Identify the target audience and user needs.",
+                            "Outline a clear project timeline and deliverables."
+                        ]
+                    },
+                    {
+                        "index": 2,
+                        "title": "Step 2: Design & Prototyping",
+                        "description": "Our designers create visually appealing and user-friendly prototypes tailored to your brand. Your feedback shapes the final design.",
+                        "image": "https://cdn.revampmarketing.net/web-service-designing.jpg",
+                        "points": [
+                            "Develop wireframes and initial prototypes.",
+                            "Collaborate with you to refine designs.",
+                            "Ensure alignment with your brand identity."
+                        ]
+                    },
+                    {
+                        "index": 3,
+                        "title": "Step 3: Development",
+                        "description": "Our developers bring the designs to life, ensuring your website is functional and responsive across all devices and platforms.",
+                        "image": "https://cdn.revampmarketing.net/website-service-dev-design.jpg",
+                        "points": [
+                            "Write clean, scalable, and efficient code.",
+                            "Implement responsive design for all devices.",
+                            "Integrate essential features and functionalities."
+                        ]
+                    },
+                    {
+                        "index": 4,
+                        "title": "Step 4: Launch & Support",
+                        "description": "We rigorously test the website before launch and offer ongoing support to keep your website running smoothly.",
+                        "image": "https://cdn.revampmarketing.net/website-service-launch-img.jpg",
+                        "points": [
+                            "Conduct thorough QA testing for bugs.",
+                            "Deploy the website to a live environment.",
+                            "Provide continuous support and maintenance."
+                        ]
+                    }
+                ]
+            }
+        },
+        "cta": {
+            "id": "component-cta",
+            "type": "organism",
+            "contentType": "singleton",
+            "slug": "cta",
+            "isActive": true,
+            "settings": {
+                "styles": {
+                    "default": {
+                        "wrapper": {
+                            "padding": "py-20 px-6 lg:px-12",
+                            "background": "bg-gradient-to-br from-indigo-400 via-indigo-500 to-purple-600"
+                        },
+                        "container": {
+                            "layout": "max-w-screen-lg mx-auto text-center space-y-6"
+                        },
+                        "title": {
+                            "color": "text-white",
+                            "typography": "text-3xl lg:text-4xl font-extrabold"
+                        },
+                        "description": {
+                            "color": "text-gray-200",
+                            "typography": "text-lg lg:text-xl leading-relaxed"
+                        },
+                        "buttonWrapper": {
+                            "layout": "flex justify-center mt-8"
+                        },
+                        "button": {
+                            "color": "text-indigo-700",
+                            "background": "bg-white",
+                            "padding": "px-8 py-4",
+                            "rounded": "rounded-lg",
+                            "shadow": "shadow-lg",
+                            "hover": "hover:bg-gray-200 transition-colors duration-200"
+                        }
+                    }
+                },
+                "content": {
+                    "title": "Ready to Transform Your Online Presence?",
+                    "description": "Contact our team today to discuss your project and take the first step toward creating a stunning, high-performing website that delivers results.",
+                    "button": {
+                        "text": "Get Started",
+                        "link": "/contact"
+                    }
+                }
+            }
+        }
+    }
+}

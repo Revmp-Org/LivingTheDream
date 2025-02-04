@@ -7,24 +7,25 @@ export type FormData = {
     name: string;  // Full name from form
     firstName: string; // Split for submission
     lastName: string;  // Split for submission
-    companyName: string;
     email: string;
     phone: string;
+    eventDate: string;
     referralSource: string;
 };
 
 const serviceOptions: AutocompleteOption[] = [
-    { id: "1", label: "Web Development" },
-    { id: "2", label: "SEO" },
-    { id: "3", label: "Social Media Marketing" },
-    { id: "4", label: "Content Creation" },
+    { id: "1", label: "Wedding Flowers" },
+    { id: "2", label: "Private Event Florals" },
+    { id: "3", label: "Custom Bouquets" },
+    { id: "4", label: "Gender Reveal Bouquets" },
+    { id: "5", label: "Other" },
 ];
 
 export const referralOptions = [
     { id: "1", label: "Google Search" },
     { id: "2", label: "Social Media" },
-    { id: "3", label: "Referral" },
-    { id: "4", label: "Online Advertisement" },
+    { id: "3", label: "Word of Mouth" },
+    { id: "4", label: "Advertisement" },
     { id: "5", label: "Other" },
 ];
 
@@ -34,30 +35,31 @@ export const useContactForm = () => {
     const [errors, setErrors] = useState<Partial<FormData>>({});
     const [selectedServices, setSelectedServices] = useState<AutocompleteOption[]>([]);
     const [referralSource, setReferralSource] = useState<AutocompleteOption[]>([]);
+    const [eventDate, setEventDate] = useState<Date | null>(null);
     const { trackClick } = useGoogleAnalytics();
+
     const validateForm = (formData: FormData) => {
         const newErrors: Partial<FormData> = {};
 
         if (formData.services.length === 0) {
-            newErrors.services = ["Please select at least one service"];
+            newErrors.services = ["Please select at least one service."];
         }
-
         if (!formData.name.trim()) {
             newErrors.name = "Name is required";
         }
-
-        if (!formData.companyName.trim()) {
-            newErrors.companyName = "Company name is required";
-        }
-
         if (!formData.email.trim()) {
-            newErrors.email = "Email is required";
+            newErrors.email = "Email is required.";
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = "Please enter a valid email address";
+            newErrors.email = "Please enter a valid email address.";
         }
-
+        if (!formData.phone.trim()) {
+            newErrors.phone = "Phone number is required.";
+        }
+        if (!formData.eventDate) {
+            newErrors.eventDate = "Please select an event date.";
+        }
         if (!formData.referralSource) {
-            newErrors.referralSource = "Please select how you heard about us";
+            newErrors.referralSource = "Please select how you heard about us.";
         }
 
         return newErrors;
@@ -65,7 +67,6 @@ export const useContactForm = () => {
 
     const handleServiceSelect = (id: string) => {
         const selectedOption = serviceOptions.find((option) => option.id === id);
-
         if (selectedOption) {
             if (selectedServices.some((service) => service.id === selectedOption.id)) {
                 setSelectedServices(selectedServices.filter((service) => service.id !== selectedOption.id));
@@ -73,6 +74,10 @@ export const useContactForm = () => {
                 setSelectedServices([...selectedServices, selectedOption]);
             }
         }
+    };
+
+    const handleEventDateChange = (date: Date) => {
+        setEventDate(date);
     };
 
     const splitName = (fullName: string): { firstName: string; lastName: string } => {
@@ -90,19 +95,19 @@ export const useContactForm = () => {
         setIsLoading(true);
         setErrors({});
 
+
         const form = e.target as HTMLFormElement;
         const fullName = (form.elements.namedItem("name") as HTMLInputElement)?.value || "";
         const { firstName, lastName } = splitName(fullName);
-        const services = selectedServices.map((service) => service.label);
 
         const formData: FormData = {
-            services: services,
+            services: selectedServices.map((service) => service.label),
             name: fullName,
-            firstName,
-            lastName,
-            companyName: (form.elements.namedItem("companyName") as HTMLInputElement)?.value || "",
+            firstName: firstName,
+            lastName: lastName,
             email: (form.elements.namedItem("email") as HTMLInputElement)?.value || "",
             phone: (form.elements.namedItem("phone") as HTMLInputElement)?.value || "",
+            eventDate: eventDate ? eventDate.toISOString().split("T")[0] : "",
             referralSource: referralSource.length > 0 ? referralSource[0].label : "",
         };
 
@@ -117,9 +122,7 @@ export const useContactForm = () => {
         try {
             const response = await fetch(process.env.NEXT_PUBLIC_WEBHOOK_URL || "", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
 
@@ -129,11 +132,11 @@ export const useContactForm = () => {
 
             trackClick("Contact Form Submit", "Contact Form", "contact_form_submit", "");
 
-
             setFormSubmitted(true);
             form.reset();
             setSelectedServices([]);
             setReferralSource([]);
+            setEventDate(null);
         } catch (err) {
             setErrors({ email: "Something went wrong. Please try again." });
             console.error("Submission error:", err);
@@ -161,5 +164,7 @@ export const useContactForm = () => {
         setReferralSource,
         referralOptions,
         handleReferralSourceChange,
+        eventDate,
+        handleEventDateChange,
     };
 };

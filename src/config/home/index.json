@@ -7,24 +7,39 @@
     "slug": "home",
     "description": "Living The Dream Florals is a floral design company that helps businesses grow.",
     "seo": {
-        "title": "Living The Dream Florals - Transform Your Business with Data-Driven Growth",
-        "description": "Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results.",
+        "title": "Living The Dream Florals - Elegant Wedding & Event Flowers",
+        "description": "Living The Dream Florals specializes in handcrafted wedding bouquets, event floral arrangements, and custom flower designs for every occasion. Bring your floral vision to life with our exquisite, timeless blooms.",
         "keywords": [
-            "revamp marketing",
-            "marketing",
-            "agency",
-            "growth",
-            "seo",
-            "social media",
-            "web design"
+            "wedding flowers",
+            "floral arrangements",
+            "bridal bouquets",
+            "event florals",
+            "custom bouquets",
+            "flower delivery",
+            "luxury wedding florals",
+            "florist near me",
+            "gender reveal bouquets",
+            "romantic flower arrangements",
+            "wedding centerpieces",
+            "special event flowers"
         ],
         "canonical": "https://www.ltdflorals.com/",
         "structuredData": {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Revamp Marketing",
-            "description": "Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results.",
-            "url": "https://www.ltdflorals.com/"
+            "name": "Living The Dream Florals",
+            "description": "Living The Dream Florals crafts stunning floral arrangements for weddings, private events, gender reveals, and more. Our expert florists design timeless, elegant bouquets tailored to your vision.",
+            "url": "https://www.ltdflorals.com/",
+            "image": "https://www.ltdflorals.com/assets/featured-bouquet.jpg",
+            "author": {
+                "@type": "Organization",
+                "name": "Living The Dream Florals"
+            },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.ltdflorals.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
         }
     },
     "isActive": true,

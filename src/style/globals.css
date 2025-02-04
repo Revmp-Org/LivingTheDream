@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #000 !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    background-color: transparent !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+    border-radius: 0.5rem;
+}
+
 .custom-screen {
     @apply max-w-screen-xl mx-auto px-4 md:px-8;
 }

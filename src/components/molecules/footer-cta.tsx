@@ -3,20 +3,20 @@ import { motion } from "framer-motion";
 import { PageComponentChild } from "@/types";
 
 const FooterCTA = (cta: PageComponentChild) => {
-    const styles = cta?.settings?.styles;
     const { title, description, button } = cta?.settings?.content || {};
 
     return (
-        <section className="py-20 px-6 lg:px-12 bg-gradient-to-br from-indigo-400 via-indigo-500 to-purple-600">
+        <section className="py-20 px-6 lg:px-12 bg-gradient-to-br from-[#E5CFCF] via-[#DFC4C4] to-[#E5CFCF]">
             <motion.div
-                className="max-w-screen-lg mx-auto text-center space-y-6"
+                className="max-w-screen-lg mx-auto text-center space-y-6 font-serif"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                viewport={{ once: false, amount: 0.5 }}
                 transition={{ duration: 0.8 }}
             >
-                <h2 className="text-white text-3xl lg:text-4xl font-extrabold">{title}</h2>
-                <p className="text-gray-200 text-lg lg:text-xl leading-relaxed">{description}</p>
+
+                <h2 className="text-gray-900 text-3xl lg:text-4xl font-extrabold">{title}</h2>
+                <p className="text-gray-700 text-lg lg:text-xl leading-relaxed">{description}</p>
                 <div className="flex justify-center mt-8">
                     <NavLink
                         href={button?.link}

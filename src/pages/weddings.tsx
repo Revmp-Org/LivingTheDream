@@ -2,11 +2,11 @@ import OverviewSection from "@/components/organism/ServiceOverview";
 import BenefitsSection from "@/components/molecules/service/benefits";
 import StepSection from "@/components/molecules/service/steps";
 import FooterCTA from "@/components/molecules/footer-cta";
-import WebsiteDevelopmentConfig from "@/config/service/website-development.json";
+import WeddingsConfig from "@/config/service/weddings.json";
 import SEO from "@/components/atoms/seo-config";
 
-export default function WebsiteDevelopmentPage() {
-    const { seo, pageComponents } = WebsiteDevelopmentConfig;
+export default function WeddingsPage() {
+    const { seo, pageComponents } = WeddingsConfig;
 
     const overview = pageComponents?.overview;
     const benefits = pageComponents?.benefits;
@@ -15,7 +15,6 @@ export default function WebsiteDevelopmentPage() {
 
     return (
         <div>
-            {/* SEO Metadata */}
             <SEO seo={seo} />
 
             {/* Overview Section */}
