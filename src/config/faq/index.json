@@ -4,7 +4,7 @@
     "description": "Find answers to common questions about Revamp Marketing. Can't find what you're looking for?",
     "slug": "faq",
     "seo": {
-        "title": "FAQ - Revamp Marketing",
+        "title": "FAQ - Living The Dream",
         "description": "Answers to frequently asked questions about Revamp Marketing services, pricing, and support.",
         "keywords": [
             "faq",
@@ -18,7 +18,7 @@
             "social media",
             "web design"
         ],
-        "canonical": "https://www.revampmarketing.net/faq"
+        "canonical": "https://www.ltdflorals.com/faq"
     },
     "isActive": true,
     "pageComponents": {

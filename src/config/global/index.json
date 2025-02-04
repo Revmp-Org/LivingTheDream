@@ -7,7 +7,7 @@
         "layout": {
             "name": "Revamp Marketing",
             "themeColor": "#ffffff",
-            "baseUrl": "https://www.revampmarketing.net",
+            "baseUrl": "https://www.ltdflorals.com/",
             "defaultTitle": "Revamp Marketing | Data-Driven Solutions for Business Growth",
             "defaultDescription": "At Revamp Marketing, we specialize in SEO, ads, social media, web design, and AI-powered solutions to transform your business. Elevate your brand and maximize your success with our expertise.",
             "keywords": [
@@ -233,8 +233,8 @@
                                     "height": 50
                                 },
                                 "desktop": {
-                                    "src": "https://cdn.revampmarketing.net/logo-large-light.svg",
-                                    "alt": "Revamp Marketing Logo",
+                                    "src": "https://cdn.ltdflorals.com/logo-large-light.svg",
+                                    "alt": "Living The Dream Logo",
                                     "width": 250,
                                     "height": 100
                                 }

@@ -18,13 +18,13 @@
             "social media",
             "web design"
         ],
-        "canonical": "https://www.revampmarketing.net",
+        "canonical": "https://www.ltdflorals.com/",
         "structuredData": {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Revamp Marketing",
             "description": "Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results.",
-            "url": "https://www.revampmarketing.net"
+            "url": "https://www.ltdflorals.com/"
         }
     },
     "isActive": true,

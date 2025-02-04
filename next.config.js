@@ -3,9 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      'www.revampmarketing.net',
+      'www.ltdflorals.com',
+      'cdn.ltdflorals.com',
       'cdn.revampmarketing.net',
-      'revampmarketing.net',
+      'ltdflorals.com',
       'images.unsplash.com',
       'randomuser.me',
     ],
@@ -18,13 +19,13 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'revampmarketing.net',
+        hostname: 'ltdflorals.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'www.revampmarketing.net',
+        hostname: 'www.ltdflorals.com',
         port: '',
         pathname: '/**',
       },
