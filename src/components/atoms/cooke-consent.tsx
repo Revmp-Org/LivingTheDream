@@ -48,7 +48,7 @@ const CookieConsentBanner = () => {
                     onClick={handleAccept}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex justify-center bg-primary px-6 py-3 rounded-lg shadow-primary/30 shadow-lg hover:bg-primary-light active:bg-primary-dark text-white"
+                    className="flex justify-center bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
                 >
                     Accept
                 </motion.button>
