@@ -9,13 +9,12 @@ const AboutPage: React.FC = () => {
     const { pageComponents, seo } = AboutConfig;
 
     const about = pageComponents?.about;
-    const hero = pageComponents?.hero;
     const footerCTA = pageComponents?.footerCTA;
 
     return (
         <>
             <SEO seo={seo} />
-            
+
             {/* About Section */}
             <AboutSection {...about} />
 
