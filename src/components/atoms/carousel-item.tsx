@@ -3,6 +3,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import NavLink from "../organism/NavLink";
 import { PageComponentChild, Styles } from "@/types";
+import Head from "next/head";
 
 type CarouselItemProps = {
     item: PageComponentChild;
@@ -12,6 +13,30 @@ type CarouselItemProps = {
 const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
     const controls = useAnimation();
     const ref = React.useRef<HTMLDivElement>(null);
+
+    const carouselItems = item.children || {};
+    const carouselItemsArray = Object.values(carouselItems);
+
+    // Caching preloaded images
+    const imageCache = new Set<string>();
+
+    useEffect(() => {
+        const preloadImages = () => {
+            carouselItemsArray.forEach((carouselItem) => {
+                const imgSrc = carouselItem.settings?.carouselImage;
+                if (imgSrc && !imageCache.has(imgSrc)) {
+                    const img = new window.Image() as HTMLImageElement;
+                    img.src = imgSrc;
+                    imageCache.add(imgSrc);
+                }
+            });
+        };
+
+        preloadImages();
+    }, [])
+
+
+
     
     const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
     const inView = useInView(ref, {
@@ -49,6 +74,12 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
 
     return (
         <div className="min-w-full flex flex-col md:flex-row items-center justify-between p-6 h-auto md:h-[500px]">
+            {/* Preload images with <link rel="preload"> */}
+            <Head>
+                {carouselItemsArray.map((item, index) => (
+                    <link key={index} rel="preload" href={item.settings.carouselImage} as="image" />
+                ))}
+            </Head>
             {/* Image */}
             <motion.div
                 className="w-full md:w-1/2 flex justify-center items-center bg-gray-100 rounded-lg p-4 h-full"
@@ -66,6 +97,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
                     alt={item.settings.title || "Default Title"}
                     className="rounded-lg w-full h-full object-cover"
                     priority
+                    loading="eager"
                 />
             </motion.div>
 
