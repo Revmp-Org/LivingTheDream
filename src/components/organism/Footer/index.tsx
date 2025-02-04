@@ -15,7 +15,7 @@ const Footer = ({ config }: { config: PageComponent }) => {
 
     return (
         <motion.footer
-            className="bg-gray-300 text-white py-10"
+            className="bg-gradient-to-t from-[#E8DCDC] to-[#F3E5E5] text-gray-800 border-t border-[#D6BFC0] py-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}

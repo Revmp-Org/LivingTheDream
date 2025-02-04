@@ -3,11 +3,11 @@
     "created": "2025-01-01T00:00:00Z",
     "updated": "2025-01-01T01:00:00Z",
     "websiteId": "website-id-123",
-    "title": "Revamp Marketing - Transform Your Business with Data-Driven Growth",
+    "title": "Living The Dream Florals - Transform Your Business with Data-Driven Growth",
     "slug": "home",
-    "description": "Revamp Marketing is a marketing agency that helps businesses grow.",
+    "description": "Living The Dream Florals is a floral design company that helps businesses grow.",
     "seo": {
-        "title": "Revamp Marketing - Transform Your Business with Data-Driven Growth",
+        "title": "Living The Dream Florals - Transform Your Business with Data-Driven Growth",
         "description": "Revamp Marketing helps businesses scale with expert SEO, high-converting web design, and strategic social media marketing. Maximize your online presence and drive measurable results.",
         "keywords": [
             "revamp marketing",
@@ -267,48 +267,63 @@
                         }
                     },
                     "children": {
-                        "service-card-website-design": {
-                            "id": "component-service-card-website-design",
+                        "service-card-ever-after-florals": {
+                            "id": "component-service-card-ever-after-florals",
                             "type": "molecule",
-                            "slug": "service-card-website-design",
+                            "slug": "service-card-ever-after-florals",
                             "contentType": "singleton",
                             "isActive": true,
                             "settings": {
-                                "title": "Website Design",
-                                "description": "Captivate your audience, optimize conversions, and reflect your brand identity through a custom website.",
-                                "path": "/website-development",
-                                "carouselImage": "https://cdn.revampmarketing.net/web-design.jpg",
-                                "buttonText": "Learn More"
-                            },
-                            "children": {}
-                        },
-                        "service-card-seo-marketing": {
-                            "id": "component-service-card-seo-marketing",
-                            "type": "molecule",
-                            "slug": "service-card-seo-marketing",
-                            "contentType": "singleton",
-                            "isActive": true,
-                            "settings": {
-                                "title": "SEO Marketing",
-                                "description": "Boost your website's visibility with data-driven SEO techniques designed to rank higher and drive traffic.",
+                                "title": "Ever After Florals – Wedding Arrangements",
+                                "description": "From breathtaking bridal bouquets to romantic ceremony florals, we craft custom wedding arrangements that bring your love story to life. Every bloom is hand-selected to match your vision and theme.",
                                 "path": "/seo",
-                                "carouselImage": "https://cdn.revampmarketing.net/seo-optimization.jpg",
+                                "carouselImage": "https://cdn.ltdflorals.com/0231DCFE-13E9-41D6-AD5B-FE497174CA3D.JPG",
                                 "buttonText": "Learn More"
                             },
                             "children": {}
                         },
-                        "service-card-social-media-management": {
-                            "id": "component-service-card-social-media-management",
+                        "service-card-luxe-petals": {
+                            "id": "component-service-card-luxe-petals",
                             "type": "molecule",
-                            "slug": "service-card-social-media-management",
+                            "slug": "service-card-luxe-petals",
                             "contentType": "singleton",
                             "isActive": true,
                             "settings": {
-                                "title": "Social Media Management",
-                                "description": "Build a loyal following and express your brand with expertly crafted content and engagement strategies.",
+                                "title": "Luxe Petals – Private Event Florals",
+                                "description": "Elevate any occasion with exquisite floral designs tailored for private events. Whether it's an intimate dinner party or a grand celebration, our custom arrangements add elegance and charm to your event.",
                                 "path": "/social-media",
-                                "carouselImage": "https://cdn.revampmarketing.net/social-media-management.jpg",
+                                "carouselImage": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
                                 "buttonText": "Learn More"
+                            },
+                            "children": {}
+                        },
+                        "service-card-signature-blooms": {
+                            "id": "component-service-card-signature-blooms",
+                            "type": "molecule",
+                            "slug": "service-card-signature-blooms",
+                            "contentType": "singleton",
+                            "isActive": true,
+                            "settings": {
+                                "title": "Signature Blooms – Custom Bouquets",
+                                "description": "Express your emotions through the language of flowers with our custom bouquet service. Whether it’s for love, gratitude, or sympathy, we create unique hand-tied bouquets that leave a lasting impression.",
+                                "path": "/social-media",
+                                "carouselImage": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg",
+                                "buttonText": "Learn More"
+                            },
+                            "service-card-blooming-beginnings": {
+                                "id": "component-service-card-blooming-beginnings",
+                                "type": "molecule",
+                                "slug": "service-card-blooming-beginnings",
+                                "contentType": "singleton",
+                                "isActive": true,
+                                "settings": {
+                                    "title": "Blooming Beginnings – Gender Reveal Bouquets",
+                                    "description": "Celebrate life's most exciting surprises with a beautifully arranged gender reveal bouquet. Featuring color-coordinated blooms and elegant wrapping, our bouquets create a magical moment for parents-to-be.",
+                                    "path": "/website-development",
+                                    "carouselImage": "https://cdn.ltdflorals.com/821F05B9-520F-4AA3-9CBD-DE90F2F77A56.JPG",
+                                    "buttonText": "Learn More"
+                                },
+                                "children": {}
                             },
                             "children": {}
                         }
@@ -474,16 +489,16 @@
             "isActive": true,
             "settings": {
                 "image": {
-                    "src": "https://cdn.revampmarketing.net/cta-home.jpg",
-                    "alt": "Transform Your Business with Data-Driven Marketing",
+                    "src": "https://cdn.ltdflorals.com/C7EA8D29-802B-45F0-8267-D1C3E80EECF7.JPG",
+                    "alt": "Bring Your Floral Vision to Life",
                     "className": "rounded-lg md:max-w-lg"
                 },
                 "content": {
-                    "title": "Transform Your Business Today",
+                    "title": "Bring Your Floral Vision to Life",
                     "description": [
-                        "At Revamp Marketing, we're dedicated to revolutionizing how businesses grow through data-driven marketing strategies and cutting-edge technology. Our expertise in SEO, social media, and AI-powered solutions can help take your business to the next level."
+                        "At LTD Florals, we specialize in creating stunning floral arrangements for weddings, private events, gender reveals, and custom bouquets. Each design is crafted with care to capture the beauty and emotion of your special moments."
                     ],
-                    "highlight": "Take the first step towards transforming your business with our expert team."
+                    "highlight": "Let us help you make every occasion unforgettable with our bespoke floral creations."
                 },
                 "styles": {
                     "default": {

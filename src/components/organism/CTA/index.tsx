@@ -27,7 +27,7 @@ const CTA: React.FC<PageComponent> = (cta) => {
     };
 
     return (
-        <section className="pb-16 pt-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-blue-100 via-white to-gray-100 flex flex-col items-center sm:flex-row sm:justify-between">
+        <section className="pb-16 pt-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-[#F3E5E5] via-white to-[#EAD4D4] flex flex-col items-center sm:flex-row sm:justify-between">
             <motion.div
                 className="flex flex-col items-center gap-y-8 sm:gap-y-6 lg:flex-row lg:items-start lg:gap-x-16"
                 initial="hidden"
@@ -52,7 +52,7 @@ const CTA: React.FC<PageComponent> = (cta) => {
 
                 {/* Content Section */}
                 <motion.div
-                    className="sm:text-left px-4 sm:px-6 lg:px-0 flex-1 max-w-full lg:max-w-[50%]"
+                    className="sm:text-left px-4 sm:px-6 lg:px-0 flex-1 max-w-full lg:max-w-[50%] font-serif"
                     variants={textSlideInVariant}
                 >
                     {/* Title */}

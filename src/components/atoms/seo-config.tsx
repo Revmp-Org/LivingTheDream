@@ -13,6 +13,8 @@ interface SEOProps {
 const SEO = ({ seo }: SEOProps) => {
     return (
         <Head>
+            <link rel="icon" href="/favicon.ico" />
+
             {/* Standard SEO Meta Tags */}
             <title>{seo.title}</title>
             <meta name="description" content={seo.description} />

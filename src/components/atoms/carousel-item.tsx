@@ -82,7 +82,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
             </Head>
             {/* Image */}
             <motion.div
-                className="w-full md:w-1/2 flex justify-center items-center bg-gray-100 rounded-lg p-4 h-full"
+                className="w-full md:w-1/2 flex justify-center items-center bg-gray-100 rounded-lg p-2 h-full"
                 style={{
                     transform: `perspective(1000px) rotateX(${20 - scrollProgress * 20}deg)`,
                     boxShadow: `0 ${20 - scrollProgress * 15}px ${30 - scrollProgress * 20}px rgba(0, 0, 0, ${0.25 - scrollProgress * 0.15})`,
@@ -104,7 +104,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
             {/* Text */}
             <motion.div
                 ref={ref}
-                className="w-full md:w-1/2 text-left px-6 flex flex-col justify-center mt-6 md:mt-0"
+                className="w-full md:w-1/2 text-left px-6 flex flex-col justify-center mt-6 md:mt-0 font-serif"
                 initial={{ opacity: 0, x: 50 }}
                 animate={controls}
                 transition={{ duration: 0.7, ease: "easeOut" }}

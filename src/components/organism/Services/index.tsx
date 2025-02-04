@@ -4,7 +4,7 @@ import { PageComponent } from "@/types";
 
 const Services: React.FC<PageComponent> = (services) => {
     return (
-        <SectionWrapper className="bg-gray-50">
+        <SectionWrapper className="bg-[#F3E5E5]"> {/* Adjust the bg color */}
             <div>
                 <Carousel {...services} />
             </div>

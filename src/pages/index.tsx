@@ -3,7 +3,6 @@ import Services from "@/components/organism/Services";
 import Hero from "@/components/organism/Hero";
 import TestimonialsLayout from "@/components/organism/Testimonials";
 import homeConfig from "@/config/home/index.json";
-import Head from "next/head";
 import SEO from "@/components/atoms/seo-config";
 
 export default function Home() {
