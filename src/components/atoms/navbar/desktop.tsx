@@ -22,7 +22,7 @@ const DesktopNavbar = ({
                     {item.items ? (
                         <div className="group relative">
                             {/* Navigation Item */}
-                            <span className="text-md text-gray-800 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-[#18CB96] after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full">
+                            <span className="text-md text-gray-600 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full">
                                 {/* Static title styles */}
                                 {item.label}
                             </span>
@@ -39,7 +39,7 @@ const DesktopNavbar = ({
                                         key={subItem.id}
                                         whileHover={listItemHover}
                                         whileTap={listItemTap}
-                                        className="p-2 flex items-center text-gray-700 cursor-pointer rounded-md hover:bg-gray-100"
+                                        className="p-2 flex items-center text-gray-500 cursor-pointer rounded-md hover:bg-gray-100"
                                         onClick={() =>
                                             trackClick(
                                                 subItem?.label || "",
@@ -58,7 +58,7 @@ const DesktopNavbar = ({
                         </div>
                     ) : (
                         <span
-                            className="text-md text-gray-800 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-[#18CB96] after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
+                            className="text-md text-gray-600 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
                             onClick={() =>
                                 trackClick(
                                     item?.label || "",
@@ -83,7 +83,7 @@ const DesktopNavbar = ({
                         eventAction: "link_click",
                         eventValue: "Get Started",
                     }}
-                    className="text-white bg-primary hover:bg-primary-light rounded-md px-6 py-3 cursor-pointer transition-colors duration-200"
+                    className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
                 >
                     {ctaButton?.settings?.content?.text || "Get Started"}
                 </NavLink>

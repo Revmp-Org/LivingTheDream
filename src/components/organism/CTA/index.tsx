@@ -83,7 +83,7 @@ const CTA: React.FC<PageComponent> = (cta) => {
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <NavLink
                                     href={button.href || "#"}
-                                    className="inline-block font-medium text-sm text-white bg-primary hover:bg-primary-light active:bg-primary-dark px-6 py-3 rounded-lg shadow-md transition-all duration-300"
+                                    className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
                                     analytics={
                                         button.analytics || {
                                             eventLabel: "Get Started",

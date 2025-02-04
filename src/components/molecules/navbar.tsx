@@ -37,7 +37,7 @@ const Navbar = ({ config }: { config: PageComponent }) => {
 
     return (
         <motion.header
-            className="sticky top-4 z-50 border py-4 shadow-lg rounded-lg mx-auto bg-white transition-all duration-300 ease-in-out max-w-5xl w-full lg:px-12 px-4"
+            className="sticky top-4 z-50 border py-2 shadow-lg rounded-lg mx-auto bg-white transition-all duration-300 ease-in-out max-w-5xl w-full lg:px-12 px-4 "
             initial={{ opacity: 1, y: 0 }}
             animate={{
                 opacity: isVisible ? 1 : 0,

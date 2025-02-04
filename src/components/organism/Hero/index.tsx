@@ -14,23 +14,24 @@ const Hero: React.FC<PageComponent> = (hero) => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="bg-white bg-opacity-50 flex items-center justify-center min-h-[calc(100vh-5rem)]"
+            className="bg-primary-light bg-opacity-50 flex items-center justify-center min-h-[calc(100vh-5rem)]"
         >
             <div className="max-w-7xl mx-auto px-8 py-20">
                 <motion.div className="space-y-8 text-center max-w-4xl mx-auto" variants={containerVariants}>
                     <motion.h1
-                        className="text-5xl font-bold text-gray-900 tracking-tight md:text-6xl"
+                        className="text-5xl font-bold text-gray-900 tracking-tight md:text-6xl font-serif"
                         variants={itemVariants}
                     >
-                        {content?.title || "Elevate Your Business with Data-Driven Solutions"}
+                        {content?.title || "Florals Designs for All Your Dreams"}
                     </motion.h1>
+
                     <motion.p
-                        className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+                        className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-serif"
                         variants={itemVariants}
                     >
-                        {content?.description ||
-                            "At Revamp Marketing, we specialize in SEO, social media, and web design to transform your business. Let's take your business to the next level."}
+                        {content?.description || "Beautiful floral arrangements crafted to bring your dream wedding to life."}
                     </motion.p>
+
                     <motion.div
                         className="flex items-center justify-center gap-x-6 mt-10"
                         variants={itemVariants}
@@ -43,7 +44,7 @@ const Hero: React.FC<PageComponent> = (hero) => {
                                 const { href, text, analytics, styles } = button.settings;
                                 const defaultStyle =
                                     key === "button-primary"
-                                        ? "flex justify-center bg-primary px-6 py-3 rounded-lg shadow-primary/30 shadow-lg hover:bg-primary-light active:bg-primary-dark text-white"
+                                        ? "flex justify-center bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
                                         : "flex justify-center bg-white px-6 py-3 rounded-lg shadow-primary/30 shadow-lg border border-primary text-primary hover:bg-primary hover:text-white active:bg-primary-dark";
 
                                 return (

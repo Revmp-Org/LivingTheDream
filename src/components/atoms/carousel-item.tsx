@@ -88,7 +88,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
                         <NavLink
                             href={item.settings.path}
                             disableMotion={true}
-                            className="text-white bg-primary hover:bg-primary-light rounded-md px-6 py-2.5 cursor-pointer transition-colors duration-200"
+                            className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
                             analytics={{
                                 eventLabel: item.settings.title || "Default Title",
                                 eventCategory: "Carousel Interaction",

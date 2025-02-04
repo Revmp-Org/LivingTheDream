@@ -97,8 +97,8 @@
                                 },
                                 {
                                     "id": 4,
-                                    "label": "FAQs",
-                                    "path": "/faqs"
+                                    "label": "About",
+                                    "path": "/about"
                                 }
                             ]
                         },
@@ -195,8 +195,8 @@
                                 },
                                 {
                                     "id": 4,
-                                    "label": "FAQs",
-                                    "path": "/faqs"
+                                    "label": "About",
+                                    "path": "/about"
                                 }
                             ]
                         },
@@ -227,10 +227,10 @@
                         "content": {
                             "logo": {
                                 "mobile": {
-                                    "src": "https://cdn.revampmarketing.net/logo-small.png",
-                                    "alt": "Revamp Marketing Logo",
-                                    "width": 50,
-                                    "height": 50
+                                    "src": "https://cdn.ltdflorals.com/logo-small.png",
+                                    "alt": "Living The Dream Logo",
+                                    "width": 60,
+                                    "height": 60
                                 },
                                 "desktop": {
                                     "src": "https://cdn.ltdflorals.com/logo-large-light.svg",
@@ -291,8 +291,8 @@
                 "styles": {
                     "default": {
                         "wrapper": {
-                            "background": "bg-gray-900",
-                            "textColor": "text-white",
+                            "background": "bg-gray-300",
+                            "textColor": "text-black",
                             "padding": "py-10"
                         },
                         "container": {
@@ -315,8 +315,8 @@
                     "isActive": true,
                     "settings": {
                         "content": {
-                            "src": "https://cdn.revampmarketing.net/logo-small.png",
-                            "alt": "Revamp Marketing Footer Logo",
+                            "src": "https://cdn.ltdflorals.com/logo-small.png",
+                            "alt": "Living The Dream Footer Logo",
                             "width": 100,
                             "height": 50
                         },
@@ -362,8 +362,8 @@
                                     "items": [
                                         {
                                             "id": 3,
-                                            "label": "FAQs",
-                                            "path": "/faqs"
+                                            "label": "About",
+                                            "path": "/about"
                                         }
                                     ]
                                 }
@@ -375,10 +375,10 @@
                                     "layout": "flex flex-wrap gap-12"
                                 },
                                 "title": {
-                                    "text": "text-lg font-semibold mb-2 text-gray-200 tracking-wide"
+                                    "text": "text-lg font-semibold mb-2 text-black tracking-wide"
                                 },
                                 "link": {
-                                    "text": "text-gray-400 hover:text-white transition-all duration-200 text-base"
+                                    "text": "text-gray-700 hover:text-gray-900 transition-all duration-200 text-base"
                                 },
                                 "linkWrapper": {
                                     "marginBottom": "mb-2"
@@ -425,7 +425,7 @@
                     "isActive": true,
                     "settings": {
                         "content": {
-                            "text": "© 2025 RevampMarketing. All rights reserved."
+                            "text": "© 2025 Living The Dream. All rights reserved."
                         },
                         "styles": {
                             "default": {

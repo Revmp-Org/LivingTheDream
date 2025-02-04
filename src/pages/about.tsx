@@ -3,7 +3,7 @@ import FAQSection from "@/components/molecules/faq/faq-section";
 import FaqConfig from "@/config/faq/index.json";
 import SEO from "@/components/atoms/seo-config";
 
-const FAQPage: React.FC = () => {
+const AboutPage: React.FC = () => {
     const { pageComponents, seo } = FaqConfig;
 
     const header = pageComponents?.header;
@@ -19,4 +19,4 @@ const FAQPage: React.FC = () => {
     );
 };
 
-export default FAQPage;
+export default AboutPage;

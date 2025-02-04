@@ -61,7 +61,7 @@ export const BlogCard = ({ post }: BlogCardProps) => (
                     eventAction: "link_click",
                     eventValue: "Read More"
                 }}
-                className="inline-block font-medium text-sm text-white bg-primary hover:bg-primary-light px-6 py-3 rounded-md shadow-md transition-all duration-300 mt-4"
+                className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
             >
                 Read More
             </NavLink>

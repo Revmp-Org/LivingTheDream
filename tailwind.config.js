@@ -7,16 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primary: {
-          DEFAULT: '#8168FF',
-          light: '#4d33cc',
-          dark: '#0f0066',
+          DEFAULT: '#C9ABB1',
+          light: '#F5EBED',
+          dark: '#8A7075',
         },
         secondary: {
-          DEFAULT: '#FFFFFF',
+          DEFAULT: '#4F3530',
           light: '#F0F0F0',
           dark: '#E0E0E0',
         },
@@ -72,14 +75,14 @@ module.exports = {
       animation: {
         "slide-up": "slide-up 0.2s ease-out",
         "slide-down": "slide-down 0.2s ease-in",
-        "fade-in": "fade-in 0.3s ease-out", // Updated fade-in animation
-        "fade-out": "fade-out 0.3s ease-in", // Updated fade-out animation
+        "fade-in": "fade-in 0.3s ease-out",
+        "fade-out": "fade-out 0.3s ease-in",
       },
     },
   },
   plugins: [
     require("@tailwindcss/forms")({
-      strategy: "class", // only generate classes
+      strategy: "class",
     }),
   ],
 };

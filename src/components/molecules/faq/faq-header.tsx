@@ -15,7 +15,7 @@ const FAQHeader = (header: PageComponentChild) => {
             <div className="flex justify-center mt-8">
                 <NavLink
                     href={header?.settings?.content?.button?.link || ""}
-                    className="text-white bg-primary hover:bg-primary-light active:bg-primary-dark px-6 py-3 rounded-md transition-colors duration-200"
+                    className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
                     analytics={header?.settings?.content?.button?.analytics || {
                         eventLabel: "FAQ Header Button",
                         eventCategory: "FAQ Header",

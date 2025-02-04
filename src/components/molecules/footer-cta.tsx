@@ -20,7 +20,7 @@ const FooterCTA = (cta: PageComponentChild) => {
                 <div className="flex justify-center mt-8">
                     <NavLink
                         href={button?.link}
-                        className="text-indigo-700 bg-white px-8 py-4 rounded-lg shadow-lg hover:bg-gray-200 transition-colors duration-200"
+                        className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
                         analytics={
                             button?.analytics || {
                                 eventLabel: "Get Started",
