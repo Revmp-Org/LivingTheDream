@@ -14,7 +14,7 @@ const ContactPage = () => {
     const { header, form, thankYou } = pageComponents;
 
     return (
-        <div className="px-8">
+        <div className="px-4 sm:px-8 lg:px-16">
             <motion.div
                 initial="hidden"
                 animate="visible"
@@ -22,7 +22,8 @@ const ContactPage = () => {
             >
                 <SEO seo={seo} />
 
-                <div className="mt-12 mb-16 px-48">
+                {/* Responsive padding and margins */}
+                <div className="mt-12 mb-16 px-4 sm:px-8 md:px-12 lg:px-24 xl:px-32">
                     <ContactHeader content={header.settings.content} />
                     <ContactForm form={form} thankYou={thankYou} />
                 </div>
