@@ -1,6 +1,4 @@
 import OverviewSection from "@/components/organism/ServiceOverview";
-import BenefitsSection from "@/components/molecules/service/benefits";
-import StepSection from "@/components/molecules/service/steps";
 import FooterCTA from "@/components/molecules/footer-cta";
 import WeddingsConfig from "@/config/service/weddings.json";
 import SEO from "@/components/atoms/seo-config";

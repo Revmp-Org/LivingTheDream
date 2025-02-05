@@ -1,20 +1,28 @@
 {
-    "id": "website-development-page",
-    "created": "2025-01-01T00:00:00Z",
-    "updated": "2025-01-01T01:00:00Z",
+    "id": "custom-bouquets-page",
+    "created": "2025-02-05T00:00:00Z",
+    "updated": "2025-02-05T01:00:00Z",
     "websiteId": "website-id-123",
-    "title": "Website Development",
-    "slug": "website-development",
-    "description": "Learn about our website development services and how we can create a custom solution for your business.",
+    "title": "Custom Floral Bouquets",
+    "slug": "custom-bouquets",
+    "description": "Explore our handcrafted custom bouquets, designed for every occasion. Express your emotions with a unique floral arrangement tailored to your message.",
     "seo": {
-        "title": "Website Development - Revamp Marketing",
-        "description": "Explore our custom website development services tailored to captivate your audience and enhance your online presence.",
+        "title": "Custom Floral Bouquets - Living The Dream Florals",
+        "description": "Discover beautifully handcrafted bouquets tailored for every occasion. From romantic gestures to heartfelt thank-yous, our florists create unique floral expressions just for you.",
         "keywords": [
-            "website development",
-            "custom websites",
-            "responsive design"
+            "custom floral bouquets",
+            "hand-tied bouquets",
+            "bespoke flower arrangements",
+            "luxury floral gifts",
+            "expressions through flowers"
         ],
-        "canonical": "https://revampmarketing.net/website-development"
+        "canonical": "https://revampmarketing.net/custom-bouquets",
+        "ogTitle": "Bespoke Custom Bouquets | Living The Dream Florals",
+        "ogDescription": "Send a heartfelt message with a custom bouquet. Whether for love, gratitude, or sympathy, our hand-tied arrangements make a lasting impression.",
+        "ogImage": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg",
+        "twitterTitle": "Luxury Custom Bouquets | Living The Dream Florals",
+        "twitterDescription": "Say it with flowers! Our custom floral bouquets are handcrafted to express every sentiment beautifully.",
+        "twitterImage": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg"
     },
     "isActive": true,
     "pageComponents": {
@@ -65,13 +73,13 @@
                     }
                 },
                 "content": {
-                    "image": "https://cdn.revampmarketing.net/web-design.jpg",
-                    "title": "Website Development",
-                    "description": "Our website development service offers tailored solutions to captivate your audience and enhance your online presence. From responsive designs to seamless user experiences, our team is dedicated to delivering exceptional results.",
-                    "highlight": "Let us help you create a website that drives your success.",
+                    "image": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg",
+                    "title": "Signature Blooms – Custom Bouquets",
+                    "description": "Celebrate every emotion with a hand-tied bouquet designed just for you. Whether it’s a romantic gesture, a heartfelt thank-you, or a sympathy arrangement, our custom bouquets are crafted to convey your message beautifully.",
+                    "highlight": "Each bouquet is carefully curated with fresh, hand-selected blooms, designed to make a lasting impression.",
                     "button": {
                         "text": "Learn More",
-                        "link": "/contact",
+                        "link": "/social-media",
                         "analytics": {
                             "eventLabel": "Learn More",
                             "eventCategory": "Navbar Interaction",
@@ -82,171 +90,61 @@
                 }
             }
         },
-        "benefits": {
-            "id": "component-benefits",
-            "type": "organism",
+        "gallery": {
+            "id": "component-gallery",
+            "type": "molecule",
+            "slug": "gallery-section",
             "contentType": "collection",
-            "slug": "benefits",
             "isActive": true,
             "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-16",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "grid": {
-                            "layout": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-                        },
-                        "item": {
-                            "background": "bg-gradient-to-br from-white via-gray-100 to-gray-50",
-                            "padding": "p-6",
-                            "rounded": "rounded-2xl",
-                            "shadow": "shadow-lg hover:shadow-2xl",
-                            "transition": "transition-transform duration-300 hover:scale-105"
-                        },
-                        "itemIcon": {
-                            "background": "bg-gradient-to-br from-indigo-500 to-purple-500 text-white",
-                            "layout": "w-16 h-16 rounded-full flex items-center justify-center",
-                            "typography": "text-xl font-bold shadow-md",
-                            "margin": "mx-auto mb-4"
-                        },
-                        "itemTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-lg font-bold text-center"
-                        },
-                        "itemDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-sm mt-2 leading-relaxed text-center"
-                        }
-                    }
-                },
                 "content": [
                     {
-                        "title": "Boost Engagement",
-                        "description": "Enhance audience interaction with captivating designs."
+                        "image": "https://cdn.ltdflorals.com/73C709EA-83B2-4FC1-B6D1-69071914B48F.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Increase Traffic",
-                        "description": "Reach more users with mobile-friendly interfaces."
+                        "image": "https://cdn.ltdflorals.com/4DF5F5FF-A7A4-4E1F-BD4F-78406DB90548.JPG",
+                        "quote": "Every bouquet was designed with so much love and attention to detail.",
+                        "author": "Olivia & Matt",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Improve SEO",
-                        "description": "Rank higher on search engines with optimized content."
+                        "image": "https://cdn.ltdflorals.com/B2466DF6-9CEC-45F1-9A12-3FF3ECA81963_4_5005_c.jpeg",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Streamline UX",
-                        "description": "Ensure seamless navigation and user satisfaction."
-                    }
-                ]
-            }
-        },
-        "steps": {
-            "id": "component-steps",
-            "type": "organism",
-            "contentType": "collection",
-            "slug": "steps",
-            "isActive": true,
-            "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-20",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-b border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "stepLayout": {
-                            "layout": "flex flex-col lg:flex-row items-center gap-12"
-                        },
-                        "stepImageContainer": {
-                            "layout": "lg:w-1/2 w-full",
-                            "border": "border-2 border-primary rounded-lg"
-                        },
-                        "stepImageWrapper": {
-                            "rounded": "rounded-lg overflow-hidden",
-                            "shadow": "shadow-md"
-                        },
-                        "stepTextContainer": {
-                            "layout": "lg:w-1/2 w-full space-y-6 text-center lg:text-left"
-                        },
-                        "stepTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-3xl font-extrabold mb-4"
-                        },
-                        "stepDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-lg leading-relaxed mb-4"
-                        },
-                        "stepPoints": {
-                            "color": "text-gray-700",
-                            "typography": "text-base leading-relaxed",
-                            "list": "list-none space-y-4"
-                        },
-                        "stepBulletWrapper": {
-                            "layout": "flex items-center text-left space-x-3"
-                        },
-                        "stepBullet": {
-                            "color": "text-primary",
-                            "typography": "text-xl font-bold"
-                        },
-                        "stepBulletIcon": {
-                            "color": "text-white",
-                            "background": "bg-primary",
-                            "layout": "w-6 h-6 flex items-center justify-center rounded-full"
-                        }
-                    }
-                },
-                "content": [
-                    {
-                        "index": 1,
-                        "title": "Step 1: Discovery & Planning",
-                        "description": "We work closely with you to understand your goals, target audience, and unique requirements. This phase ensures a clear roadmap for success.",
-                        "image": "https://cdn.revampmarketing.net/website-service-todo.jpg",
-                        "points": [
-                            "Analyze business goals and objectives.",
-                            "Identify the target audience and user needs.",
-                            "Outline a clear project timeline and deliverables."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/C3EC842A-38A6-4468-8090-DDF97CDFC253.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "index": 2,
-                        "title": "Step 2: Design & Prototyping",
-                        "description": "Our designers create visually appealing and user-friendly prototypes tailored to your brand. Your feedback shapes the final design.",
-                        "image": "https://cdn.revampmarketing.net/web-service-designing.jpg",
-                        "points": [
-                            "Develop wireframes and initial prototypes.",
-                            "Collaborate with you to refine designs.",
-                            "Ensure alignment with your brand identity."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/3A409C81-BD18-408C-B0BB-62A167E64CB1.JPG",
+                        "quote": "Living The Dream Florals brought my vision to life with elegance and grace.",
+                        "author": "Sophia M.",
+                        "isPortrait": true
                     },
                     {
-                        "index": 3,
-                        "title": "Step 3: Development",
-                        "description": "Our developers bring the designs to life, ensuring your website is functional and responsive across all devices and platforms.",
-                        "image": "https://cdn.revampmarketing.net/website-service-dev-design.jpg",
-                        "points": [
-                            "Write clean, scalable, and efficient code.",
-                            "Implement responsive design for all devices.",
-                            "Integrate essential features and functionalities."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/E815A976-9583-4616-BC56-4E5522D14A83.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "index": 4,
-                        "title": "Step 4: Launch & Support",
-                        "description": "We rigorously test the website before launch and offer ongoing support to keep your website running smoothly.",
-                        "image": "https://cdn.revampmarketing.net/website-service-launch-img.jpg",
-                        "points": [
-                            "Conduct thorough QA testing for bugs.",
-                            "Deploy the website to a live environment.",
-                            "Provide continuous support and maintenance."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/2D83477B-17AA-4F1E-83A8-770B1649F456.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
+                    },
+                    {
+                        "image": "https://cdn.ltdflorals.com/89522764-C0AF-4F3C-9464-AC1C333386DC.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     }
                 ]
             }
@@ -289,11 +187,17 @@
                     }
                 },
                 "content": {
-                    "title": "Ready to Transform Your Online Presence?",
-                    "description": "Contact our team today to discuss your project and take the first step toward creating a stunning, high-performing website that delivers results.",
+                    "title": "Express Your Emotions with a Custom Bouquet",
+                    "description": "From vibrant, celebratory arrangements to soft and elegant sympathy bouquets, we create unique floral designs that perfectly reflect your sentiment. Let us craft a bouquet that speaks from the heart.",
                     "button": {
-                        "text": "Get Started",
-                        "link": "/contact"
+                        "text": "Learn More",
+                        "link": "/social-media"
+                    },
+                    "analytics": {
+                        "eventLabel": "Learn More",
+                        "eventCategory": "Navbar Interaction",
+                        "eventAction": "link_click",
+                        "eventValue": "Learn More"
                     }
                 }
             }

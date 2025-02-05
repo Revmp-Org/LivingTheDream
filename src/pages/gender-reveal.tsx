@@ -1,32 +1,29 @@
 import OverviewSection from "@/components/organism/ServiceOverview";
-import BenefitsSection from "@/components/molecules/service/benefits";
-import StepSection from "@/components/molecules/service/steps";
 import FooterCTA from "@/components/molecules/footer-cta";
 import GenderRevealConfig from "@/config/service/gender-reveal.json";
 import SEO from "@/components/atoms/seo-config";
+import GallerySection from "@/components/molecules/service/gallery";
 
 export default function GenderRevealPage() {
     const { seo, pageComponents } = GenderRevealConfig;
 
     const overview = pageComponents?.overview;
-    const benefits = pageComponents?.benefits;
-    const steps = pageComponents?.steps;
     const cta = pageComponents?.cta;
+    const gallery = pageComponents?.gallery;
+    const columns = pageComponents?.gallery?.settings?.columns || 4;
 
     return (
         <div>
-            {/* SEO Metadata */}
             <SEO seo={seo} />
+
             {/* Overview Section */}
             <OverviewSection {...overview} />
 
-            {/* Benefits Section */}
-            <BenefitsSection {...benefits} />
 
-            {/* Steps Section */}
-            {steps?.settings?.content?.map((step, index) => (
-                <StepSection key={index} stepSection={step} />
-            ))}
+            {/* Gallery Section */}
+            <GallerySection galleryItems={gallery?.settings?.content} columns={columns as 3 | 4} />
+
+
 
             {/* CTA Section */}
             <FooterCTA {...cta} />

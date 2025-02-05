@@ -16,7 +16,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ settings }) => {
     if (!settings) return null;
 
     return (
-        <section className="py-16 px-6 mt-8 lg:px-12 bg-gradient-to-b from-bg-primary-light via-white to-bg-primary-light">
+        <section className="py-48 px-6 lg:px-12 bg-gradient-to-b from-primary-light via-white to-[#FAF3F3]">
             <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-12">
                 {/* Image */}
                 <motion.div
@@ -29,8 +29,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({ settings }) => {
                         src={settings.image.src}
                         className="rounded-xl shadow-lg object-cover"
                         alt={settings.image.alt}
-                        width={400} // Reduced width
-                        height={250} // Reduced height
+                        width={400}
+                        height={500}
                     />
                 </motion.div>
 
@@ -41,14 +41,14 @@ const AboutSection: React.FC<AboutSectionProps> = ({ settings }) => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 >
-                    <h2 className="text-3xl font-semibold text-gray-900">{settings.content.title}</h2>
-                    {settings.content.description.map((desc: string, index: number) => (
+                    <h2 className="text-4xl font-bold text-gray-900">{settings.content.title}</h2>
+                    {settings.content.description.map((desc, index) => (
                         <p key={index} className="mt-4 text-gray-700 text-lg leading-relaxed">
                             {desc}
                         </p>
                     ))}
                     {settings.content.quote && (
-                        <p className="mt-6 italic text-gray-600 text-lg">
+                        <p className="mt-6 italic text-xl text-gray-600 border-l-4 border-gray-400 pl-4">
                             "{settings.content.quote}"
                         </p>
                     )}

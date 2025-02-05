@@ -49,7 +49,23 @@
                         "Sara Nolan was born and raised in Maryland and moved to Florida for college, where she fell in love with the floral business.",
                         "With a deep admiration for nature’s beauty, Sara began designing floral arrangements for friends and family. Soon, her passion blossomed into a business, bringing stunning floral designs to weddings, private events, and special occasions."
                     ],
-                    "quote": "“I have always had an admiration for nature’s beauty and loved picking flowers, arranging them, and making moments unforgettable.”"
+                    "quote": "“I have always had an admiration for nature’s beauty and loved picking flowers, arranging them, and making moments unforgettable.”",
+                    "additionalInfo": {
+                        "getToKnowMe": [
+                            "I love eating chocolate chip cookies",
+                            "Dancing in the rain",
+                            "And praising the Lord, all the days of my life"
+                        ],
+                        "experience": [
+                            "Originally from Severna Park, Maryland, now residing and working in West Palm Beach, Florida.",
+                            "Graduated from Palm Beach Atlantic University in 2023.",
+                            "Full-time Senior Admissions Counselor at the university.",
+                            "Currently obtaining a florist certificate.",
+                            "Booking weddings, events, arrangements, proms, and gender reveal bouquets."
+                        ],
+                        "questions": "Feel free to reach out at livingthedreamflorals@gmail.com! I’d be more than happy to schedule a time to call or meet to talk about florals and more!",
+                        "travel": "Yes! I am more than willing to travel, as long as expenses are paid for! Feel free to reach out to further discuss this process!"
+                    }
                 }
             }
         },

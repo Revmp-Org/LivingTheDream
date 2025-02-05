@@ -1,20 +1,28 @@
 {
-    "id": "website-development-page",
+    "id": "gender-reveal-bouquets-page",
     "created": "2025-01-01T00:00:00Z",
     "updated": "2025-01-01T01:00:00Z",
     "websiteId": "website-id-123",
-    "title": "Website Development",
-    "slug": "website-development",
-    "description": "Learn about our website development services and how we can create a custom solution for your business.",
+    "title": "Gender Reveal Bouquets",
+    "slug": "gender-reveal-bouquets",
+    "description": "Celebrate your special moment with an elegant gender reveal bouquet. Designed with color-coordinated blooms, our bouquets add excitement and beauty to your announcement.",
     "seo": {
-        "title": "Website Development - Revamp Marketing",
-        "description": "Explore our custom website development services tailored to captivate your audience and enhance your online presence.",
+        "title": "Gender Reveal Bouquets - Living The Dream Florals",
+        "description": "Create a magical gender reveal with our beautifully designed bouquets. Featuring color-coordinated blooms and elegant wrapping, each bouquet makes your announcement unforgettable.",
         "keywords": [
-            "website development",
-            "custom websites",
-            "responsive design"
+            "gender reveal bouquet",
+            "gender reveal flowers",
+            "baby announcement floral arrangements",
+            "pink and blue bouquets",
+            "custom floral gender reveal"
         ],
-        "canonical": "https://revampmarketing.net/website-development"
+        "canonical": "https://revampmarketing.net/gender-reveal-bouquets",
+        "ogTitle": "Bespoke Gender Reveal Bouquets | Living The Dream Florals",
+        "ogDescription": "Celebrate life's biggest surprises with a custom-designed gender reveal bouquet, featuring color-coordinated blooms for a magical moment.",
+        "ogImage": "https://cdn.ltdflorals.com/821F05B9-520F-4AA3-9CBD-DE90F2F77A56.JPG",
+        "twitterTitle": "Luxury Gender Reveal Bouquets | Living The Dream Florals",
+        "twitterDescription": "Reveal the joy in style! Our custom gender reveal bouquets are handcrafted to make your special moment unforgettable.",
+        "twitterImage": "https://cdn.ltdflorals.com/821F05B9-520F-4AA3-9CBD-DE90F2F77A56.JPG"
     },
     "isActive": true,
     "pageComponents": {
@@ -65,13 +73,13 @@
                     }
                 },
                 "content": {
-                    "image": "https://cdn.revampmarketing.net/web-design.jpg",
-                    "title": "Website Development",
-                    "description": "Our website development service offers tailored solutions to captivate your audience and enhance your online presence. From responsive designs to seamless user experiences, our team is dedicated to delivering exceptional results.",
-                    "highlight": "Let us help you create a website that drives your success.",
+                    "image": "https://cdn.ltdflorals.com/top-view-wonderful-bouquet-flowers-tid-qith-pink-ribbon-grey-wooden-surface.jpg",
+                    "title": "Gender Reveal Bouquets",
+                    "description": "Make your gender reveal moment truly magical with a custom bouquet designed to celebrate new beginnings. Featuring color-coordinated blooms and elegant wrapping, our bouquets add excitement and beauty to your special announcement.",
+                    "highlight": "Reveal the joy with delicate pinks, soft blues, or a neutral mystery bouquet—each carefully arranged to enhance your big moment.",
                     "button": {
                         "text": "Learn More",
-                        "link": "/contact",
+                        "link": "/website-development",
                         "analytics": {
                             "eventLabel": "Learn More",
                             "eventCategory": "Navbar Interaction",
@@ -82,171 +90,50 @@
                 }
             }
         },
-        "benefits": {
-            "id": "component-benefits",
-            "type": "organism",
+        "gallery": {
+            "id": "component-gallery",
+            "type": "molecule",
+            "slug": "gallery-section",
             "contentType": "collection",
-            "slug": "benefits",
             "isActive": true,
             "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-16",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "grid": {
-                            "layout": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-                        },
-                        "item": {
-                            "background": "bg-gradient-to-br from-white via-gray-100 to-gray-50",
-                            "padding": "p-6",
-                            "rounded": "rounded-2xl",
-                            "shadow": "shadow-lg hover:shadow-2xl",
-                            "transition": "transition-transform duration-300 hover:scale-105"
-                        },
-                        "itemIcon": {
-                            "background": "bg-gradient-to-br from-indigo-500 to-purple-500 text-white",
-                            "layout": "w-16 h-16 rounded-full flex items-center justify-center",
-                            "typography": "text-xl font-bold shadow-md",
-                            "margin": "mx-auto mb-4"
-                        },
-                        "itemTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-lg font-bold text-center"
-                        },
-                        "itemDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-sm mt-2 leading-relaxed text-center"
-                        }
-                    }
-                },
+                "columns": 3,
                 "content": [
                     {
-                        "title": "Boost Engagement",
-                        "description": "Enhance audience interaction with captivating designs."
+                        "image": "https://cdn.ltdflorals.com/ED5A3474-4CFA-404F-BF4C-3AC062411B4B.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Increase Traffic",
-                        "description": "Reach more users with mobile-friendly interfaces."
+                        "image": "https://cdn.ltdflorals.com/B4446084-3EAA-45D2-9A25-390A27F994B7.JPG",
+                        "quote": "Every bouquet was designed with so much love and attention to detail.",
+                        "author": "Olivia & Matt",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Improve SEO",
-                        "description": "Rank higher on search engines with optimized content."
+                        "image": "https://cdn.ltdflorals.com/beautiful-children-s-birthday-decoration.jpg",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Streamline UX",
-                        "description": "Ensure seamless navigation and user satisfaction."
-                    }
-                ]
-            }
-        },
-        "steps": {
-            "id": "component-steps",
-            "type": "organism",
-            "contentType": "collection",
-            "slug": "steps",
-            "isActive": true,
-            "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-20",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-b border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "stepLayout": {
-                            "layout": "flex flex-col lg:flex-row items-center gap-12"
-                        },
-                        "stepImageContainer": {
-                            "layout": "lg:w-1/2 w-full",
-                            "border": "border-2 border-primary rounded-lg"
-                        },
-                        "stepImageWrapper": {
-                            "rounded": "rounded-lg overflow-hidden",
-                            "shadow": "shadow-md"
-                        },
-                        "stepTextContainer": {
-                            "layout": "lg:w-1/2 w-full space-y-6 text-center lg:text-left"
-                        },
-                        "stepTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-3xl font-extrabold mb-4"
-                        },
-                        "stepDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-lg leading-relaxed mb-4"
-                        },
-                        "stepPoints": {
-                            "color": "text-gray-700",
-                            "typography": "text-base leading-relaxed",
-                            "list": "list-none space-y-4"
-                        },
-                        "stepBulletWrapper": {
-                            "layout": "flex items-center text-left space-x-3"
-                        },
-                        "stepBullet": {
-                            "color": "text-primary",
-                            "typography": "text-xl font-bold"
-                        },
-                        "stepBulletIcon": {
-                            "color": "text-white",
-                            "background": "bg-primary",
-                            "layout": "w-6 h-6 flex items-center justify-center rounded-full"
-                        }
-                    }
-                },
-                "content": [
-                    {
-                        "index": 1,
-                        "title": "Step 1: Discovery & Planning",
-                        "description": "We work closely with you to understand your goals, target audience, and unique requirements. This phase ensures a clear roadmap for success.",
-                        "image": "https://cdn.revampmarketing.net/website-service-todo.jpg",
-                        "points": [
-                            "Analyze business goals and objectives.",
-                            "Identify the target audience and user needs.",
-                            "Outline a clear project timeline and deliverables."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/high-angle-pretty-boho-flowers-bouquet.jpg",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "index": 2,
-                        "title": "Step 2: Design & Prototyping",
-                        "description": "Our designers create visually appealing and user-friendly prototypes tailored to your brand. Your feedback shapes the final design.",
-                        "image": "https://cdn.revampmarketing.net/web-service-designing.jpg",
-                        "points": [
-                            "Develop wireframes and initial prototypes.",
-                            "Collaborate with you to refine designs.",
-                            "Ensure alignment with your brand identity."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/bouquet-chair.jpg",
+                        "quote": "Living The Dream Florals brought my vision to life with elegance and grace.",
+                        "author": "Sophia M.",
+                        "isPortrait": true
                     },
                     {
-                        "index": 3,
-                        "title": "Step 3: Development",
-                        "description": "Our developers bring the designs to life, ensuring your website is functional and responsive across all devices and platforms.",
-                        "image": "https://cdn.revampmarketing.net/website-service-dev-design.jpg",
-                        "points": [
-                            "Write clean, scalable, and efficient code.",
-                            "Implement responsive design for all devices.",
-                            "Integrate essential features and functionalities."
-                        ]
-                    },
-                    {
-                        "index": 4,
-                        "title": "Step 4: Launch & Support",
-                        "description": "We rigorously test the website before launch and offer ongoing support to keep your website running smoothly.",
-                        "image": "https://cdn.revampmarketing.net/website-service-launch-img.jpg",
-                        "points": [
-                            "Conduct thorough QA testing for bugs.",
-                            "Deploy the website to a live environment.",
-                            "Provide continuous support and maintenance."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/green-rose-flower-filter-beauty.jpg",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     }
                 ]
             }
@@ -288,14 +175,20 @@
                         }
                     }
                 },
-                "content": {
-                    "title": "Ready to Transform Your Online Presence?",
-                    "description": "Contact our team today to discuss your project and take the first step toward creating a stunning, high-performing website that delivers results.",
-                    "button": {
-                        "text": "Get Started",
-                        "link": "/contact"
-                    }
-                }
+"content": {
+    "title": "Celebrate Your Gender Reveal with a Beautiful Bouquet",
+    "description": "Surprise your loved ones with a breathtaking gender reveal bouquet. Whether you're planning a grand reveal or an intimate moment, our arrangements bring joy, elegance, and excitement to the occasion.",
+    "button": {
+        "text": "Learn More",
+        "link": "/website-development"
+    },
+    "analytics": {
+        "eventLabel": "Learn More",
+        "eventCategory": "Navbar Interaction",
+        "eventAction": "link_click",
+        "eventValue": "Learn More"
+    }
+}
             }
         }
     }

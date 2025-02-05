@@ -6,7 +6,7 @@ const FooterCTA = (cta: PageComponentChild) => {
     const { title, description, button } = cta?.settings?.content || {};
 
     return (
-        <section className="py-20 px-6 lg:px-12 bg-gradient-to-br from-[#E5CFCF] via-[#DFC4C4] to-[#E5CFCF]">
+        <section className="py-24 px-6 lg:px-12 bg-gradient-to-br from-[#E5CFCF] via-[#DFC4C4] to-[#E5CFCF]">
             <motion.div
                 className="max-w-screen-lg mx-auto text-center space-y-6 font-serif"
                 initial={{ opacity: 0, y: 50 }}

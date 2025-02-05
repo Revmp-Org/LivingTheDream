@@ -73,7 +73,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
     }, [inView, controls]);
 
     return (
-        <div className="min-w-full flex flex-col md:flex-row items-center justify-between p-6 h-auto md:h-[500px]">
+        <div className=" mx-auto flex flex-col md:flex-row items-center justify-between p-6 h-auto md:h-[500px] ">
             {/* Preload images with <link rel="preload"> */}
             <Head>
                 {carouselItemsArray.map((item, index) => (

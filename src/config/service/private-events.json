@@ -1,21 +1,45 @@
 {
-    "id": "seo-services-page",
+    "id": "private-event-florals-page",
     "created": "2025-01-01T00:00:00Z",
     "updated": "2025-01-01T01:00:00Z",
     "websiteId": "website-id-123",
-    "title": "SEO Services",
-    "slug": "seo",
-    "description": "Discover our SEO services to boost your online presence, improve search rankings, and drive organic traffic to your website.",
+    "title": "Private Event Floral Arrangements",
+    "slug": "private-event-florals",
+    "description": "Discover our bespoke floral arrangements designed to elevate private events with elegance and charm.",
     "seo": {
-        "title": "SEO Services - Revamp Marketing",
-        "description": "Explore our tailored SEO services to enhance your online visibility, attract organic traffic, and achieve measurable growth.",
+        "title": "Private Event Floral Arrangements - Living The Dream Florals",
+        "description": "Enhance your private event with stunning, custom floral designs. From intimate gatherings to grand celebrations, our expert florists bring your vision to life.",
         "keywords": [
-            "SEO",
-            "search engine optimization",
-            "keyword research",
-            "on-page SEO"
+            "private event florals",
+            "custom floral arrangements",
+            "luxury event flowers",
+            "event flower design",
+            "bespoke floral designs"
         ],
-        "canonical": "https://revampmarketing.net/seo"
+        "canonical": "https://revampmarketing.net/private-events",
+        "ogTitle": "Bespoke Private Event Floral Arrangements | Living The Dream Florals",
+        "ogDescription": "Transform your private event with breathtaking floral arrangements, tailored for elegance and sophistication.",
+        "ogImage": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
+        "twitterTitle": "Luxury Private Event Floral Designs | Living The Dream Florals",
+        "twitterDescription": "Elegant, custom floral arrangements crafted to enhance any private event with sophistication and charm.",
+        "twitterImage": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
+        "structuredData": {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Living The Dream Florals",
+            "description": "Living The Dream Florals specializes in bespoke floral arrangements for private events, intimate gatherings, and grand celebrations. Our expert florists create elegant, customized designs to enhance any occasion.",
+            "url": "https://www.ltdflorals.com/",
+            "image": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
+            "author": {
+                "@type": "Organization",
+                "name": "Living The Dream Florals"
+            },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.ltdflorals.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
     },
     "isActive": true,
     "pageComponents": {
@@ -66,188 +90,78 @@
                     }
                 },
                 "content": {
-                    "image": "https://cdn.revampmarketing.net/seo-optimization.jpg",
-                    "title": "Search Engine Optimization",
-                    "description": "Our SEO services help your business rank higher on search engines, attract more organic traffic, and achieve measurable growth in your online presence.",
-                    "highlight": "Partner with us to elevate your visibility and credibility in the digital landscape.",
+                    "image": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
+                    "title": "Private Event Floral Design",
+                    "description": "Enhance your private event with exquisite floral arrangements tailored to your occasion. Whether it's an intimate gathering or a grand celebration, our bespoke designs bring elegance and charm to any setting.",
+                    "highlight": "From lush centerpieces to elegant floral installations, we craft stunning designs that elevate your event with sophistication and style.",
                     "button": {
-                        "text": "Get Started",
-                        "link": "/contact",
+                        "text": "Learn More",
+                        "link": "/social-media",
                         "analytics": {
-                            "eventLabel": "Get Started",
+                            "eventLabel": "Learn More",
                             "eventCategory": "Navbar Interaction",
                             "eventAction": "link_click",
-                            "eventValue": "Get Started"
+                            "eventValue": "Learn More"
                         }
                     }
                 }
             }
         },
-        "benefits": {
-            "id": "component-benefits",
-            "type": "organism",
+        "gallery": {
+            "id": "component-gallery",
+            "type": "molecule",
+            "slug": "gallery-section",
             "contentType": "collection",
-            "slug": "benefits",
             "isActive": true,
             "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-16",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "grid": {
-                            "layout": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-                        },
-                        "item": {
-                            "background": "bg-gradient-to-br from-white via-gray-100 to-gray-50",
-                            "padding": "p-6",
-                            "rounded": "rounded-2xl",
-                            "shadow": "shadow-lg hover:shadow-2xl",
-                            "transition": "transition-transform duration-300 hover:scale-105"
-                        },
-                        "itemIcon": {
-                            "background": "bg-gradient-to-br from-indigo-500 to-purple-500 text-white",
-                            "layout": "w-16 h-16 rounded-full flex items-center justify-center",
-                            "typography": "text-xl font-bold shadow-md",
-                            "margin": "mx-auto mb-4"
-                        },
-                        "itemTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-lg font-bold text-center"
-                        },
-                        "itemDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-sm mt-2 leading-relaxed text-center"
-                        }
-                    }
-                },
                 "content": [
                     {
-                        "title": "Increased Visibility",
-                        "description": "Rank higher on search engine results pages."
+                        "image": "https://cdn.ltdflorals.com/38AD72BA-9156-4FE5-B22A-F2504A67E4DB.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Enhanced Credibility",
-                        "description": "Build trust and authority with effective SEO practices."
+                        "image": "https://cdn.ltdflorals.com/05449A55-C3BF-4C8E-A4AD-145EB03BACB3.JPG",
+                        "quote": "Living The Dream Florals brought my vision to life with elegance and grace.",
+                        "author": "Sophia M.",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Improved Traffic",
-                        "description": "Attract more organic visitors to your website."
+                        "image": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
+                        "quote": "Every bouquet was designed with so much love and attention to detail.",
+                        "author": "Olivia & Matt",
+                        "isPortrait": true
                     },
                     {
-                        "title": "Higher ROI",
-                        "description": "Maximize your marketing investment with targeted optimization."
-                    }
-                ]
-            }
-        },
-        "steps": {
-            "id": "component-steps",
-            "type": "organism",
-            "contentType": "collection",
-            "slug": "steps",
-            "isActive": true,
-            "settings": {
-                "styles": {
-                    "default": {
-                        "wrapper": {
-                            "padding": "py-20",
-                            "background": "bg-gray-50",
-                            "border": "border-t border-b border-gray-200"
-                        },
-                        "container": {
-                            "layout": "max-w-screen-xl mx-auto px-6 lg:px-12"
-                        },
-                        "stepLayout": {
-                            "layout": "flex flex-col lg:flex-row items-center gap-12"
-                        },
-                        "stepImageContainer": {
-                            "layout": "lg:w-1/2 w-full",
-                            "border": "border-2 border-primary rounded-lg"
-                        },
-                        "stepImageWrapper": {
-                            "rounded": "rounded-lg overflow-hidden",
-                            "shadow": "shadow-md"
-                        },
-                        "stepTextContainer": {
-                            "layout": "lg:w-1/2 w-full space-y-6 text-center lg:text-left"
-                        },
-                        "stepTitle": {
-                            "color": "text-gray-900",
-                            "typography": "text-3xl font-extrabold mb-4"
-                        },
-                        "stepDescription": {
-                            "color": "text-gray-600",
-                            "typography": "text-lg leading-relaxed mb-4"
-                        },
-                        "stepPoints": {
-                            "color": "text-gray-700",
-                            "typography": "text-base leading-relaxed",
-                            "list": "list-none space-y-4"
-                        },
-                        "stepBulletWrapper": {
-                            "layout": "flex items-center text-left space-x-3"
-                        },
-                        "stepBullet": {
-                            "color": "text-primary",
-                            "typography": "text-xl font-bold"
-                        },
-                        "stepBulletIcon": {
-                            "color": "text-white",
-                            "background": "bg-primary",
-                            "layout": "w-6 h-6 flex items-center justify-center rounded-full"
-                        }
-                    }
-                },
-                "content": [
-                    {
-                        "index": 1,
-                        "title": "Step 1: SEO Audit",
-                        "description": "Our team conducts a comprehensive audit to identify strengths, weaknesses, and opportunities for your website.",
-                        "image": "https://cdn.revampmarketing.net/seo-service-research.jpg",
-                        "points": [
-                            "Analyze current keyword rankings and performance.",
-                            "Evaluate website structure and on-page elements.",
-                            "Identify areas for technical and content improvements."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/F36A867C-7AD9-46B7-939D-9D79C2E59EAF_4_5005_c.jpeg",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "index": 2,
-                        "title": "Step 2: Keyword Research",
-                        "description": "We find the best keywords to target based on search volume, competition, and relevance to your business.",
-                        "image": "https://cdn.revampmarketing.net/seo-service-keywords.png",
-                        "points": [
-                            "Discover high-traffic, low-competition keywords.",
-                            "Align keywords with your target audience's intent.",
-                            "Optimize for local, national, or global search priorities."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/5A39A919-C380-4F25-BF4E-19B8FB1D9FCE_4_5005_c.jpeg",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "index": 3,
-                        "title": "Step 3: On-Page Optimization",
-                        "description": "We optimize your website's pages to improve relevance and search engine rankings.",
-                        "image": "https://cdn.revampmarketing.net/seo-service-optimization.jpg",
-                        "points": [
-                            "Enhance meta titles, descriptions, and headers.",
-                            "Improve internal linking and content readability.",
-                            "Optimize images and page load speed."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/0219FCE7-CD0C-4B94-9457-664B2A495321.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "index": 4,
-                        "title": "Step 4: Ongoing Strategy & Reporting",
-                        "description": "We provide continuous SEO support to adapt to changing algorithms and maintain performance.",
-                        "image": "https://cdn.revampmarketing.net/seo-service-reporting.png",
-                        "points": [
-                            "Monitor performance metrics and refine strategies.",
-                            "Stay up-to-date with algorithm changes.",
-                            "Provide detailed reports on progress and outcomes."
-                        ]
+                        "image": "https://cdn.ltdflorals.com/7C9E88AB-7A4D-495D-A7BC-6D8302935EF5.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
+                    },
+                    {
+                        "image": "https://cdn.ltdflorals.com/613415B0-60D2-4A9F-BD64-F39F58F63C3C.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     }
                 ]
             }
@@ -290,11 +204,11 @@
                     }
                 },
                 "content": {
-                    "title": "Ready to Boost Your Online Visibility?",
-                    "description": "Contact our SEO experts today to create a tailored strategy that improves your search rankings and drives sustainable growth.",
+                    "title": "Let’s Elevate Your Event with Stunning Florals",
+                    "description": "Connect with us today to design breathtaking floral arrangements that add elegance and charm to your private event. From intimate dinners to lavish celebrations, we bring your vision to life with expert floral artistry.",
                     "button": {
-                        "text": "Get Started",
-                        "link": "/contact"
+                        "text": "Learn More",
+                        "link": "/social-media"
                     }
                 }
             }

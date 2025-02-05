@@ -43,20 +43,25 @@ const OverviewSection = (overview: PageComponentChild) => {
                 </motion.div>
 
                 <motion.div
-                    className="flex-1 max-w-full lg:max-w-[50%] flex justify-center items-center mt-6 lg:mt-0 mb-12 lg:mb-0 lg:ml-12"
+                    className="flex-1 max-w-full lg:max-w-[60%] flex justify-center items-center mt-6 lg:mt-0 mb-12 lg:mb-0 lg:ml-12"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <Image
-                        src={image}
-                        alt="Service overview"
-                        className="rounded-lg shadow-md"
-                        width={1000}
-                        height={1000}
-                        loading="eager"
-                    />
+                    <div className="relative w-full max-w-2xl aspect-[16/10] rounded-lg overflow-hidden shadow-md">
+                        <Image
+                            src={image}
+                            alt="Service overview"
+                            fill
+                            style={{ objectFit: "cover" }}
+                            className="rounded-lg"
+                            priority
+                        />
+                    </div>
                 </motion.div>
+
+
+
             </motion.div>
         </section>
     );

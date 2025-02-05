@@ -1,21 +1,28 @@
 {
-    "id": "social-media-management-page",
+    "id": "wedding-florals-page",
     "created": "2025-01-01T00:00:00Z",
     "updated": "2025-01-01T01:00:00Z",
     "websiteId": "website-id-123",
-    "title": "Social Media Management",
-    "slug": "social-media",
-    "description": "Learn about our social media management services and how we can help you grow your brand's online presence and engagement.",
+    "title": "Wedding Floral Arrangements",
+    "slug": "wedding-florals",
+    "description": "Learn about our wedding floral arrangements and how we can help you create unforgettable wedding moments.",
     "seo": {
-        "title": "Social Media Management - Revamp Marketing",
-        "description": "Explore our social media management services designed to increase brand awareness, audience engagement, and conversions.",
+        "title": "Wedding Floral Arrangements - Living The Dream Florals",
+        "description": "Create unforgettable wedding moments with custom floral designs. From bridal bouquets to ceremony florals, our expert florists bring your vision to life.",
         "keywords": [
-            "social media management",
-            "content creation",
-            "brand awareness",
-            "audience engagement"
+            "wedding floral arrangements",
+            "custom bridal bouquets",
+            "ceremony florals",
+            "wedding flower design",
+            "luxury wedding flowers"
         ],
-        "canonical": "https://revampmarketing.net/social-media"
+        "canonical": "https://revampmarketing.net/wedding-florals",
+        "ogTitle": "Bespoke Wedding Floral Arrangements | Living The Dream Florals",
+        "ogDescription": "Transform your wedding with breathtaking floral arrangements, designed to match your vision and theme.",
+        "ogImage": "https://cdn.ltdflorals.com/C7EA8D29-802B-45F0-8267-D1C3E80EECF7.JPG",
+        "twitterTitle": "Luxury Wedding Floral Designs | Living The Dream Florals",
+        "twitterDescription": "Elegant, custom floral arrangements crafted to make your wedding day unforgettable.",
+        "twitterImage": "https://cdn.ltdflorals.com/C7EA8D29-802B-45F0-8267-D1C3E80EECF7.JPG"
     },
     "isActive": true,
     "pageComponents": {
@@ -67,7 +74,7 @@
                 },
                 "content": {
                     "image": "https://cdn.ltdflorals.com/C7EA8D29-802B-45F0-8267-D1C3E80EECF7.JPG",
-                    "title": "Bespoke Wedding Floral Design",
+                    "title": "Wedding Floral Design",
                     "description": "Transform your wedding day with stunning, custom floral arrangements tailored to your love story. From elegant bridal bouquets to breathtaking ceremony florals, we create timeless designs that capture the essence of your special day.",
                     "highlight": "Let us bring your vision to life with hand-selected blooms, thoughtfully arranged for a day you'll never forget.",
                     "button": {
@@ -92,24 +99,52 @@
             "settings": {
                 "content": [
                     {
-                        "image": "https://cdn.ltdflorals.com/0231DCFE-13E9-41D6-AD5B-FE497174CA3D.JPG",
+                        "image": "https://cdn.ltdflorals.com/1479C146-4A92-486F-AB8C-345C62BB8DF9.JPG",
                         "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
-                        "author": "Emily & James"
+                        "author": "Emily & James",
+                        "isPortrait": true
                     },
                     {
-                        "image": "https://cdn.ltdflorals.com/B3BA8E6C-1C50-4BAC-BDEF-1A34672B5CF1.JPG",
+                        "image": "https://cdn.ltdflorals.com/E8C5DB6E-FC6F-4CC1-A771-75A4E9D3FE30.JPG",
                         "quote": "Living The Dream Florals brought my vision to life with elegance and grace.",
-                        "author": "Sophia M."
+                        "author": "Sophia M.",
+                        "isPortrait": true
                     },
                     {
-                        "image": "https://cdn.ltdflorals.com/821F05B9-520F-4AA3-9CBD-DE90F2F77A56.JPG",
+                        "image": "https://cdn.ltdflorals.com/9B75A913-34CF-4245-8795-53D976885A71_4_5005_c.jpeg",
                         "quote": "Every bouquet was designed with so much love and attention to detail.",
-                        "author": "Olivia & Matt"
+                        "author": "Olivia & Matt",
+                        "isPortrait": true
                     },
                     {
-                        "image": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg",
+                        "image": "https://cdn.ltdflorals.com/7FE9BC74-9137-4172-AA2A-2F9B2BF4E676.JPG",
                         "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
-                        "author": "Emily & James"
+                        "author": "Emily & James",
+                        "isPortrait": true
+                    },
+                    {
+                        "image": "https://cdn.ltdflorals.com/7CA3B11A-D39D-48CE-BE34-F9A5663B0BA7.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
+                    },
+                    {
+                        "image": "https://cdn.ltdflorals.com/954F8126-5B73-4C8F-8E43-71D6BCBFCD07.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
+                    },
+                    {
+                        "image": "https://cdn.ltdflorals.com/811BBD89-411C-4DAA-A534-9E89E7C140F8.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
+                    },
+                    {
+                        "image": "https://cdn.ltdflorals.com/89522764-C0AF-4F3C-9464-AC1C333386DC.JPG",
+                        "quote": "The flowers were absolutely stunning and made my wedding unforgettable!",
+                        "author": "Emily & James",
+                        "isPortrait": true
                     }
                 ]
             }
