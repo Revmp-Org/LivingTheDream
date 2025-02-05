@@ -22,7 +22,7 @@ const ContactPage = () => {
             >
                 <SEO seo={seo} />
 
-                <div className="mt-12 mb-16 px-8">
+                <div className="mt-12 mb-16 px-48">
                     <ContactHeader content={header.settings.content} />
                     <ContactForm form={form} thankYou={thankYou} />
                 </div>
