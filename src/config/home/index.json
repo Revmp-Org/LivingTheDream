@@ -291,7 +291,7 @@
                             "settings": {
                                 "title": "Ever After Florals – Wedding Arrangements",
                                 "description": "From breathtaking bridal bouquets to romantic ceremony florals, we craft custom wedding arrangements that bring your love story to life. Every bloom is hand-selected to match your vision and theme.",
-                                "path": "/seo",
+                                "path": "/weddings",
                                 "carouselImage": "https://cdn.ltdflorals.com/0231DCFE-13E9-41D6-AD5B-FE497174CA3D.JPG",
                                 "buttonText": "Learn More"
                             },
@@ -306,7 +306,7 @@
                             "settings": {
                                 "title": "Luxe Petals – Private Event Florals",
                                 "description": "Elevate any occasion with exquisite floral designs tailored for private events. Whether it's an intimate dinner party or a grand celebration, our custom arrangements add elegance and charm to your event.",
-                                "path": "/social-media",
+                                "path": "/private-events",
                                 "carouselImage": "https://cdn.ltdflorals.com/7CCAF1D7-069B-40E3-9302-B16E3B1688A9.JPG",
                                 "buttonText": "Learn More"
                             },
@@ -321,7 +321,7 @@
                             "settings": {
                                 "title": "Signature Blooms – Custom Bouquets",
                                 "description": "Express your emotions through the language of flowers with our custom bouquet service. Whether it’s for love, gratitude, or sympathy, we create unique hand-tied bouquets that leave a lasting impression.",
-                                "path": "/social-media",
+                                "path": "/custom-bouquets",
                                 "carouselImage": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg",
                                 "buttonText": "Learn More"
                             },
@@ -334,7 +334,7 @@
                                 "settings": {
                                     "title": "Blooming Beginnings – Gender Reveal Bouquets",
                                     "description": "Celebrate life's most exciting surprises with a beautifully arranged gender reveal bouquet. Featuring color-coordinated blooms and elegant wrapping, our bouquets create a magical moment for parents-to-be.",
-                                    "path": "/website-development",
+                                    "path": "/gender-reveal",
                                     "carouselImage": "https://cdn.ltdflorals.com/821F05B9-520F-4AA3-9CBD-DE90F2F77A56.JPG",
                                     "buttonText": "Learn More"
                                 },
