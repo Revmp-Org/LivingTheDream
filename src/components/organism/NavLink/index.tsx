@@ -26,8 +26,7 @@ const NavLink = ({
     const { trackClick } = useGoogleAnalytics();
     const { buttonHover, buttonTap } = useMotionConfig();
 
-    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault();
+    const handleClick = () => {
         if (props.analytics) {
             const {
                 eventLabel,
@@ -44,27 +43,30 @@ const NavLink = ({
         }
     };
 
+    // Use disableMotion prop to conditionally disable Framer Motion animations
     if (disableMotion) {
         return (
-            <Link href={href} passHref legacyBehavior>
-                <a className={`${baseClassName} ${className}`} onClick={handleClick}>
-                    {children}
-                </a>
+            <Link
+                href={href}
+                className={`${baseClassName} ${className}`}
+                onClick={handleClick}
+            >
+                {children}
             </Link>
         );
     }
 
     return (
-        <Link href={href} passHref legacyBehavior>
-            <motion.a
-                whileHover={buttonHover}
-                whileTap={buttonTap}
+        <motion.div whileHover={buttonHover} whileTap={buttonTap}>
+            <Link
+                href={href}
+                scroll={props.scroll}
                 className={`${baseClassName} ${className}`}
                 onClick={handleClick}
             >
                 {children}
-            </motion.a>
-        </Link>
+            </Link>
+        </motion.div>
     );
 };
 
