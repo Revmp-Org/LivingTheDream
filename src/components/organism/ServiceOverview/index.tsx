@@ -19,11 +19,12 @@ const OverviewSection = (overview: PageComponentChild) => {
     return (
         <section className="py-24 px-6 mt-8 lg:px-12 bg-gradient-to-b from-bg-primary-light via-white to-bg-primary-light">
             <motion.div
-                className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left"
+                className="max-w-screen-xl mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center lg:items-start text-center lg:text-left gap-12"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
             >
+                {/* Text Section */}
                 <motion.div
                     className="flex-1 max-w-full lg:max-w-[50%]"
                     variants={fadeInVariants}
@@ -42,13 +43,14 @@ const OverviewSection = (overview: PageComponentChild) => {
                     </div>
                 </motion.div>
 
+                {/* Image Section */}
                 <motion.div
-                    className="flex-1 max-w-full lg:max-w-[60%] flex justify-center items-center mt-6 lg:mt-0 mb-12 lg:mb-0 lg:ml-12"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    className="flex-1 w-full flex justify-center items-center"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="relative w-full max-w-2xl aspect-[16/10] rounded-lg overflow-hidden shadow-md">
+                    <div className="relative w-full max-w-[500px] lg:max-w-[600px] aspect-[16/10] rounded-lg overflow-hidden shadow-md">
                         <Image
                             src={image}
                             alt="Service overview"
@@ -59,9 +61,6 @@ const OverviewSection = (overview: PageComponentChild) => {
                         />
                     </div>
                 </motion.div>
-
-
-
             </motion.div>
         </section>
     );
