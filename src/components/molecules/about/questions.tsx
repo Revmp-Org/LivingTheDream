@@ -26,7 +26,7 @@ const Questions: React.FC<QuestionsProps> = ({ settings }) => {
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h3 className="text-3xl font-semibold text-gray-900">📩 Questions?</h3>
+                        <h3 className="text-3xl font-semibold text-gray-900">Questions?</h3>
                         <p className="mt-4 text-lg text-gray-700">{settings.content.additionalInfo.questions}</p>
                     </motion.div>
 
@@ -37,7 +37,7 @@ const Questions: React.FC<QuestionsProps> = ({ settings }) => {
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <h3 className="text-3xl font-semibold text-gray-900">✈️ Do You Travel?</h3>
+                        <h3 className="text-3xl font-semibold text-gray-900">Do You Travel?</h3>
                         <p className="mt-4 text-lg text-gray-700">{settings.content.additionalInfo.travel}</p>
                     </motion.div>
                 </div>

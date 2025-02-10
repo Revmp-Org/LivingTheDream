@@ -92,11 +92,6 @@
                                             "id": 3,
                                             "label": "Custom Bouquets",
                                             "path": "/custom-bouquets"
-                                        },
-                                        {
-                                            "id": 4,
-                                            "label": "Gender Reveal Bouquets",
-                                            "path": "/gender-reveal"
                                         }
                                     ]
                                 },
@@ -363,11 +358,6 @@
                                             "id": 3,
                                             "label": "Custom Bouquets",
                                             "path": "/custom-bouquets"
-                                        },
-                                        {
-                                            "id": 4,
-                                            "label": "Gender Reveal Bouquets",
-                                            "path": "/gender-reveal"
                                         }
                                     ]
                                 },

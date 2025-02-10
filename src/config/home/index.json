@@ -325,21 +325,6 @@
                                 "carouselImage": "https://cdn.ltdflorals.com/A0E5621E-120A-4DA5-A9BA-F80A898D6780_4_5005_c.jpeg",
                                 "buttonText": "Learn More"
                             },
-                            "service-card-blooming-beginnings": {
-                                "id": "component-service-card-blooming-beginnings",
-                                "type": "molecule",
-                                "slug": "service-card-blooming-beginnings",
-                                "contentType": "singleton",
-                                "isActive": true,
-                                "settings": {
-                                    "title": "Blooming Beginnings – Gender Reveal Bouquets",
-                                    "description": "Celebrate life's most exciting surprises with a beautifully arranged gender reveal bouquet. Featuring color-coordinated blooms and elegant wrapping, our bouquets create a magical moment for parents-to-be.",
-                                    "path": "/gender-reveal",
-                                    "carouselImage": "https://cdn.ltdflorals.com/821F05B9-520F-4AA3-9CBD-DE90F2F77A56.JPG",
-                                    "buttonText": "Learn More"
-                                },
-                                "children": {}
-                            },
                             "children": {}
                         }
                     }

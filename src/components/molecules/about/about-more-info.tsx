@@ -30,7 +30,7 @@ const AboutMoreInfo: React.FC<AboutMoreInfoProps> = ({ settings }) => {
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h3 className="text-3xl font-semibold text-gray-900">🌸 Get to Know Me</h3>
+                        <h3 className="text-3xl font-semibold text-gray-900">Get to Know Me</h3>
                         <ul className="mt-4 text-lg text-gray-700 list-none border-t border-gray-300">
                             {settings.content.additionalInfo.getToKnowMe.map((fact, index) => (
                                 <li key={index} className="py-3 border-b border-gray-300">
@@ -47,7 +47,7 @@ const AboutMoreInfo: React.FC<AboutMoreInfoProps> = ({ settings }) => {
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <h3 className="text-3xl font-semibold text-gray-900">💐 Experience</h3>
+                        <h3 className="text-3xl font-semibold text-gray-900">Experience</h3>
                         <ul className="mt-4 text-lg text-gray-700 list-disc list-inside">
                             {settings.content.additionalInfo.experience.map((exp, index) => (
                                 <li key={index}>{exp}</li>
