@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import NavLink from "../NavLink";
 import { PageComponentChild } from "@/types";
+import ImageWithCredit from "@/components/atoms/image-with-credit";
 
 const OverviewSection = (overview: PageComponentChild) => {
     const containerVariants = {
@@ -14,7 +14,7 @@ const OverviewSection = (overview: PageComponentChild) => {
         visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
     };
 
-    const { title, description, highlight, button, image } = overview?.settings?.content || {};
+    const { title, description, highlight, button, image, photoCredit } = overview?.settings?.content || {};
 
     return (
         <section className="py-24 px-6 mt-8 lg:px-12 bg-gradient-to-b from-bg-primary-light via-white to-bg-primary-light">
@@ -50,16 +50,15 @@ const OverviewSection = (overview: PageComponentChild) => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="relative w-full max-w-[500px] lg:max-w-[600px] aspect-[16/10] rounded-lg overflow-hidden shadow-md">
-                        <Image
+                        <ImageWithCredit
                             src={image}
                             alt="Service overview"
-                            fill
-                            style={{ objectFit: "cover" }}
+                            width={500}
+                            height={600}
+                            photoCredit={photoCredit}
                             className="rounded-lg"
-                            priority
+                            backgroundCard={false}
                         />
-                    </div>
                 </motion.div>
             </motion.div>
         </section>

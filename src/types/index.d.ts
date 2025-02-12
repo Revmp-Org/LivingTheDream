@@ -145,6 +145,7 @@ export type PageComponent = {
             src: string;
             alt: string;
             className?: string;
+            photoCredit?: string;
         };
     };
     children: Record<string, PageComponentChild>;

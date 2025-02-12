@@ -4,6 +4,7 @@ import Image from "next/image";
 import NavLink from "../organism/NavLink";
 import { PageComponentChild, Styles } from "@/types";
 import Head from "next/head";
+import ImageWithCredit from "./image-with-credit";
 
 type CarouselItemProps = {
     item: PageComponentChild;
@@ -82,7 +83,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
             </Head>
             {/* Image */}
             <motion.div
-                className="w-full md:w-1/2 flex justify-center items-center bg-gray-100 rounded-lg p-2 h-full"
+                className="w-full md:w-1/2 flex justify-center items-center bg-gray-100 rounded-lg p-6 h-full"
                 style={{
                     transform: `perspective(1000px) rotateX(${20 - scrollProgress * 20}deg)`,
                     boxShadow: `0 ${20 - scrollProgress * 15}px ${30 - scrollProgress * 20}px rgba(0, 0, 0, ${0.25 - scrollProgress * 0.15})`,
@@ -90,14 +91,15 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item, childStyles }) => {
                     transition: "all 0.3s ease-out",
                 }}
             >
-                <Image
+                <ImageWithCredit
                     src={item.settings.carouselImage || ""}
+                    alt={item.settings.title || "Default Title"}
                     width={800}
                     height={800}
-                    alt={item.settings.title || "Default Title"}
-                    className="rounded-lg w-full h-full object-cover"
-                    priority
-                    loading="eager"
+                    photoCredit={item.settings.photoCredit}
+                    orientation='landscape'
+                    fixedCreditHeight={false}
+                    backgroundCard={true}
                 />
             </motion.div>
 

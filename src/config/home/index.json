@@ -293,6 +293,7 @@
                                 "description": "From breathtaking bridal bouquets to romantic ceremony florals, we craft custom wedding arrangements that bring your love story to life. Every bloom is hand-selected to match your vision and theme.",
                                 "path": "/weddings",
                                 "carouselImage": "https://cdn.ltdflorals.com/0231DCFE-13E9-41D6-AD5B-FE497174CA3D.JPG",
+                                "photoCredit": "@lindsaymcdowphoto",
                                 "buttonText": "Learn More"
                             },
                             "children": {}
@@ -491,7 +492,8 @@
                 "image": {
                     "src": "https://cdn.ltdflorals.com/C7EA8D29-802B-45F0-8267-D1C3E80EECF7.JPG",
                     "alt": "Bring Your Floral Vision to Life",
-                    "className": "rounded-lg md:max-w-lg"
+                    "className": "rounded-lg md:max-w-lg",
+                    "photoCredit": "@catalystcreativeco_"
                 },
                 "content": {
                     "title": "Bring Your Floral Vision to Life",

@@ -10,15 +10,23 @@ type GalleryItemType = {
 type GallerySectionProps = {
     galleryItems: GalleryItemType[];
     columns?: 3 | 4;
+    photoCredit?: string; // ✅ Photo credit for the entire gallery
 };
 
-const GallerySection: React.FC<GallerySectionProps> = ({ galleryItems, columns = 4 }) => {
+const GallerySection: React.FC<GallerySectionProps> = ({ galleryItems, columns = 4, photoCredit }) => {
     return (
         <section className="py-20 bg-gradient-to-b from-[#F3E5E5] via-white to-[#F3E5E5]">
-            <div className="max-w-screen-xl mx-auto px-6 lg:px-12">
-                <h2 className="text-center text-4xl font-bold text-gray-900 mb-12">
+            <div className="max-w-screen-xl mx-auto px-6 lg:px-12 text-center">
+                <h2 className="text-4xl font-bold text-gray-900 mb-2">
                     A Glimpse Into Our Work
                 </h2>
+
+                {/* ✅ Photo Credit for Entire Gallery */}
+                {photoCredit ? (
+                    <p className="text-sm text-gray-500 italic mb-6">Photos by: {photoCredit}</p>
+                ) : (
+                    <p className="text-sm text-gray-500 opacity-0 mb-6">Placeholder</p> // Maintains spacing
+                )}
 
                 {/* Responsive 4x4 Grid Layout */}
                 <div className={`grid grid-cols-2 md:grid-cols-3 ${columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-8 justify-items-center`}>

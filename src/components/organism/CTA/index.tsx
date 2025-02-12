@@ -4,6 +4,7 @@ import Image from "next/image";
 import { AnalyticsConfig, PageComponent } from "@/types";
 import { motion } from "framer-motion";
 import { getStyles } from "@/utils";
+import ImageWithCredit from "@/components/atoms/image-with-credit";
 
 const CTA: React.FC<PageComponent> = (cta) => {
     const { settings, children } = cta;
@@ -40,12 +41,12 @@ const CTA: React.FC<PageComponent> = (cta) => {
                         className="flex justify-center mb-6 sm:mb-0 flex-1 max-w-full lg:max-w-[50%]"
                         variants={imageSlideInVariant}
                     >
-                        <Image
+                        <ImageWithCredit
                             src={image?.src || ""}
-                            className={image?.className || "rounded-lg shadow-md"}
                             alt={image?.alt || "Image Alt Text"}
                             width={720}
                             height={480}
+                            photoCredit={image?.photoCredit}
                         />
                     </motion.div>
                 )}

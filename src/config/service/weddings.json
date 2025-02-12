@@ -74,6 +74,7 @@
                 },
                 "content": {
                     "image": "https://cdn.ltdflorals.com/C7EA8D29-802B-45F0-8267-D1C3E80EECF7.JPG",
+                    "photoCredit": "@catalystcreativeco_",
                     "title": "Wedding Floral Design",
                     "description": "Transform your wedding day with stunning, custom floral arrangements tailored to your love story. From elegant bridal bouquets to breathtaking ceremony florals, we create timeless designs that capture the essence of your special day.",
                     "highlight": "Let us bring your vision to life with hand-selected blooms, thoughtfully arranged for a day you'll never forget.",
@@ -97,6 +98,7 @@
             "contentType": "collection",
             "isActive": true,
             "settings": {
+                "photoCredit": "@lindsaymcdowphoto",
                 "content": [
                     {
                         "image": "https://cdn.ltdflorals.com/1479C146-4A92-486F-AB8C-345C62BB8DF9.JPG",
