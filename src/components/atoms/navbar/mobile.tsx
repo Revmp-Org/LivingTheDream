@@ -4,7 +4,7 @@ import Brand from "../../molecules/brand";
 import NavLink from "../../organism/NavLink";
 import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
 import { FiMenu, FiX } from "react-icons/fi";
-import { NavigationItem, PageComponentChild } from "@/types";
+import { BrandProps, NavigationItem, NavLinkButton } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MobileNavbar = ({
@@ -13,8 +13,8 @@ const MobileNavbar = ({
     brand,
 }: {
     navigation: NavigationItem[];
-    ctaButton?: PageComponentChild;
-    brand: any;
+    ctaButton?: NavLinkButton;
+    brand: BrandProps;
 }) => {
     const { push } = useRouter();
     const [state, setState] = useState(false);
@@ -23,6 +23,13 @@ const MobileNavbar = ({
     const handleState = () => {
         document.body.classList.remove("overflow-hidden");
         setState(false);
+    };
+
+    const handleItemClick = (path?: string, label?: string) => {
+        if (!path) return;
+        push(path);
+        handleState();
+        trackClick(label || "", "Mobile Nav", "link_click", label);
     };
 
     const menuVariants = {
@@ -74,11 +81,11 @@ const MobileNavbar = ({
                             exit="exit"
                         >
                             {/* Header */}
-                            <div className="flex items-center justify-between p-6 border-b"> {/* Static header styles */}
-                                <Brand brand={brand} />
+                            <div className="flex items-center justify-between p-6 border-b">
+                                <Brand logo={brand} type="mobile" />
                                 <button
                                     aria-label="Close menu"
-                                    className="text-gray-500 hover:text-gray-800" // Static close button styles
+                                    className="text-gray-500 hover:text-gray-800"
                                     onClick={handleState}
                                 >
                                     <FiX size={24} />
@@ -86,9 +93,9 @@ const MobileNavbar = ({
                             </div>
 
                             {/* Navigation Items */}
-                            <div className="flex-1 overflow-y-auto px-6 py-8"> {/* Static nav items container */}
-                                {navigation.map((item, idx) => (
-                                    <div key={idx} className="mb-6"> {/* Static nav item wrapper */}
+                            <div className="flex-1 overflow-y-auto px-6 py-8">
+                                {navigation.map((item) => (
+                                    <div key={item.id} className="mb-6">
                                         {item.items ? (
                                             <>
                                                 <div className="text-lg font-semibold text-gray-800 mb-4">
@@ -99,16 +106,7 @@ const MobileNavbar = ({
                                                         <li
                                                             key={subItem.id}
                                                             className="p-3 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-md cursor-pointer transition-colors duration-200"
-                                                            onClick={() => {
-                                                                push(subItem?.path || "");
-                                                                handleState();
-                                                                trackClick(
-                                                                    subItem?.label || "",
-                                                                    "Mobile Nav",
-                                                                    "link_click",
-                                                                    subItem.label
-                                                                );
-                                                            }}
+                                                            onClick={() => handleItemClick(subItem.path, subItem.label)}
                                                         >
                                                             {subItem.label}
                                                         </li>
@@ -118,37 +116,27 @@ const MobileNavbar = ({
                                         ) : (
                                             <div
                                                 className="p-3 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-md cursor-pointer transition-colors duration-200"
-                                                onClick={() => {
-                                                    push(item?.path || "");
-                                                    handleState();
-                                                    trackClick(
-                                                        item?.label || "",
-                                                        "Mobile Nav",
-                                                        "link_click",
-                                                        item.label
-                                                    );
-                                                }}
+                                                onClick={() => handleItemClick(item.path, item.label)}
                                             >
                                                 {item.label}
                                             </div>
                                         )}
                                     </div>
                                 ))}
-                                <div className="mt-8">
-                                    <NavLink
-                                        href={ctaButton?.settings?.content?.link || "/get-started"}
-                                        analytics={ctaButton?.settings?.analytics || {
-                                            eventLabel: "Get Started",
-                                            eventCategory: "Mobile Nav",
-                                            eventAction: "link_click",
-                                            eventValue: "Get Started",
-                                        }}
-                                        className="block w-full text-center text-white bg-primary hover:bg-primary-light active:bg-primary-dark rounded-md px-6 py-3 transition-colors duration-200"
-                                        onClick={handleState}
-                                    >
-                                        {ctaButton?.settings?.content?.ctaButton?.text || "Get Started"}
-                                    </NavLink>
-                                </div>
+
+                                {/* CTA Button */}
+                                {ctaButton && (
+                                    <div className="mt-8">
+                                        <NavLink
+                                            href={ctaButton.link}
+                                            analytics={ctaButton.analytics}
+                                            className="block w-full text-center text-white bg-primary hover:bg-primary-dark active:bg-primary-dark rounded-md px-6 py-3 transition-colors duration-200"
+                                            onClick={handleState}
+                                        >
+                                            {ctaButton.text}
+                                        </NavLink>
+                                    </div>
+                                )}
                             </div>
                         </motion.div>
                     </>

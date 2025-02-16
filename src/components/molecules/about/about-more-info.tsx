@@ -3,20 +3,16 @@ import { motion } from "framer-motion";
 interface AboutMoreInfoProps {
     settings: {
         content: {
-            title: string;
-            description: string[];
             additionalInfo: {
                 getToKnowMe: string[];
                 experience: string[];
-                questions: string;
-                travel: string;
             };
         };
     };
 }
 
 const AboutMoreInfo: React.FC<AboutMoreInfoProps> = ({ settings }) => {
-    if (!settings) return null;
+    if (!settings?.content?.additionalInfo) return null;
 
     return (
         <section className="py-16 px-6 lg:px-12 bg-gradient-to-b from-[#F5E7E7] to-[#F8ECEC]">

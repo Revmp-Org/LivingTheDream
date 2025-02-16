@@ -4,32 +4,16 @@ import useGoogleAnalytics from "./use-google-analytics";
 
 export type FormData = {
     services: string[];
-    name: string;  // Full name from form
-    firstName: string; // Split for submission
-    lastName: string;  // Split for submission
+    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
     phone: string;
     eventDate: string;
     referralSource: string;
 };
 
-const serviceOptions: AutocompleteOption[] = [
-    { id: "1", label: "Wedding Flowers" },
-    { id: "2", label: "Private Event Florals" },
-    { id: "3", label: "Custom Bouquets" },
-    { id: "4", label: "Gender Reveal Bouquets" },
-    { id: "5", label: "Other" },
-];
-
-export const referralOptions = [
-    { id: "1", label: "Google Search" },
-    { id: "2", label: "Social Media" },
-    { id: "3", label: "Word of Mouth" },
-    { id: "4", label: "Advertisement" },
-    { id: "5", label: "Other" },
-];
-
-export const useContactForm = () => {
+export const useContactForm = (webhookUrl: string, serviceOptions: { id: string; label: string }[], referralOptions: { id: string; label: string }[]) => {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState<Partial<FormData>>({});
@@ -37,7 +21,7 @@ export const useContactForm = () => {
     const [referralSource, setReferralSource] = useState<AutocompleteOption[]>([]);
     const [eventDate, setEventDate] = useState<Date | null>(null);
     const { trackClick } = useGoogleAnalytics();
-
+    console.log(webhookUrl);
     const validateForm = (formData: FormData) => {
         const newErrors: Partial<FormData> = {};
 
@@ -120,7 +104,7 @@ export const useContactForm = () => {
         }
 
         try {
-            const response = await fetch(process.env.NEXT_PUBLIC_WEBHOOK_URL || "", {
+            const response = await fetch(webhookUrl, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

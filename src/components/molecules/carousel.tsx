@@ -2,27 +2,22 @@ import { useState } from "react";
 import CarouselItem from "@/components/atoms/carousel-item";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-import { PageComponent } from "@/types";
+import { ServicesProps } from "@/types";
 
-const Carousel: React.FC<PageComponent> = (services) => {
-    const { children } = services;
-    const carousel = children.carousel;
+const Carousel: React.FC<{ services: ServicesProps }> = ({ services }) => {
 
-    const carouselItems = carousel.children || {};
-    const carouselItemsArray = Object.values(carouselItems);
-
-
+    const servicesArray = services.servicesList
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? carouselItemsArray.length - 1 : prevIndex - 1
+            prevIndex === 0 ? servicesArray.length - 1 : prevIndex - 1
         );
     };
 
     const handleNext = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex === carouselItemsArray.length - 1 ? 0 : prevIndex + 1
+            prevIndex === servicesArray.length - 1 ? 0 : prevIndex + 1
         );
     };
 
@@ -30,21 +25,20 @@ const Carousel: React.FC<PageComponent> = (services) => {
         setCurrentIndex(index);
     };
 
-
     return (
         <div className="relative w-full">
             {/* Carousel Content */}
             <div className="overflow-hidden relative">
                 <AnimatePresence mode="wait">
                     <motion.div
-                        key={carouselItemsArray[currentIndex]?.id}
+                        key={servicesArray[currentIndex]._key}
                         initial={{ opacity: 0, x: 100 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -100 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                         className="w-full"
                     >
-                        <CarouselItem item={carouselItemsArray[currentIndex]} />
+                        <CarouselItem item={servicesArray[currentIndex]} />
                     </motion.div>
                 </AnimatePresence>
 
@@ -67,7 +61,7 @@ const Carousel: React.FC<PageComponent> = (services) => {
 
             {/* Dots Navigation */}
             <div className="flex justify-center items-center mt-6 space-x-3">
-                {carouselItemsArray.map((_, index) => (
+                {servicesArray.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => handleDotClick(index)}

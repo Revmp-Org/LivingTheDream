@@ -14,20 +14,31 @@ const Player = dynamic(
 );
 
 const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou }) => {
+    const referralOptions = form.referralOptions || [];
+    const serviceOptions = form.serviceOptions || [];
+
+    const formattedReferralOptions = referralOptions.map((option: string, index: number) => ({
+        id: index.toString(),
+        label: option,
+    }));
+
+    const formattedServiceOptions = serviceOptions.map((option: string, index: number) => ({
+        id: index.toString(),
+        label: option,
+    }));
+
     const {
         formSubmitted,
         isLoading,
         errors,
         selectedServices,
-        serviceOptions,
         handleServiceSelect,
         handleSubmit,
         referralSource,
-        referralOptions,
         handleReferralSourceChange,
         eventDate,
         handleEventDateChange,
-    } = useContactForm();
+    } = useContactForm(form.webhook, formattedServiceOptions, formattedReferralOptions);
 
     const thankYouVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -72,11 +83,11 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                     )}
                     <div className="flex flex-col items-center justify-center max-w-xl mx-auto">
                         {/* Thank You Message */}
-                        <h2 className="text-gray-800 text-3xl font-semibold mt-4"> {/* Static title style */}
-                            {thankYou?.settings?.content?.title}
-                    </h2>
-                    <p className="text-gray-600 text-lg mt-2"> {/* Static message style */}
-                            {thankYou?.settings?.content?.message}
+                        <h2 className="text-gray-800 text-3xl font-semibold mt-4">
+                            {thankYou?.content?.title}
+                        </h2>
+                        <p className="text-gray-600 text-lg mt-2">
+                            {thankYou?.content?.message}
                         </p>
                     </div>
                 </motion.div>
@@ -88,60 +99,35 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                         <form onSubmit={handleSubmit}>
                             <motion.div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-                                {/* Name */}
-                                <div className="col-span-2 md:col-span-1">
+                            {form?.formFields.map((field: any) => (
+                                <div key={field.fieldName} className="col-span-2 md:col-span-1">
                                     <Input
-                                        id="name"
-                                        name="name"
-                                        label="Name"
-                                        type="text"
-                                        placeholder="John Smith"
+                                        id={field.fieldName}
+                                        name={field.fieldName}
+                                        label={field.label}
+                                        type={field.fieldName === "email" ? "email" : "text"}
+                                        placeholder={field.placeholder}
                                     />
-                                    {errors.name && (
-                                        <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                                    {errors[field.fieldName as keyof typeof errors] && (
+                                        <p className="text-red-500 text-sm mt-1">
+                                            {errors[field.fieldName as keyof typeof errors]}
+                                        </p>
                                     )}
                                 </div>
-
-                                {/* Email */}
-                                <div className="col-span-2 md:col-span-1">
-                                    <Input
-                                        id="email"
-                                        name="email"
-                                        label="Email"
-                                        type="email"
-                                        placeholder="you@example.com"
-                                    />
-                                    {errors.email && (
-                                        <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                                    )}
-                                </div>
-
-                                {/* Phone */}
-                                <div className="col-span-2 md:col-span-1">
-                                    <Input
-                                        id="phone"
-                                        name="phone"
-                                        label="Phone Number"
-                                        type="tel"
-                                        placeholder="(123) 456-7890"
-                                    />
-                                    {errors.phone && (
-                                        <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-                                    )}
-                                </div>
+                            ))}
 
                                 {/* Event Type Selection */}
                                 <div className="col-span-2 md:col-span-1">
                                     <Autocomplete
                                         value={selectedServices.map((service) => service.label).join(", ")}
-                                        label="Type of Event"
+                                        label="Services You Want"
                                         onChange={() => { }}
                                         onSelect={handleServiceSelect}
-                                        options={serviceOptions}
+                                        options={formattedServiceOptions}
                                         selectedOptions={selectedServices}
-                                        placeholder="Select event type"
-                                        noResultsMessage="No event types available"
-                                        disableFilter={true}
+                                        placeholder="Select services"
+                                        noResultsMessage="No services available"
+                                        disableFilter
                                     />
                                     {errors.services && (
                                         <p className="text-red-500 text-sm mt-1">{errors.services}</p>
@@ -169,11 +155,11 @@ const ContactForm: React.FC<{ form: any; thankYou: any }> = ({ form, thankYou })
                                         label="How did you hear about us?"
                                         value={referralSource.map((option) => option.label).join(", ")}
                                         onChange={handleReferralSourceChange}
-                                        options={referralOptions}
+                                        options={formattedReferralOptions}
                                         selectedOptions={referralSource}
                                         placeholder="Select an option"
                                         noResultsMessage="No options available"
-                                        disableFilter={true}
+                                        disableFilter
                                     />
                                     {errors.referralSource && (
                                         <p className="text-red-500 text-sm mt-1">{errors.referralSource}</p>

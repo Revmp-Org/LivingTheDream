@@ -11,7 +11,7 @@ type NavLinkProps = {
     scroll?: boolean;
     baseClassName?: string;
     onClick?: () => void;
-    analytics: AnalyticsConfig;
+    analytics: AnalyticsConfig | undefined;
     disableMotion?: boolean;
 };
 

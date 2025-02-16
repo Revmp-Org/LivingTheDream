@@ -2,24 +2,25 @@ import CTA from "@/components/organism/CTA";
 import Services from "@/components/organism/Services";
 import Hero from "@/components/organism/Hero";
 import TestimonialsLayout from "@/components/organism/Testimonials";
-import homeConfig from "@/config/home/index.json";
 import SEO from "@/components/atoms/seo-config";
+import { useHomePage } from "@/hooks/sanity/use-home-page";
 
 export default function Home() {
-  const { pageComponents, seo } = homeConfig;
-  
+  const { homePageConfig, loading } = useHomePage();
+
+  if (loading || !homePageConfig) {
+    return null;
+  }
+
+  const { hero, services, cta, seo } = homePageConfig;
 
   return (
     <>
       <SEO seo={seo} />
-      {pageComponents.hero?.isActive && <Hero {...pageComponents.hero} />}
-      {pageComponents.services?.isActive && (
-        <Services {...pageComponents.services} />
-      )}
-      {pageComponents.testimonials?.isActive && (
-        <TestimonialsLayout {...pageComponents.testimonials} />
-      )}
-      {pageComponents.cta?.isActive && <CTA {...pageComponents.cta} />}
+      {hero?.isActive && <Hero hero={hero} />}
+      {services?.isActive && <Services services={services} />}
+      {/* {testimonials?.isActive && <TestimonialsLayout {...testimonials} />} */}
+      {cta?.isActive && <CTA cta={cta} />}
     </>
   );
 }

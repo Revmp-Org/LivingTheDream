@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { urlFor } from "@/sanity/lib/image";
 
 interface AboutSectionProps {
     settings: {
-        image: { src: string; alt: string };
+        image: { asset?: { _ref: string }; alt: string };
         content: {
             title: string;
             description: string[];
@@ -26,7 +27,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ settings }) => {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <Image
-                        src={settings.image.src}
+                        src={settings.image?.asset?._ref ? urlFor(settings.image.asset._ref).url() : ""}
                         className="rounded-xl shadow-lg object-cover"
                         alt={settings.image.alt}
                         width={400}

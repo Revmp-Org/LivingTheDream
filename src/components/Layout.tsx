@@ -1,17 +1,24 @@
 import Footer from "./organism/Footer";
 import Navbar from "./molecules/navbar";
 import Head from "next/head";
-import { useSiteConfig } from "@/context/site-config-context";
-
+import { useGlobalConfig } from "@/hooks/sanity/use-global-config";
+import { useRouter } from "next/router";
 interface LayoutProps {
     children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-    const siteConfig = useSiteConfig();
-    const footerConfig = siteConfig?.global?.footer;
-    const navbarConfig = siteConfig?.global?.navbar;
-    const themeColor = siteConfig?.global?.layout?.themeColor || "#ffffff";
+    const { globalConfig, loading } = useGlobalConfig();
+    const router = useRouter();
+
+    if (loading) {
+        return null;
+    }
+
+    const footerConfig = globalConfig?.footer || {};
+    const navbarConfig = globalConfig?.navbar || null;
+    const isStudioPage = router.pathname.startsWith("/studio");
+
 
     return (
         <>
@@ -36,19 +43,22 @@ const Layout = ({ children }: LayoutProps) => {
                 <meta name="twitter:image" content="/logo-small.png" />
                 <meta name="twitter:url" content="https://www.revampmarketing.net" />
 
-
                 {/* Force Browsers to Use PNG Favicon */}
                 <link rel="icon" type="image/png" href="/logo-small.png" sizes="512x512" />
                 <link rel="apple-touch-icon" href="/logo-small.png" />
 
                 {/* Theme Color */}
-                <meta name="theme-color" content={themeColor} />
+                <meta name="theme-color" content="#ffffff" />
                 <style>{`html { scroll-behavior: smooth; }`}</style>
             </Head>
 
-            {navbarConfig && <Navbar config={navbarConfig} />}
+            {/* Navbar only renders when loading is false */}
+            {navbarConfig && !isStudioPage && <Navbar config={navbarConfig} />}
+
             <main className="min-h-screen">{children}</main>
-            {footerConfig && <Footer config={footerConfig} />}
+
+            {/* Footer */}
+            {footerConfig && !isStudioPage && <Footer footer={footerConfig} />}
         </>
     );
 };

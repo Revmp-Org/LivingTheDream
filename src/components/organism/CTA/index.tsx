@@ -1,21 +1,14 @@
-import SectionWrapper from "../../SectionWrapper";
-import NavLink from "../NavLink";
-import Image from "next/image";
-import { AnalyticsConfig, PageComponent } from "@/types";
 import { motion } from "framer-motion";
-import { getStyles } from "@/utils";
+import NavLink from "../NavLink";
+import { CTAProps } from "@/types";
+import { urlFor } from "@/sanity/lib/image";
 import ImageWithCredit from "@/components/atoms/image-with-credit";
 
-const CTA: React.FC<PageComponent> = (cta) => {
-    const { settings, children } = cta;
-    const { image, content, styles } = settings || {};
-    
+const CTA: React.FC<{ cta: CTAProps }> = ({ cta }) => {
+    if (!cta?.isActive) return null;
 
-    const button = children?.["cta-button"]?.settings as {
-        text?: string;
-        href?: string;
-        analytics?: AnalyticsConfig;
-    };
+    const { content } = cta;
+    const button = content?.button;
 
     const imageSlideInVariant = {
         hidden: { opacity: 0, x: -100 },
@@ -27,6 +20,11 @@ const CTA: React.FC<PageComponent> = (cta) => {
         visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } },
     };
 
+    const imageUrl = cta.content.image?.asset?._ref
+        ? urlFor(cta.content.image.asset._ref).url()
+        : "/placeholder.jpg";
+
+
     return (
         <section className="pb-16 pt-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-[#F3E5E5] via-white to-[#EAD4D4] flex flex-col items-center sm:flex-row sm:justify-between">
             <motion.div
@@ -35,42 +33,22 @@ const CTA: React.FC<PageComponent> = (cta) => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
             >
-                {/* Image Section */}
-                {image && (
-                    <motion.div
-                        className="flex justify-center mb-6 sm:mb-0 flex-1 max-w-full lg:max-w-[50%]"
-                        variants={imageSlideInVariant}
-                    >
-                        <ImageWithCredit
-                            src={image?.src || ""}
-                            alt={image?.alt || "Image Alt Text"}
-                            width={720}
-                            height={480}
-                            photoCredit={image?.photoCredit}
-                        />
-                    </motion.div>
-                )}
-
                 {/* Content Section */}
                 <motion.div
-                    className="sm:text-left px-4 sm:px-6 lg:px-0 flex-1 max-w-full lg:max-w-[50%] font-serif"
+                    className="sm:text-left px-4 sm:px-6 lg:px-0 flex-1 max-w-full lg:max-w-[50%]"
                     variants={textSlideInVariant}
                 >
                     {/* Title */}
                     <h2 className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                        {content?.title || "Default Title"}
+                        {content?.title || "Transform Your Business Today"}
                     </h2>
 
                     {/* Description */}
-                    {Array.isArray(content?.description) &&
-                        content.description.map((desc, idx) => (
-                            <p
-                                key={idx}
-                                className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed"
-                            >
-                                {desc}
-                            </p>
-                        ))}
+                    <p
+                        className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed"
+                    >
+                        {content.description}
+                    </p>
 
                     {content?.highlight && (
                         <p className="mt-4 text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -83,23 +61,32 @@ const CTA: React.FC<PageComponent> = (cta) => {
                         <div className="flex mt-6 space-x-4">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                                 <NavLink
-                                    href={button.href || "#"}
-                                    className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
-                                    analytics={
-                                        button.analytics || {
-                                            eventLabel: "Get Started",
-                                            eventCategory: "CTA Interaction",
-                                            eventAction: "link_click",
-                                            eventValue: "Get Started",
-                                        }
-                                    }
+                                    href={button.href}
+                                    className="inline-block font-medium text-sm text-white bg-primary hover:bg-primary-dark active:bg-primary-dark px-6 py-3 rounded-lg shadow-md transition-all duration-300"
+                                    analytics={button.analytics}
                                 >
-                                    {button.text || "Get Started"}
+                                    {button.text}
                                 </NavLink>
                             </motion.div>
                         </div>
                     )}
                 </motion.div>
+
+                {/* Image Section */}
+                {imageUrl && (
+                    <motion.div
+                        className="flex justify-center mb-6 sm:mb-0 flex-1 max-w-full lg:max-w-[50%]"
+                        variants={imageSlideInVariant}
+                    >
+                        <ImageWithCredit
+                            src={imageUrl}
+                            alt={content?.title || "Image Alt Text"}
+                            width={720}
+                            height={480}
+                            photoCredit={content?.image?.credit}
+                        />
+                    </motion.div>
+                )}
             </motion.div>
         </section>
     );

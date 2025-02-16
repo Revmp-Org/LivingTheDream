@@ -1,13 +1,40 @@
 import { motion } from "framer-motion";
 import NavLink from "@/components/organism/NavLink";
-import { PageComponent } from "@/types";
 import useMotionConfig from "@/hooks/framer-motion";
 
-const Hero: React.FC<PageComponent> = (hero) => {
-    const { containerVariants, itemVariants, buttonHover, buttonTap } = useMotionConfig();
+interface HeroProps {
+    isActive: boolean;
+    content: {
+        title: string;
+        description: string;
+        buttons: {
+            primary: {
+                text: string;
+                href: string;
+                variant: string;
+                analytics: {
+                    eventLabel: string;
+                    eventCategory: string;
+                    eventAction: string;
+                };
+            };
+            secondary?: {
+                text: string;
+                href: string;
+                variant: string;
+                analytics: {
+                    eventLabel: string;
+                    eventCategory: string;
+                    eventAction: string;
+                };
+            };
+        };
+    };
+}
 
-    const { settings, children } = hero;
-    const { styles, content } = settings || {};
+const Hero: React.FC<{ hero: HeroProps }> = ({ hero }) => {
+    const { containerVariants, itemVariants, buttonHover, buttonTap } = useMotionConfig();
+    const { title, description, buttons } = hero.content;
 
     return (
         <motion.section
@@ -19,58 +46,52 @@ const Hero: React.FC<PageComponent> = (hero) => {
             <div className="max-w-7xl mx-auto px-8 py-20">
                 <motion.div className="space-y-8 text-center max-w-4xl mx-auto" variants={containerVariants}>
                     <motion.h1
-                        className="text-5xl font-bold text-gray-900 tracking-tight md:text-6xl font-serif"
+                        className="text-5xl font-bold text-gray-900 tracking-tight md:text-6xl"
                         variants={itemVariants}
                     >
-                        {content?.title || "Florals Designs for All Your Dreams"}
+                        {title}
                     </motion.h1>
-
                     <motion.p
-                        className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-serif"
+                        className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
                         variants={itemVariants}
                     >
-                        {content?.description || "Beautiful floral arrangements crafted to bring your dream wedding to life."}
+                        {description}
                     </motion.p>
-
                     <motion.div
                         className="flex items-center justify-center gap-x-6 mt-10"
                         variants={itemVariants}
                     >
-                        {children &&
-                            Object.keys(children).map((key) => {
-                                const button = children[key];
-                                if (!button || !button.settings) return null;
+                        {/* Primary Button */}
+                        {buttons.primary && (
+                            <motion.div
+                                whileHover={buttonHover}
+                                whileTap={buttonTap}
+                                className="flex justify-center bg-primary px-6 py-3 rounded-lg shadow-primary/30 shadow-lg hover:bg-primary-dark active:bg-primary-dark text-white"
+                            >
+                                <NavLink
+                                    href={buttons.primary.href}
+                                    analytics={buttons.primary.analytics}
+                                >
+                                    {buttons.primary.text}
+                                </NavLink>
+                            </motion.div>
+                        )}
 
-                                const { href, text, analytics, styles } = button.settings;
-                                const defaultStyle =
-                                    key === "button-primary"
-                                        ? "flex justify-center bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
-                                        : "flex justify-center bg-white px-6 py-3 rounded-lg shadow-primary/30 shadow-lg border border-primary text-primary hover:bg-primary hover:text-white active:bg-primary-dark";
-
-                                return (
-                                    <motion.div
-                                        key={button.id}
-                                        whileHover={buttonHover}
-                                        whileTap={buttonTap}
-                                        className={defaultStyle}
-                                    >
-                                        <NavLink
-                                            href={href || "#"}
-                                            scroll={button.settings?.scroll || false}
-                                            analytics={
-                                                analytics || {
-                                                    eventLabel: text || "Button Click",
-                                                    eventCategory: "Hero Section",
-                                                    eventAction: "click",
-                                                    eventValue: text || "Button Clicked",
-                                                }
-                                            }
-                                        >
-                                            {text || "Default Button"}
-                                        </NavLink>
-                                    </motion.div>
-                                );
-                            })}
+                        {/* Secondary Button (Optional) */}
+                        {buttons.secondary && (
+                            <motion.div
+                                whileHover={buttonHover}
+                                whileTap={buttonTap}
+                                className="flex justify-center bg-white px-6 py-3 rounded-lg shadow-primary/30 shadow-lg border border-primary text-primary hover:bg-primary hover:text-white active:bg-primary-dark"
+                            >
+                                <NavLink
+                                    href={buttons.secondary.href}
+                                    analytics={buttons.secondary.analytics}
+                                >
+                                    {buttons.secondary.text}
+                                </NavLink>
+                            </motion.div>
+                        )}
                     </motion.div>
                 </motion.div>
             </div>

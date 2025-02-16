@@ -2,15 +2,17 @@ import { motion } from "framer-motion";
 import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
 import useMotionConfig from "@/hooks/framer-motion";
 import NavLink from "@/components/organism/NavLink";
-import { NavigationItem, PageComponentChild } from "@/types";
+import { NavigationItem, NavLinkButton } from "@/types";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
+
 const DesktopNavbar = ({
     navigation,
     ctaButton,
 }: {
     navigation: NavigationItem[];
-    ctaButton?: PageComponentChild;
+    ctaButton?: NavLinkButton
 }) => {
     const { trackClick } = useGoogleAnalytics();
     const { listItemHover, listItemTap } = useMotionConfig();
@@ -22,7 +24,7 @@ const DesktopNavbar = ({
                     {item.items ? (
                         <div className="group relative">
                             {/* Navigation Item */}
-                            <span className="text-md text-gray-600 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full">
+                            <span className="text-md text-gray-800 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-primary-light after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full">
                                 {/* Static title styles */}
                                 {item.label}
                             </span>
@@ -39,14 +41,14 @@ const DesktopNavbar = ({
                                         key={subItem.id}
                                         whileHover={listItemHover}
                                         whileTap={listItemTap}
-                                        className="p-2 flex items-center text-gray-500 cursor-pointer rounded-md hover:bg-gray-100"
-                                        onClick={() =>{
+                                        className="p-2 flex items-center text-gray-700 cursor-pointer rounded-md hover:bg-gray-100"
+                                        onClick={() => {
                                             trackClick(
                                                 subItem?.label || "",
                                                 "Navbar Interaction",
                                                 "link_click",
                                                 subItem?.label || ""
-                                            );
+                                            )
                                             router.push(subItem.path || "");
                                         }}
                                     >
@@ -59,7 +61,7 @@ const DesktopNavbar = ({
                         </div>
                     ) : (
                         <span
-                            className="text-md text-gray-600 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-secondary after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
+                            className="text-md text-gray-800 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-primary-light after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
                             onClick={() =>
                                 trackClick(
                                     item?.label || "",
@@ -77,16 +79,16 @@ const DesktopNavbar = ({
             {/* CTA Button */}
             <li>
                 <NavLink
-                    href={ctaButton?.settings?.content?.link || "/get-started"}
-                    analytics={ctaButton?.settings?.analytics || {
+                    href={ctaButton?.link || "/get-started"}
+                    analytics={ctaButton?.analytics || {
                         eventLabel: "Get Started",
                         eventCategory: "Navbar Interaction",
                         eventAction: "link_click",
                         eventValue: "Get Started",
                     }}
-                    className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200 text-white"
+                    className="text-white bg-primary hover:bg-primary-dark rounded-md px-6 py-3 cursor-pointer transition-colors duration-200"
                 >
-                    {ctaButton?.settings?.content?.text || "Get Started"}
+                    {ctaButton?.text || "Get Started"}
                 </NavLink>
             </li>
         </ul>
