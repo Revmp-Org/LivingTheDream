@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import "../style/globals.css";
-import { SiteConfigProvider } from "../context/site-config-context";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
@@ -55,7 +54,7 @@ export default function MyApp(props: any) {
   if (!isMounted) return null;
 
   return (
-    <SiteConfigProvider>
+<>
       {isLargeScreen && !isLogoTransitionComplete ? (
         <LogoTransition onComplete={() => setIsLogoTransitionComplete(true)} />
       ) : (
@@ -75,6 +74,6 @@ export default function MyApp(props: any) {
           </motion.div>
         </AnimatePresence>
       )}
-    </SiteConfigProvider>
+    </>
   );
 }

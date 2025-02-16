@@ -1,15 +1,18 @@
 import OverviewSection from "@/components/organism/ServiceOverview";
 import FooterCTA from "@/components/molecules/footer-cta";
-import CustomBouquetsConfig from "@/config/service/custom-bouquets.json";
 import SEO from "@/components/atoms/seo-config";
 import GallerySection from "@/components/molecules/service/gallery";
+import { useServicePage } from "@/hooks/sanity/use-service-page";
 
 export default function CustomBouquetsPage() {
-    const { seo, pageComponents } = CustomBouquetsConfig;
 
-    const overview = pageComponents?.overview;
-    const cta = pageComponents?.cta;
-    const gallery = pageComponents?.gallery;
+    const { servicePageConfig, loading, error } = useServicePage("custom-bouquets");
+
+    if (loading) return null;
+    if (error || !servicePageConfig) return <p>Error loading service page.</p>;
+
+    // Extract fields from the fetched data
+    const { seo, overview, gallery, cta } = servicePageConfig || {};
 
     return (
         <div>
@@ -20,7 +23,7 @@ export default function CustomBouquetsPage() {
 
 
             {/* Gallery Section */}
-            <GallerySection galleryItems={gallery?.settings?.content} />
+            <GallerySection galleryItems={gallery?.items} photoCredit={gallery?.credit} />
 
 
 

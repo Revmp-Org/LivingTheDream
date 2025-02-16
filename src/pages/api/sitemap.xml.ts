@@ -24,7 +24,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       })
       .join('')}
     </urlset>`;
-  console.log(sitemap);
   res.setHeader('Content-Type', 'text/xml');
   res.send(sitemap);
 }

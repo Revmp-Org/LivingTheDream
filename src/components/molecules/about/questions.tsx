@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 interface QuestionsProps {
     settings: {
         content: {
-            additionalInfo?: {
+            additionalInfo: {
                 questions: string;
                 travel: string;
             };
@@ -17,8 +17,8 @@ const Questions: React.FC<QuestionsProps> = ({ settings }) => {
     return (
         <section className="py-16 px-6 lg:px-12 bg-gradient-to-b from-[#F5E7E7] to-[#F5E7E7]">
             <div className="max-w-screen-lg mx-auto">
-                {/* Questions & Do You Travel Side by Side */}
                 <div className="flex flex-col md:flex-row gap-12">
+                    {/* Questions Section */}
                     <motion.div
                         className="flex-1 text-center"
                         initial={{ opacity: 0, y: 50 }}
@@ -30,6 +30,7 @@ const Questions: React.FC<QuestionsProps> = ({ settings }) => {
                         <p className="mt-4 text-lg text-gray-700">{settings.content.additionalInfo.questions}</p>
                     </motion.div>
 
+                    {/* Travel Section */}
                     <motion.div
                         className="flex-1 text-center"
                         initial={{ opacity: 0, y: 50 }}

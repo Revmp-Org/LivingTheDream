@@ -86,7 +86,7 @@ export type AnalyticsConfig = {
     eventLabel: string;
     eventCategory: string;
     eventAction: string;
-    eventValue: string;
+    eventValue?: string;
 };
 
 // General settings for a component
@@ -418,3 +418,180 @@ export type StylesType = {
     mobile?: Record<string, any>;
     desktop?: Record<string, any>;
 };
+
+export interface BrandProps {
+    desktop?: {
+        asset: { _ref: string };
+        alt?: string;
+        width?: number;
+        height?: number;
+    };
+    mobile?: {
+        asset: { _ref: string };
+        alt?: string;
+        width?: number;
+        height?: number;
+    };
+    type?: "mobile" | "desktop";
+}
+
+
+export interface Service {
+    _key: string;
+    title: string;
+    description: string;
+    path: string;
+    image?: {
+        asset: {
+            _ref: string;
+        };
+        credit?: string;
+    };
+}
+
+export interface ServicesProps {
+    isActive: boolean;
+    servicesList: Service[];
+}
+
+export interface CarouselItemProps {
+    item: Service;
+}
+
+export interface CTAProps {
+    isActive: boolean;
+    content: {
+        title: string;
+        description: string;
+        highlight: string;
+        image?: {
+            asset: {
+                _ref: string;
+            };
+            credit?: string;
+        };
+        button?: {
+            text: string;
+            href: string;
+            analytics: AnalyticsConfig;
+        };
+    };
+}
+
+type FAQItem = {
+    question: string;
+    answer: string;
+};
+
+type FAQCategory = {
+    category: string;
+    questions: FAQItem[];
+};
+
+export type FAQSectionProps = {
+    content?: {
+        sections: FAQCategory[];
+    };
+};
+
+interface FormField {
+    fieldName: string;
+    label: string;
+    placeholder: string;
+    required?: boolean;
+}
+export interface ContactFormProps {
+    form: {
+        isActive: boolean;
+        formFields: FormField[];
+        serviceOptions: string[];
+        referralOptions: string[];
+        webhook: string;
+    };
+    thankYou: {
+        isActive: boolean;
+        content: {
+            title: string;
+            message: string;
+        };
+    };
+}
+
+export type NavLinkButton = {
+    text: string;
+    link: string;
+    analytics?: {
+        eventLabel: string;
+        eventCategory: string;
+        eventAction: string;
+        eventValue?: string;
+    };
+};
+
+export interface OverviewContent {
+    title?: string;
+    description?: string;
+    highlight?: string;
+    button?: {
+        text?: string;
+        link?: string;
+        analytics?: AnalyticsConfig
+    };
+    image?: {
+        asset: {
+            _ref: string;
+        };
+        credit?: string;
+    };
+}
+
+export interface OverviewContentProps {
+    isActive?: boolean;
+    content?: OverviewContent;
+}
+
+export interface BenefitItem {
+    _key: string;
+    title: string;
+    description: string;
+}
+
+export interface BenefitsSectionProps {
+    isActive?: boolean;
+    content?: BenefitItem[];
+}
+
+export interface CTAButton {
+    text: string;
+    link: string;
+    analytics?: {
+        eventAction: string;
+        eventCategory: string;
+        eventLabel: string;
+    };
+}
+
+export interface FooterCTAProps {
+    isActive?: boolean;
+    content?: {
+        title: string;
+        description: string;
+        button: CTAButton;
+    };
+}
+
+export interface Step {
+    index: number;
+    title: string;
+    description: string;
+    image?: {
+        asset: {
+            _ref: string;
+        };
+    };
+    points: string[];
+}
+
+export interface StepsSectionProps {
+    steps: Step[];
+}

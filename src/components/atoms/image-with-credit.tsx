@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 type ImageWithCreditProps = {
     src: string;
@@ -10,7 +11,6 @@ type ImageWithCreditProps = {
     className?: string;
     orientation?: "portrait" | "landscape";
     fixedCreditHeight?: boolean;
-    backgroundCard?: boolean
 };
 
 const ImageWithCredit: React.FC<ImageWithCreditProps> = ({
@@ -22,30 +22,40 @@ const ImageWithCredit: React.FC<ImageWithCreditProps> = ({
     className = "",
     orientation = "landscape",
     fixedCreditHeight = true,
-    backgroundCard = false
 }) => {
+    const [isLoading, setIsLoading] = useState(true);
+
     return (
-        <div className={`relative flex flex-col items-center ${className} w-full`}>
+        <div className="flex flex-col items-center w-full rounded-lg">
             {/* Image Container */}
             <div
-                className={`relative w-full ${backgroundCard ? "rounded-lg overflow-hidden shadow-md" : ""}
-                    ${orientation === "portrait" ? "aspect-[9/16]" : "aspect-[16/9]"}`}
+                className={`relative w-full rounded-lg overflow-hidden flex justify-center items-center
+                ${orientation === "portrait" ? "aspect-[9/16]" : "aspect-[16/9]"}`}
             >
+                {/* Show a loading placeholder */}
+                {isLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse">
+                        <span className="text-gray-500 text-sm">Loading image...</span>
+                    </div>
+                )}
+
                 <Image
-                    src={src}
+                    src={urlFor(src).url()}
                     alt={alt}
                     width={width}
                     height={height}
-                    className="rounded-lg w-full h-full object-cover"
+                    className={`rounded-lg w-full h-full object-cover transition-opacity duration-500 ${isLoading ? "opacity-0" : "opacity-100"
+                        }`}
                     priority
                     loading="eager"
+                    onLoadingComplete={() => setIsLoading(false)}
                 />
             </div>
 
-            {/* Photo Credit - Keeps Height if Fixed */}
-            {(photoCredit || fixedCreditHeight) && (
-                <div className="mt-2 min-h-[20px] flex items-center justify-center text-sm text-gray-500 italic">
-                    {photoCredit ? `Photo by: ${photoCredit}` : <span className="opacity-0">Placeholder</span>}
+            {/* Photo Credit - Now Below the Image */}
+            {photoCredit && (
+                <div className="mt-2 text-gray-600 text-xs text-center italic">
+                    {`Photo by: ${photoCredit}`}
                 </div>
             )}
         </div>

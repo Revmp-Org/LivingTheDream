@@ -1,16 +1,21 @@
+import { urlFor } from "@/sanity/lib/image";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
 type GalleryItemType = {
-    image: string;
+    image: {
+        asset: {
+            _ref: string;
+        };
+    };
     isPortrait?: boolean;
 };
 
 type GallerySectionProps = {
     galleryItems: GalleryItemType[];
     columns?: 3 | 4;
-    photoCredit?: string; // ✅ Photo credit for the entire gallery
+    photoCredit?: string;
 };
 
 const GallerySection: React.FC<GallerySectionProps> = ({ galleryItems, columns = 4, photoCredit }) => {
@@ -25,12 +30,12 @@ const GallerySection: React.FC<GallerySectionProps> = ({ galleryItems, columns =
                 {photoCredit ? (
                     <p className="text-sm text-gray-500 italic mb-6">Photos by: {photoCredit}</p>
                 ) : (
-                    <p className="text-sm text-gray-500 opacity-0 mb-6">Placeholder</p> // Maintains spacing
+                    <p className="text-sm text-gray-500 opacity-0 mb-6">Placeholder</p>
                 )}
 
                 {/* Responsive 4x4 Grid Layout */}
                 <div className={`grid grid-cols-2 md:grid-cols-3 ${columns === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"} gap-8 justify-items-center`}>
-                    {galleryItems.map((item, index) => (
+                    {(galleryItems || []).map((item, index) => (
                         <GalleryItem key={index} image={item.image} isPortrait={item.isPortrait} />
                     ))}
                 </div>
@@ -42,6 +47,8 @@ const GallerySection: React.FC<GallerySectionProps> = ({ galleryItems, columns =
 const GalleryItem: React.FC<GalleryItemType> = ({ image, isPortrait }) => {
     const ref = useRef(null);
     const inView = useInView(ref, { amount: 0.3, once: true });
+
+    const imageUrl = urlFor(image.asset._ref).url() || "";
 
     return (
         <motion.div
@@ -56,7 +63,7 @@ const GalleryItem: React.FC<GalleryItemType> = ({ image, isPortrait }) => {
                 ${isPortrait ? "aspect-[9/16]" : "aspect-[16/9]"}`}
             >
                 <Image
-                    src={image}
+                    src={imageUrl}
                     alt="Gallery image"
                     fill
                     style={{ objectFit: "cover" }}

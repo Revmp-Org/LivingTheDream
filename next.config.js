@@ -9,6 +9,7 @@ const nextConfig = {
       'ltdflorals.com',
       'images.unsplash.com',
       'randomuser.me',
+      'cdn.sanity.io',
     ],
     remotePatterns: [
       {

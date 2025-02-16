@@ -3,31 +3,23 @@ import { motion } from "framer-motion";
 import DesktopNavbar from "../atoms/navbar/desktop";
 import MobileNavbar from "../atoms/navbar/mobile";
 import Brand from "./brand";
-import { PageComponent } from "@/types";
 
-const Navbar = ({ config }: { config: PageComponent }) => {
-    const navbarConfig = config;
-
-    const desktopNavbar = navbarConfig?.children?.desktopNavbar;
-    const mobileNavbar = navbarConfig?.children?.mobileNavbar;
-    const brand = navbarConfig?.children?.brand;
-    const ctaButton = navbarConfig?.children?.ctaButton;
-
-    const desktopNavbarNavigation = desktopNavbar?.settings?.content?.navigation || [];
-    const mobileNavbarNavigation = mobileNavbar?.settings?.content?.navigation || [];
-
-    const [isVisible, setIsVisible] = useState(true);
+const Navbar = ({ config }: { config: any }) => {
+    const [isVisible, setIsVisible] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setIsVisible(true);
+        }, 50);
+
+        return () => clearTimeout(timeout);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setIsVisible(false);
-            } else {
-                setIsVisible(true);
-            }
+            setIsVisible(currentScrollY <= lastScrollY || currentScrollY < 100);
             setLastScrollY(currentScrollY);
         };
 
@@ -35,26 +27,30 @@ const Navbar = ({ config }: { config: PageComponent }) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
 
+    if (!config) return null;
+
+    const { content } = config;
+    const navigation = content?.navigation || [];
+    const brand = content?.logo;
+    const ctaButton = content?.ctaButton;
+
     return (
         <motion.header
-            className="sticky top-4 z-50 border py-2 shadow-lg rounded-lg mx-auto bg-white transition-all duration-300 ease-in-out max-w-5xl w-full lg:px-12 px-4 "
-            initial={{ opacity: 1, y: 0 }}
-            animate={{
-                opacity: isVisible ? 1 : 0,
-                y: isVisible ? 0 : -20,
-            }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="sticky top-4 z-50 border py-4 shadow-lg rounded-lg mx-auto bg-white transition-all duration-500 ease-in-out max-w-5xl w-full lg:px-12 px-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
         >
             <nav className="w-full">
                 <div className="flex items-center justify-between py-3">
-                    <Brand brand={brand} />
+                    <Brand logo={brand} />
                     {/* Desktop Navbar */}
                     <div className="hidden md:flex">
-                        <DesktopNavbar navigation={desktopNavbarNavigation} ctaButton={ctaButton} />
+                        <DesktopNavbar navigation={navigation} ctaButton={ctaButton} />
                     </div>
                     {/* Mobile Navbar */}
                     <div className="md:hidden">
-                        <MobileNavbar navigation={mobileNavbarNavigation} ctaButton={ctaButton} brand={brand} />
+                        <MobileNavbar navigation={navigation} ctaButton={ctaButton} brand={brand} />
                     </div>
                 </div>
             </nav>
