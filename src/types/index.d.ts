@@ -470,6 +470,7 @@ export interface CTAProps {
                 _ref: string;
             };
             credit?: string;
+            creditLink?: string;
         };
         button?: {
             text: string;
@@ -543,6 +544,7 @@ export interface OverviewContent {
             _ref: string;
         };
         credit?: string;
+        creditLink?: string;
     };
 }
 

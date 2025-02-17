@@ -62,6 +62,7 @@ const OverviewSection = ({ content, isActive }: OverviewContentProps) => {
                         width={500}
                         height={600}
                         photoCredit={image?.credit}
+                        creditLink={image?.creditLink}
                         className="rounded-lg shadow-md"
                     />
                 </motion.div>

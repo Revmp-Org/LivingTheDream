@@ -56,7 +56,7 @@ const ImageWithCredit: React.FC<ImageWithCreditProps> = ({
 
             {/* Photo Credit - Now Below the Image */}
             {photoCredit && creditLink && (
-                <div className="mt-2 text-gray-600 text-xs text-center italic">
+                <div className="mt-2 text-gray-600 text-xs text-center italic cursor-pointer">
                     <a href={creditLink} target="_blank" rel="noopener noreferrer">
                         Photo by: {photoCredit}
                     </a>

@@ -84,6 +84,7 @@ const CTA: React.FC<{ cta: CTAProps }> = ({ cta }) => {
                             width={720}
                             height={480}
                             photoCredit={content?.image?.credit}
+                            creditLink={content?.image?.creditLink}
                         />
                     </motion.div>
                 )}
