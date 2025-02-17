@@ -100,6 +100,12 @@ export default defineType({
                     description: "Credit for all photos in this gallery section",
                 }),
                 defineField({
+                    name: "creditLink",
+                    title: "Photo Credit Link",
+                    type: "string",
+                    description: "Link for the photo credit",
+                }),
+                defineField({
                     name: "items",
                     title: "Gallery Items",
                     type: "array",

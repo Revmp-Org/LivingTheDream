@@ -446,6 +446,7 @@ export interface Service {
             _ref: string;
         };
         credit?: string;
+        creditLink?: string;
     };
 }
 

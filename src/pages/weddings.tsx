@@ -23,7 +23,7 @@ export default function WeddingsPage() {
 
 
             {/* Gallery Section */}
-            <GallerySection galleryItems={gallery?.items} photoCredit={gallery?.credit} />
+            <GallerySection galleryItems={gallery?.items} photoCredit={gallery?.credit} creditLink={gallery?.creditLink} />
 
 
 

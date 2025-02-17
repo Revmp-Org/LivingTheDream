@@ -123,6 +123,7 @@ export default defineType({
                                     options: { hotspot: true },
                                     fields: [
                                         { name: "credit", title: "Photo Credit", type: "string" },
+                                        { name: "creditLink", title: "Photo Credit Link", type: "string" },
                                     ],
                                 },
                             ],

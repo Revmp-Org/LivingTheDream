@@ -8,6 +8,7 @@ type GalleryItemType = {
         asset: {
             _ref: string;
         };
+        creditLink?: string;
     };
     isPortrait?: boolean;
 };
@@ -16,19 +17,23 @@ type GallerySectionProps = {
     galleryItems: GalleryItemType[];
     columns?: 3 | 4;
     photoCredit?: string;
+    creditLink?: string;
 };
 
-const GallerySection: React.FC<GallerySectionProps> = ({ galleryItems, columns = 4, photoCredit }) => {
+const GallerySection: React.FC<GallerySectionProps> = ({ galleryItems, columns = 4, photoCredit, creditLink }) => {
     return (
         <section className="py-20 bg-gradient-to-b from-[#F3E5E5] via-white to-[#F3E5E5]">
             <div className="max-w-screen-xl mx-auto px-6 lg:px-12 text-center">
                 <h2 className="text-4xl font-bold text-gray-900 mb-2">
                     A Glimpse Into Our Work
                 </h2>
-
                 {/* ✅ Photo Credit for Entire Gallery */}
                 {photoCredit ? (
-                    <p className="text-sm text-gray-500 italic mb-6">Photos by: {photoCredit}</p>
+                    <p className="text-sm text-gray-500 italic mb-6 cursor-pointer">
+                        <a href={creditLink} target="_blank" rel="noopener noreferrer">
+                            Photos by: {photoCredit}
+                        </a>
+                    </p>
                 ) : (
                     <p className="text-sm text-gray-500 opacity-0 mb-6">Placeholder</p>
                 )}

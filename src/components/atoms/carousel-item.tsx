@@ -69,6 +69,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({ item }) => {
                     photoCredit={item.image?.credit || ""}
                     orientation='landscape'
                     fixedCreditHeight={false}
+                    creditLink={item.image?.creditLink || ""}
                     className="rounded-lg"
                 />
             </motion.div>

@@ -11,6 +11,7 @@ type ImageWithCreditProps = {
     className?: string;
     orientation?: "portrait" | "landscape";
     fixedCreditHeight?: boolean;
+    creditLink?: string;
 };
 
 const ImageWithCredit: React.FC<ImageWithCreditProps> = ({
@@ -22,6 +23,7 @@ const ImageWithCredit: React.FC<ImageWithCreditProps> = ({
     className = "",
     orientation = "landscape",
     fixedCreditHeight = true,
+    creditLink,
 }) => {
     const [isLoading, setIsLoading] = useState(true);
 
@@ -53,7 +55,15 @@ const ImageWithCredit: React.FC<ImageWithCreditProps> = ({
             </div>
 
             {/* Photo Credit - Now Below the Image */}
-            {photoCredit && (
+            {photoCredit && creditLink && (
+                <div className="mt-2 text-gray-600 text-xs text-center italic">
+                    <a href={creditLink} target="_blank" rel="noopener noreferrer">
+                        Photo by: {photoCredit}
+                    </a>
+                </div>
+            )}
+
+            {photoCredit && !creditLink && (
                 <div className="mt-2 text-gray-600 text-xs text-center italic">
                     {`Photo by: ${photoCredit}`}
                 </div>
