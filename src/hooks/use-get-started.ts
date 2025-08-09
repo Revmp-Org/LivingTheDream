@@ -20,8 +20,6 @@ export const useContactForm = (webhookUrl: string, serviceOptions: { id: string;
     const [selectedServices, setSelectedServices] = useState<AutocompleteOption[]>([]);
     const [referralSource, setReferralSource] = useState<AutocompleteOption[]>([]);
     const [eventDate, setEventDate] = useState<Date | null>(null);
-    const { trackClick } = useGoogleAnalytics();
-    console.log(webhookUrl);
     const validateForm = (formData: FormData) => {
         const newErrors: Partial<FormData> = {};
 
@@ -113,8 +111,6 @@ export const useContactForm = (webhookUrl: string, serviceOptions: { id: string;
             if (!response.ok) {
                 throw new Error("Failed to submit form");
             }
-
-            trackClick("Contact Form Submit", "Contact Form", "contact_form_submit", "");
 
             setFormSubmitted(true);
             form.reset();
