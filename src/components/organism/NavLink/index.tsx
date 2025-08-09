@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
 import { motion } from "framer-motion";
 import useMotionConfig from "@/hooks/framer-motion";
 import { AnalyticsConfig } from "@/types";
@@ -23,20 +22,19 @@ const NavLink = ({
     className = "",
     ...props
 }: NavLinkProps) => {
-    const { trackClick } = useGoogleAnalytics();
     const { buttonHover, buttonTap } = useMotionConfig();
 
     const handleClick = () => {
-        if (props.analytics) {
-            const {
-                eventLabel,
-                eventCategory = "Navbar Interaction",
-                eventAction = "link_click",
-                eventValue = "",
-            } = props.analytics;
+        // if (props.analytics) {
+        //     const {
+        //         eventLabel,
+        //         eventCategory = "Navbar Interaction",
+        //         eventAction = "link_click",
+        //         eventValue = "",
+        //     } = props.analytics;
 
-            trackClick(eventLabel, eventCategory, eventAction, eventValue);
-        }
+        //     trackClick(eventLabel, eventCategory, eventAction, eventValue);
+        // }
 
         if (props.onClick) {
             props.onClick();

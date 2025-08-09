@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
 import useMotionConfig from "@/hooks/framer-motion";
 import NavLink from "@/components/organism/NavLink";
 import { NavigationItem, NavLinkButton } from "@/types";
@@ -14,7 +13,6 @@ const DesktopNavbar = ({
     navigation: NavigationItem[];
     ctaButton?: NavLinkButton
 }) => {
-    const { trackClick } = useGoogleAnalytics();
     const { listItemHover, listItemTap } = useMotionConfig();
     const router = useRouter();
     return (
@@ -43,12 +41,6 @@ const DesktopNavbar = ({
                                         whileTap={listItemTap}
                                         className="p-2 flex items-center text-gray-700 cursor-pointer rounded-md hover:bg-gray-100"
                                         onClick={() => {
-                                            trackClick(
-                                                subItem?.label || "",
-                                                "Navbar Interaction",
-                                                "link_click",
-                                                subItem?.label || ""
-                                            )
                                             router.push(subItem.path || "");
                                         }}
                                     >
@@ -62,14 +54,6 @@ const DesktopNavbar = ({
                     ) : (
                         <span
                             className="text-md text-gray-800 cursor-pointer inline-block relative after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-[-4px] after:h-[2px] after:bg-primary-light after:transition-all after:duration-300 after:ease-in-out after:w-0 group-hover:after:w-full"
-                            onClick={() =>
-                                trackClick(
-                                    item?.label || "",
-                                    "Navbar Interaction",
-                                    "link_click",
-                                    item?.label || ""
-                                )
-                            }
                         >
                             <Link href={item.path || ""}>{item.label}</Link>
                         </span>

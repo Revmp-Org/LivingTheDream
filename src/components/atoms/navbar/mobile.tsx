@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Brand from "../../molecules/brand";
 import NavLink from "../../organism/NavLink";
-import { useGoogleAnalytics } from "@/hooks/use-google-analytics";
 import { FiMenu, FiX } from "react-icons/fi";
 import { BrandProps, NavigationItem, NavLinkButton } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,7 +17,6 @@ const MobileNavbar = ({
 }) => {
     const { push } = useRouter();
     const [state, setState] = useState(false);
-    const { trackClick } = useGoogleAnalytics();
 
     const handleState = () => {
         document.body.classList.remove("overflow-hidden");
@@ -29,7 +27,6 @@ const MobileNavbar = ({
         if (!path) return;
         push(path);
         handleState();
-        trackClick(label || "", "Mobile Nav", "link_click", label);
     };
 
     const menuVariants = {
